@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot rpa="false" generator="Robot 3.1.2 (Python 3.4.7 on darwin)" generated="20190608 20:01:07.560">
+<suite source="/Users/jeaubin/genie/CL-BRKPRG-1798/1-basic/hello.robot" id="s1" name="Hello">
+<test id="s1-t1" name="HelloWorld">
+<kw library="BuiltIn" name="Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>"Hello World"</arg>
+</arguments>
+<msg level="INFO" timestamp="20190608 20:01:07.600">"Hello World"</msg>
+<status endtime="20190608 20:01:07.600" status="PASS" starttime="20190608 20:01:07.600"></status>
+</kw>
+<status endtime="20190608 20:01:07.600" critical="yes" status="PASS" starttime="20190608 20:01:07.599"></status>
+</test>
+<test id="s1-t2" name="Sleep">
+<kw library="BuiltIn" name="Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>"Sleeping for 5 seconds"</arg>
+</arguments>
+<msg level="INFO" timestamp="20190608 20:01:07.601">"Sleeping for 5 seconds"</msg>
+<status endtime="20190608 20:01:07.601" status="PASS" starttime="20190608 20:01:07.601"></status>
+</kw>
+<kw library="BuiltIn" name="Sleep">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg level="INFO" timestamp="20190608 20:01:12.602">Slept 5 seconds</msg>
+<status endtime="20190608 20:01:12.602" status="PASS" starttime="20190608 20:01:07.601"></status>
+</kw>
+<status endtime="20190608 20:01:12.602" critical="yes" status="PASS" starttime="20190608 20:01:07.600"></status>
+</test>
+<status endtime="20190608 20:01:12.603" status="PASS" starttime="20190608 20:01:07.564"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0">Critical Tests</stat>
+<stat pass="2" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" id="s1" name="Hello" fail="0">Hello</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

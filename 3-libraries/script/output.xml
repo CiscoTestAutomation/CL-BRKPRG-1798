@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.2 (Python 3.4.7 on darwin)" generated="20190608 20:07:33.586" rpa="false">
+<suite id="s1" name="Script" source="/Users/jeaubin/genie/CL-BRKPRG-1798/3-libraries/script.robot">
+<kw name="Setup" type="setup">
+<kw library="genie.libs.robot.GenieRobot" name="use genie testbed &quot;${testbed}&quot;">
+<doc>Create the genie testbed</doc>
+<msg level="INFO" timestamp="20190608 20:07:36.225">+------------------------------------------------------------------------------+
+|                            Genie datafiles used:                             |
++------------------------------------------------------------------------------+</msg>
+<msg level="INFO" timestamp="20190608 20:07:36.226">Trigger datafile          | /Users/jeaubin/genie/genie_yamls/nxos/trigger_datafile_nxos.yaml</msg>
+<msg level="INFO" timestamp="20190608 20:07:36.226">Verification  datafile    | /Users/jeaubin/genie/genie_yamls/nxos/verification_datafile_nxos.yaml</msg>
+<msg level="INFO" timestamp="20190608 20:07:36.226">Pts datafile              | /Users/jeaubin/genie/genie_yamls/pts_datafile.yaml</msg>
+<msg level="INFO" timestamp="20190608 20:07:36.226">Subsection datafile       | /Users/jeaubin/genie/genie_yamls/subsection_datafile.yaml</msg>
+<msg level="INFO" timestamp="20190608 20:07:36.226">Config datafile           | None</msg>
+<status starttime="20190608 20:07:36.179" endtime="20190608 20:07:38.723" status="PASS"></status>
+</kw>
+<kw library="ats.robot.pyATSRobot" name="connect to devices &quot;uut&quot;">
+<doc>Connect to devices via connection as defined in testbed.yaml.
+Specify devices with semi-colon separated list, e.g. "R1;R2"</doc>
+<msg level="INFO" timestamp="20190608 20:07:38.723">Connecting to device 'Device nx-osv-1 (alias=uut), type router'</msg>
+<msg level="INFO" timestamp="20190608 20:07:38.723">kwargs: {}</msg>
+<msg level="INFO" timestamp="20190608 20:07:41.272">[2019-06-08 20:07:38,724] +++ nx-osv-1 logfile /tmp/nx-osv-1-cli-20190608T200738724.log +++
+[2019-06-08 20:07:38,724] +++ Unicon plugin nxos +++
+Trying 172.25.192.90...
+
+[2019-06-08 20:07:38,755] +++ connection to spawn: telnet 172.25.192.90 17016, id: 4404749704 +++
+[2019-06-08 20:07:38,755] connection to nx-osv-1
+Connected to asg-virl-ubuntu.cisco.com.
+Escape character is '^]'.
+
+nx-osv-1# 
+[2019-06-08 20:07:39,625] +++ initializing handle +++
+[2019-06-08 20:07:39,625] +++ nx-osv-1: executing command 'term length 0' +++
+term length 0
+nx-osv-1# 
+[2019-06-08 20:07:39,818] +++ nx-osv-1: executing command 'term width 511' +++
+term width 511
+nx-osv-1# 
+[2019-06-08 20:07:40,005] +++ nx-osv-1: executing command 'terminal session-timeout 0' +++
+terminal session-timeout 0
+nx-osv-1# 
+[2019-06-08 20:07:40,189] +++ nx-osv-1: config +++
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+nx-osv-1(config)# no logging console
+nx-osv-1(config)# line console
+nx-osv-1(config-console)# exec-timeout 0
+nx-osv-1(config-console)# terminal width 511
+nx-osv-1(config-console)# end
+nx-osv-1#</msg>
+<status starttime="20190608 20:07:38.723" endtime="20190608 20:07:41.273" status="PASS"></status>
+</kw>
+<status starttime="20190608 20:07:36.179" endtime="20190608 20:07:41.273" status="PASS"></status>
+</kw>
+<test id="s1-t1" name="Send show version">
+<kw library="unicon.robot.UniconRobot" name="execute &quot;show version&quot; on device &quot;uut&quot;">
+<doc>Execute command on a specific device. "device" name is the name
+of the device from the testbed file</doc>
+<assign>
+<var>${output}</var>
+</assign>
+<msg level="INFO" timestamp="20190608 20:07:41.276">Executing command show version on device uut alias None</msg>
+<msg level="INFO" timestamp="20190608 20:07:41.589">[2019-06-08 20:07:41,277] +++ nx-osv-1: executing command 'show version' +++
+show version
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Documents: http://www.cisco.com/en/US/products/ps9372/tsd_products_support_series_home.html
+Copyright (c) 2002-2016, Cisco Systems, Inc. All rights reserved.
+The copyrights to certain works contained herein are owned by
+other third parties and are used and distributed under license.
+Some parts of this software are covered under the GNU Public
+License. A copy of the license is available at
+http://www.gnu.org/licenses/gpl.html.
+
+NX-OSv is a demo version of the Nexus Operating System
+
+Software
+  loader:    version N/A
+  kickstart: version 7.3(0)D1(1)
+  system:    version 7.3(0)D1(1)
+  kickstart image file is: bootflash:///titanium-d1-kickstart.7.3.0.D1.1.bin
+  kickstart compile time:  1/11/2016 16:00:00 [02/11/2016 10:30:12]
+  system image file is:    bootflash:///titanium-d1.7.3.0.D1.1.bin
+  system compile time:     1/11/2016 16:00:00 [02/11/2016 13:08:11]
+
+
+Hardware
+  cisco NX-OSv Chassis ("NX-OSv Supervisor Module")
+  QEMU Virtual CPU version 2.5 with 3064740 kB of memory.
+  Processor Board ID TM00010000B
+
+  Device name: nx-osv-1
+  bootflash:    3184776 kB
+
+Kernel uptime is 24 day(s), 4 hour(s), 49 minute(s), 6 second(s)
+
+
+plugin
+  Core Plugin, Ethernet Plugin
+
+Active Package(s)
+nx-osv-1#</msg>
+<msg level="INFO" timestamp="20190608 20:07:41.589">${output} = Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Documents: http://www.cisco.com/en/US/products/ps9372/tsd_products_support_series_home.html
+Copyright (c) 2002-20...</msg>
+<status starttime="20190608 20:07:41.275" endtime="20190608 20:07:41.589" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Contain">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${output}</arg>
+<arg>version 7.3(0)D1(1)</arg>
+</arguments>
+<status starttime="20190608 20:07:41.590" endtime="20190608 20:07:41.590" status="PASS"></status>
+</kw>
+<status starttime="20190608 20:07:41.274" endtime="20190608 20:07:41.590" status="PASS" critical="yes"></status>
+</test>
+<test id="s1-t2" name="Change interface description">
+<kw library="unicon.robot.UniconRobot" name="configure &quot;interface e2/1\ndescription Hello&quot; on device &quot;uut&quot;">
+<doc>Configure a device with the configuration provided.</doc>
+<msg level="INFO" timestamp="20190608 20:07:41.592">Configuring interface e2/1
+description Hello on device uut alias None</msg>
+<msg level="INFO" timestamp="20190608 20:07:42.325">[2019-06-08 20:07:41,591] +++ nx-osv-1: config +++
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+nx-osv-1(config)# interface e2/1
+nx-osv-1(config-if)# description Hello
+nx-osv-1(config-if)# end
+nx-osv-1#</msg>
+<status starttime="20190608 20:07:41.591" endtime="20190608 20:07:42.326" status="PASS"></status>
+</kw>
+<status starttime="20190608 20:07:41.591" endtime="20190608 20:07:42.326" status="PASS" critical="yes"></status>
+</test>
+<test id="s1-t3" name="Verify interface description">
+<kw library="unicon.robot.UniconRobot" name="execute &quot;show running interface e2/1&quot; on device &quot;uut&quot;">
+<doc>Execute command on a specific device. "device" name is the name
+of the device from the testbed file</doc>
+<assign>
+<var>${output}</var>
+</assign>
+<msg level="INFO" timestamp="20190608 20:07:42.328">Executing command show running interface e2/1 on device uut alias None</msg>
+<msg level="INFO" timestamp="20190608 20:07:42.497">[2019-06-08 20:07:42,328] +++ nx-osv-1: executing command 'show running interface e2/1' +++
+show running interface e2/1
+
+!Command: show running-config interface Ethernet2/1
+!Time: Sun Jun  9 00:09:13 2019
+
+version 7.3(0)D1(1)
+
+interface Ethernet2/1
+  description Hello
+  no switchport
+  mac-address 0000.0000.002f
+  ip address 10.0.1.2/24
+  ip router ospf 1 area 0.0.0.0
+  no shutdown
+
+nx-osv-1#</msg>
+<msg level="INFO" timestamp="20190608 20:07:42.497">${output} = 
+!Command: show running-config interface Ethernet2/1
+!Time: Sun Jun  9 00:09:13 2019
+
+version 7.3(0)D1(1)
+
+interface Ethernet2/1
+  description Hello
+  no switchport
+  mac-address 0000.0000.00...</msg>
+<status starttime="20190608 20:07:42.327" endtime="20190608 20:07:42.497" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Contain">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${output}</arg>
+<arg>Hello</arg>
+</arguments>
+<status starttime="20190608 20:07:42.498" endtime="20190608 20:07:42.498" status="PASS"></status>
+</kw>
+<status starttime="20190608 20:07:42.326" endtime="20190608 20:07:42.499" status="PASS" critical="yes"></status>
+</test>
+<test id="s1-t4" name="Change configuration from yaml file">
+<kw library="unicon.robot.UniconRobot" name="configure &quot;${Interface_config}&quot; on device &quot;uut&quot;">
+<doc>Configure a device with the configuration provided.</doc>
+<msg level="INFO" timestamp="20190608 20:07:42.501">Configuring interface e2/7
+ip address 1.1.1.1/24
+no shutdown
+ on device uut alias None</msg>
+<msg level="INFO" timestamp="20190608 20:07:43.477">[2019-06-08 20:07:42,500] +++ nx-osv-1: config +++
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+nx-osv-1(config)# interface e2/7
+nx-osv-1(config-if)# ip address 1.1.1.1/24
+nx-osv-1(config-if)# no shutdown
+nx-osv-1(config-if)# end
+nx-osv-1#</msg>
+<status starttime="20190608 20:07:42.500" endtime="20190608 20:07:43.478" status="PASS"></status>
+</kw>
+<status starttime="20190608 20:07:42.499" endtime="20190608 20:07:43.478" status="PASS" critical="yes"></status>
+</test>
+<test id="s1-t5" name="Count ospf neighbor">
+<kw library="unicon.robot.UniconRobot" name="execute &quot;show ip ospf neighbor&quot; on device &quot;uut&quot;">
+<doc>Execute command on a specific device. "device" name is the name
+of the device from the testbed file</doc>
+<assign>
+<var>${output}</var>
+</assign>
+<msg level="INFO" timestamp="20190608 20:07:43.480">Executing command show ip ospf neighbor on device uut alias None</msg>
+<msg level="INFO" timestamp="20190608 20:07:43.690">[2019-06-08 20:07:43,481] +++ nx-osv-1: executing command 'show ip ospf neighbor' +++
+show ip ospf neighbor
+ OSPF Process ID 1 VRF default
+ Total number of neighbors: 2
+ Neighbor ID     Pri State            Up Time  Address         Interface
+ 10.1.1.1          1 FULL/DR          3w2d     10.0.1.1        Eth2/1 
+ 10.1.1.1          1 FULL/DR          4d22h    10.0.2.1        Eth2/2 
+nx-osv-1#</msg>
+<msg level="INFO" timestamp="20190608 20:07:43.691">${output} =  OSPF Process ID 1 VRF default
+ Total number of neighbors: 2
+ Neighbor ID     Pri State            Up Time  Address         Interface
+ 10.1.1.1          1 FULL/DR          3w2d     10.0.1.1        ...</msg>
+<status starttime="20190608 20:07:43.480" endtime="20190608 20:07:43.691" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Contain X Times">
+<doc>Fails if ``item1`` does not contain ``item2`` ``count`` times.</doc>
+<arguments>
+<arg>${output}</arg>
+<arg>FULL</arg>
+<arg>2</arg>
+</arguments>
+<msg level="INFO" timestamp="20190608 20:07:43.692">Item found from the first item 2 times</msg>
+<status starttime="20190608 20:07:43.691" endtime="20190608 20:07:43.692" status="PASS"></status>
+</kw>
+<status starttime="20190608 20:07:43.479" endtime="20190608 20:07:43.692" status="PASS" critical="yes"></status>
+</test>
+<test id="s1-t6" name="Verify bgp all">
+<kw library="unicon.robot.UniconRobot" name="execute &quot;show bgp all&quot; on device &quot;uut&quot;">
+<doc>Execute command on a specific device. "device" name is the name
+of the device from the testbed file</doc>
+<assign>
+<var>${output}</var>
+</assign>
+<msg level="INFO" timestamp="20190608 20:07:43.694">Executing command show bgp all on device uut alias None</msg>
+<msg level="INFO" timestamp="20190608 20:07:43.891">[2019-06-08 20:07:43,694] +++ nx-osv-1: executing command 'show bgp all' +++
+show bgp all
+BGP routing table information for VRF default, address family IPv4 Unicast
+BGP table version is 9, local router ID is 10.2.2.2
+Status: s-suppressed, x-deleted, S-stale, d-dampened, h-history, *-valid, &gt;-best
+Path type: i-internal, e-external, c-confed, l-local, a-aggregate, r-redist, I-injected
+Origin codes: i - IGP, e - EGP, ? - incomplete, | - multipath, &amp; - backup
+
+   Network            Next Hop            Metric     LocPrf     Weight Path
+*&gt;i10.11.11.11/32     10.1.1.1                 0        100          0 i
+*&gt;l10.22.22.22/32     0.0.0.0                           100      32768 i
+
+nx-osv-1#</msg>
+<msg level="INFO" timestamp="20190608 20:07:43.892">${output} = BGP routing table information for VRF default, address family IPv4 Unicast
+BGP table version is 9, local router ID is 10.2.2.2
+Status: s-suppressed, x-deleted, S-stale, d-dampened, h-history, *-vali...</msg>
+<status starttime="20190608 20:07:43.693" endtime="20190608 20:07:43.892" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Match Regexp">
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<arguments>
+<arg>${output}</arg>
+<arg>\\*&gt;i10.11.11.11/32\\s+10.1.1.1</arg>
+</arguments>
+<status starttime="20190608 20:07:43.892" endtime="20190608 20:07:43.893" status="PASS"></status>
+</kw>
+<status starttime="20190608 20:07:43.692" endtime="20190608 20:07:43.893" status="PASS" critical="yes"></status>
+</test>
+<status starttime="20190608 20:07:33.589" endtime="20190608 20:07:43.894" status="PASS"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="6" fail="0">Critical Tests</stat>
+<stat pass="6" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="6" name="Script" id="s1" fail="0">Script</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

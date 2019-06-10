@@ -1,0 +1,8 @@
+hold_time: |
+ router bgp 65000
+ neighbor 10.1.1.1
+ timers 50 150
+no_hold_time: |
+ router bgp 65000
+ neighbor 10.1.1.1
+ no timers 50 150

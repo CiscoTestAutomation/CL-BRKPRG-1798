@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot rpa="false" generated="20190608 19:40:45.663" generator="Robot 3.1.2 (Python 3.4.7 on darwin)">
+<suite name="Compare" id="s1" source="/Users/jeaubin/genie/CL-BRKPRG-1798/4-genie/snapshot/compare.robot">
+<test name="Compare 2 snapshots" id="s1-t1">
+<kw name="Compare profile &quot;${snapshot1}&quot; with &quot;${snapshot2}&quot; on devices &quot;${devices}&quot;" library="genie.libs.robot.GenieRobot">
+<doc>Compare system profiles taken as snapshots during the run</doc>
+<msg level="INFO" timestamp="20190608 19:40:48.829">Comparison between ./06_08_19/snapshot and ./06_08_20/snapshot is identical
+</msg>
+<msg level="FAIL" timestamp="20190608 19:40:48.848">
+**********
+Comparison between ./06_08_19/snapshot and ./06_08_20/snapshot is different for feature 'config' for device:
+
+'nx-osv-1'
+interface Ethernet2/3
++ description changed</msg>
+<status status="FAIL" starttime="20190608 19:40:48.793" endtime="20190608 19:40:48.848"></status>
+</kw>
+<status status="FAIL" critical="yes" starttime="20190608 19:40:48.792" endtime="20190608 19:40:48.849">
+**********
+Comparison between ./06_08_19/snapshot and ./06_08_20/snapshot is different for feature 'config' for device:
+
+'nx-osv-1'
+interface Ethernet2/3
++ description changed</status>
+</test>
+<status status="FAIL" starttime="20190608 19:40:45.665" endtime="20190608 19:40:48.849"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1">Critical Tests</stat>
+<stat pass="0" fail="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" id="s1" name="Compare" fail="1">Compare</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

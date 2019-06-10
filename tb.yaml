@@ -1,0 +1,40 @@
+devices:
+  nx-osv-1:
+      type: 'router'
+      os: 'nxos'
+      alias: 'uut'
+      tacacs:
+          login_prompt: "login:"
+          password_prompt: "Password:"
+          username: "admin"
+      passwords:
+          tacacs: admin
+          enable: admin
+          line: admin
+      connections:
+          defaults:
+            class: 'unicon.Unicon'
+          cli:
+              protocol: telnet
+              ip: "172.25.192.90"
+              port: 17016
+
+  csr1000v-1:
+      type: 'router'
+      os: "iosxe"
+      alias: 'helper'
+      tacacs:
+          login_prompt: 'login:'
+          password_prompt: 'Password:'
+          username: cisco
+      passwords:
+          tacacs: cisco
+          enable: cisco
+          line: cisco
+      connections:
+          defaults:
+            class: 'unicon.Unicon'
+          cli:
+              protocol: telnet
+              ip: "172.25.192.90"
+              port: 17000

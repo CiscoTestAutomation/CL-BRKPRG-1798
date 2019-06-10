@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20190610 14:14:00.016" rpa="false" generator="Robot 3.1.2 (Python 3.4.7 on darwin)">
+<suite id="s1" source="/Users/jeaubin/genie/CL-BRKPRG-1798/6-examples/bgp/v4.robot" name="V4">
+<kw type="setup" name="Setup">
+<kw library="ats.robot.pyATSRobot" name="use testbed &quot;../../tb.yaml&quot;">
+<doc>Load testbed YAML file and instantiate testbed object</doc>
+<status starttime="20190610 14:14:07.784" status="PASS" endtime="20190610 14:14:07.802"></status>
+</kw>
+<kw library="ats.robot.pyATSRobot" name="connect to all devices">
+<doc>Connect to all devices</doc>
+<msg timestamp="20190610 14:14:07.803" level="INFO">Connecting to device 'Device csr1000v-1 (alias=helper), type router'</msg>
+<msg timestamp="20190610 14:14:07.803" level="INFO">kwargs: {}</msg>
+<msg timestamp="20190610 14:14:09.963" level="INFO">Connecting to device 'Device nx-osv-1 (alias=uut), type router'</msg>
+<msg timestamp="20190610 14:14:09.963" level="INFO">kwargs: {}</msg>
+<msg timestamp="20190610 14:14:12.367" level="INFO">[2019-06-10 14:14:07,804] +++ csr1000v-1 logfile /tmp/csr1000v-1-default-20190610T141407804.log +++
+[2019-06-10 14:14:07,804] +++ Unicon plugin iosxe +++
+Trying 172.25.192.90...
+
+[2019-06-10 14:14:07,836] +++ connection to spawn: telnet 172.25.192.90 17000, id: 4431404000 +++
+[2019-06-10 14:14:07,837] connection to csr1000v-1
+Connected to asg-virl-ubuntu.cisco.com.
+Escape character is '^]'.
+
+csr1000v-1#
+[2019-06-10 14:14:08,715] +++ initializing handle +++
+[2019-06-10 14:14:08,716] +++ csr1000v-1: executing command 'term length 0' +++
+term length 0
+csr1000v-1#
+[2019-06-10 14:14:08,848] +++ csr1000v-1: executing command 'term width 0' +++
+term width 0
+csr1000v-1#
+[2019-06-10 14:14:08,978] +++ csr1000v-1: executing command 'show version' +++
+show version
+Cisco IOS XE Software, Version 16.09.01
+Cisco IOS Software [Fuji], Virtual XE Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version 16.9.1, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2018 by Cisco Systems, Inc.
+Compiled Tue 17-Jul-18 16:57 by mcpre
+
+
+Cisco IOS-XE software, Copyright (c) 2005-2018 by cisco Systems, Inc.
+All rights reserved.  Certain components of Cisco IOS-XE software are
+licensed under the GNU General Public License ("GPL") Version 2.0.  The
+software code licensed under GPL Version 2.0 is free software that comes
+with ABSOLUTELY NO WARRANTY.  You can redistribute and/or modify such
+GPL code under the terms of GPL Version 2.0.  For more details, see the
+documentation or "License Notice" file accompanying the IOS-XE software,
+or the applicable URL provided on the flyer accompanying the IOS-XE
+software.
+
+
+ROM: IOS-XE ROMMON
+
+csr1000v-1 uptime is 3 weeks, 5 days, 1 hour, 51 minutes
+Uptime for this control processor is 3 weeks, 5 days, 1 hour, 52 minutes
+System returned to ROM by reload
+System image file is "bootflash:packages.conf"
+Last reload reason: Reload Command
+
+
+
+This product contains cryptographic features and is subject to United
+States and local country laws governing import, export, transfer and
+use. Delivery of Cisco cryptographic products does not imply
+third-party authority to import, export, distribute or use encryption.
+Importers, exporters, distributors and users are responsible for
+compliance with U.S. and local country laws. By using this product you
+agree to comply with applicable laws and regulations. If you are unable
+to comply with U.S. and local laws, return this product immediately.
+
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+export@cisco.com.
+
+License Level: ax
+License Type: Default. No valid license found.
+Next reload license Level: ax
+
+cisco CSR1000V (VXE) processor (revision VXE) with 1217428K/3075K bytes of memory.
+Processor board ID 9PKLPWLJBUH
+3 Gigabit Ethernet interfaces
+32768K bytes of non-volatile configuration memory.
+3018864K bytes of physical memory.
+7774207K bytes of virtual hard disk at bootflash:.
+0K bytes of WebUI ODM Files at webui:.
+
+Configuration register is 0x2102
+
+csr1000v-1#
+[2019-06-10 14:14:09,213] +++ csr1000v-1: config +++
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+csr1000v-1(config)#no logging console
+csr1000v-1(config)#line console 0
+csr1000v-1(config-line)#exec-timeout 0
+csr1000v-1(config-line)#end
+csr1000v-1#
+[2019-06-10 14:14:09,965] +++ nx-osv-1 logfile /tmp/nx-osv-1-default-20190610T141409964.log +++
+[2019-06-10 14:14:09,965] +++ Unicon plugin nxos +++
+Trying 172.25.192.90...
+
+[2019-06-10 14:14:10,005] +++ connection to spawn: telnet 172.25.192.90 17016, id: 4431401536 +++
+[2019-06-10 14:14:10,006] connection to nx-osv-1
+Connected to asg-virl-ubuntu.cisco.com.
+Escape character is '^]'.
+
+nx-osv-1# 
+[2019-06-10 14:14:10,926] +++ initializing handle +++
+[2019-06-10 14:14:10,927] +++ nx-osv-1: executing command 'term length 0' +++
+term length 0
+nx-osv-1# 
+[2019-06-10 14:14:11,060] +++ nx-osv-1: executing command 'term width 511' +++
+term width 511
+nx-osv-1# 
+[2019-06-10 14:14:11,184] +++ nx-osv-1: executing command 'terminal session-timeout 0' +++
+terminal session-timeout 0
+nx-osv-1# 
+[2019-06-10 14:14:11,362] +++ nx-osv-1: config +++
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+nx-osv-1(config)# no logging console
+nx-osv-1(config)# line console
+nx-osv-1(config-console)# exec-timeout 0
+nx-osv-1(config-console)# terminal width 511
+nx-osv-1(config-console)# end
+nx-osv-1#</msg>
+<status starttime="20190610 14:14:07.803" status="PASS" endtime="20190610 14:14:12.367"></status>
+</kw>
+<status starttime="20190610 14:14:07.783" status="PASS" endtime="20190610 14:14:12.368"></status>
+</kw>
+<test id="s1-t1" name="IPv4 iBGP Neighborship">
+<kw library="unicon.robot.UniconRobot" name="execute &quot;show ip bgp summary&quot; on device &quot;nx-osv-1&quot;">
+<doc>Execute command on a specific device. "device" name is the name
+of the device from the testbed file</doc>
+<assign>
+<var>${cmd}</var>
+</assign>
+<msg timestamp="20190610 14:14:12.370" level="INFO">Executing command show ip bgp summary on device nx-osv-1 alias None</msg>
+<msg timestamp="20190610 14:14:12.498" level="INFO">[2019-06-10 14:14:12,371] +++ nx-osv-1: executing command 'show ip bgp summary' +++
+show ip bgp summary
+BGP summary information for VRF default, address family IPv4 Unicast
+BGP router identifier 10.2.2.2, local AS number 65000
+BGP table version is 34, IPv4 Unicast config peers 1, capable peers 1
+2 network entries and 2 paths using 288 bytes of memory
+BGP attribute entries [2/288], BGP AS path entries [0/0]
+BGP community entries [0/0], BGP clusterlist entries [0/0]
+
+Neighbor        V    AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd
+10.1.1.1        4 65000   10871    9890       34    0    0 00:01:21 1         
+nx-osv-1#</msg>
+<msg timestamp="20190610 14:14:12.499" level="INFO">${cmd} = BGP summary information for VRF default, address family IPv4 Unicast
+BGP router identifier 10.2.2.2, local AS number 65000
+BGP table version is 34, IPv4 Unicast config peers 1, capable peers 1
+2 ne...</msg>
+<status starttime="20190610 14:14:12.369" status="PASS" endtime="20190610 14:14:12.499"></status>
+</kw>
+<kw library="BuiltIn" name="Should Contain">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${cmd}</arg>
+<arg>10.1.1.1</arg>
+</arguments>
+<status starttime="20190610 14:14:12.499" status="PASS" endtime="20190610 14:14:12.500"></status>
+</kw>
+<kw library="unicon.robot.UniconRobot" name="execute &quot;show ip bgp neighbor 10.1.1.1&quot; on device &quot;nx-osv-1&quot;">
+<doc>Execute command on a specific device. "device" name is the name
+of the device from the testbed file</doc>
+<assign>
+<var>${cmd}</var>
+</assign>
+<msg timestamp="20190610 14:14:12.501" level="INFO">Executing command show ip bgp neighbor 10.1.1.1 on device nx-osv-1 alias None</msg>
+<msg timestamp="20190610 14:14:12.730" level="INFO">[2019-06-10 14:14:12,501] +++ nx-osv-1: executing command 'show ip bgp neighbor 10.1.1.1' +++
+show ip bgp neighbor 10.1.1.1
+BGP neighbor is 10.1.1.1,  remote AS 65000, ibgp link, Peer index 1
+  BGP version 4, remote router ID 10.1.1.1
+  BGP state = Established, up for 00:01:21
+  Using loopback0 as update source for this peer
+  Last read 00:00:29, hold time = 180, keepalive interval is 60 seconds
+  Last written 00:00:20, keepalive timer expiry due 00:00:39
+  Received 10871 messages, 0 notifications, 0 bytes in queue
+  Sent 9890 messages, 8 notifications, 0 bytes in queue
+  Connections established 9, dropped 8
+  Last reset by us 00:01:28, due to session cleared
+  Last reset by peer never, due to No error
+
+  Neighbor capabilities:
+  Dynamic capability: advertised (mp, refresh, gr) 
+  Dynamic capability (old): advertised 
+  Route refresh capability (new): advertised received 
+  Route refresh capability (old): advertised received 
+  4-Byte AS capability: advertised received 
+  Address family IPv4 Unicast: advertised received 
+  Graceful Restart capability: advertised 
+
+  Graceful Restart Parameters:
+  Address families advertised to peer:
+    IPv4 Unicast  
+  Address families received from peer:
+  Forwarding state preserved by peer for:
+  Restart time advertised to peer: 120 seconds
+  Stale time for routes advertised by peer: 300 seconds
+  Extended Next Hop Encoding Capability: advertised 
+
+  Message statistics:
+                              Sent               Rcvd
+  Opens:                         9                  9  
+  Notifications:                 8                  0  
+  Updates:                      18                 18  
+  Keepalives:                 9855              10844  
+  Route Refresh:                 0                  0  
+  Capability:                    0                  0  
+  Total:                      9890              10871  
+  Total bytes:              187890             206576  
+  Bytes in queue:                0                  0  
+
+  For address family: IPv4 Unicast
+  BGP table version 34, neighbor version 34
+  1 accepted paths consume 80 bytes of memory
+  1 sent paths
+  Third-party Nexthop will not be computed.
+
+  Local host: 10.2.2.2, Local port: 179
+  Foreign host: 10.1.1.1, Foreign port: 50371
+  fd = 60
+
+nx-osv-1#</msg>
+<msg timestamp="20190610 14:14:12.731" level="INFO">${cmd} = BGP neighbor is 10.1.1.1,  remote AS 65000, ibgp link, Peer index 1
+  BGP version 4, remote router ID 10.1.1.1
+  BGP state = Established, up for 00:01:21
+  Using loopback0 as update source for this...</msg>
+<status starttime="20190610 14:14:12.500" status="PASS" endtime="20190610 14:14:12.731"></status>
+</kw>
+<kw library="BuiltIn" name="Should Contain">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${cmd}</arg>
+<arg>BGP state = Established</arg>
+</arguments>
+<status starttime="20190610 14:14:12.731" status="PASS" endtime="20190610 14:14:12.731"></status>
+</kw>
+<kw library="BuiltIn" name="Should Contain">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${cmd}</arg>
+<arg>Stale time for routes advertised by peer: 300 seconds</arg>
+</arguments>
+<status starttime="20190610 14:14:12.732" status="PASS" endtime="20190610 14:14:12.732"></status>
+</kw>
+<status starttime="20190610 14:14:12.368" status="PASS" critical="yes" endtime="20190610 14:14:12.732"></status>
+</test>
+<test id="s1-t2" name="Verify keepalive/holtime can be set and modified">
+<kw library="unicon.robot.UniconRobot" name="execute &quot;show ip bgp neighbor 10.1.1.1 | inc 'hold time'&quot; on device &quot;nx-osv-1&quot;">
+<doc>Execute command on a specific device. "device" name is the name
+of the device from the testbed file</doc>
+<assign>
+<var>${cmd}</var>
+</assign>
+<msg timestamp="20190610 14:14:12.734" level="INFO">Executing command show ip bgp neighbor 10.1.1.1 | inc 'hold time' on device nx-osv-1 alias None</msg>
+<msg timestamp="20190610 14:14:12.977" level="INFO">[2019-06-10 14:14:12,734] +++ nx-osv-1: executing command 'show ip bgp neighbor 10.1.1.1 | inc 'hold time'' +++
+show ip bgp neighbor 10.1.1.1 | inc 'hold time'
+  Last read 00:00:30, hold time = 180, keepalive interval is 60 seconds
+nx-osv-1#</msg>
+<msg timestamp="20190610 14:14:12.977" level="INFO">${cmd} =   Last read 00:00:30, hold time = 180, keepalive interval is 60 seconds</msg>
+<status starttime="20190610 14:14:12.734" status="PASS" endtime="20190610 14:14:12.977"></status>
+</kw>
+<kw library="BuiltIn" name="Should Contain">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${cmd}</arg>
+<arg>hold time = 180, keepalive interval is 60 seconds</arg>
+</arguments>
+<status starttime="20190610 14:14:12.978" status="PASS" endtime="20190610 14:14:12.978"></status>
+</kw>
+<kw library="unicon.robot.UniconRobot" name="configure &quot;${hold_time}&quot; on device &quot;nx-osv-1&quot;">
+<doc>Configure a device with the configuration provided.</doc>
+<msg timestamp="20190610 14:14:12.979" level="INFO">Configuring router bgp 65000
+neighbor 10.1.1.1
+timers 50 150
+ on device nx-osv-1 alias None</msg>
+<msg timestamp="20190610 14:14:13.719" level="INFO">[2019-06-10 14:14:12,978] +++ nx-osv-1: config +++
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+nx-osv-1(config)# router bgp 65000
+nx-osv-1(config-router)# neighbor 10.1.1.1
+nx-osv-1(config-router-neighbor)# timers 50 150
+nx-osv-1(config-router-neighbor)# end
+nx-osv-1#</msg>
+<status starttime="20190610 14:14:12.978" status="PASS" endtime="20190610 14:14:13.719"></status>
+</kw>
+<kw library="unicon.robot.UniconRobot" name="execute &quot;clear bgp all 10.1.1.1&quot; on device &quot;nx-osv-1&quot;">
+<doc>Execute command on a specific device. "device" name is the name
+of the device from the testbed file</doc>
+<msg timestamp="20190610 14:14:13.721" level="INFO">Executing command clear bgp all 10.1.1.1 on device nx-osv-1 alias None</msg>
+<msg timestamp="20190610 14:14:13.860" level="INFO">[2019-06-10 14:14:13,721] +++ nx-osv-1: executing command 'clear bgp all 10.1.1.1' +++
+clear bgp all 10.1.1.1
+nx-osv-1#</msg>
+<status starttime="20190610 14:14:13.720" status="PASS" endtime="20190610 14:14:13.860"></status>
+</kw>
+<kw library="BuiltIn" name="Sleep">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>30s</arg>
+</arguments>
+<msg timestamp="20190610 14:14:43.863" level="INFO">Slept 30 seconds</msg>
+<status starttime="20190610 14:14:13.861" status="PASS" endtime="20190610 14:14:43.863"></status>
+</kw>
+<kw library="unicon.robot.UniconRobot" name="execute &quot;show ip bgp neighbor 10.1.1.1 | inc 'hold time'&quot; on device &quot;nx-osv-1&quot;">
+<doc>Execute command on a specific device. "device" name is the name
+of the device from the testbed file</doc>
+<assign>
+<var>${cmd}</var>
+</assign>
+<msg timestamp="20190610 14:14:43.864" level="INFO">Executing command show ip bgp neighbor 10.1.1.1 | inc 'hold time' on device nx-osv-1 alias None</msg>
+<msg timestamp="20190610 14:14:44.034" level="INFO">[2019-06-10 14:14:43,865] +++ nx-osv-1: executing command 'show ip bgp neighbor 10.1.1.1 | inc 'hold time'' +++
+show ip bgp neighbor 10.1.1.1 | inc 'hold time'
+  Last read 00:00:19, hold time = 150, keepalive interval is 50 seconds
+nx-osv-1#</msg>
+<msg timestamp="20190610 14:14:44.034" level="INFO">${cmd} =   Last read 00:00:19, hold time = 150, keepalive interval is 50 seconds</msg>
+<status starttime="20190610 14:14:43.864" status="PASS" endtime="20190610 14:14:44.034"></status>
+</kw>
+<kw library="BuiltIn" name="Should Contain">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${cmd}</arg>
+<arg>hold time = 150, keepalive interval is 50 seconds</arg>
+</arguments>
+<status starttime="20190610 14:14:44.035" status="PASS" endtime="20190610 14:14:44.035"></status>
+</kw>
+<kw library="unicon.robot.UniconRobot" name="configure &quot;${no_hold_time}&quot; on device &quot;nx-osv-1&quot;">
+<doc>Configure a device with the configuration provided.</doc>
+<msg timestamp="20190610 14:14:44.036" level="INFO">Configuring router bgp 65000
+neighbor 10.1.1.1
+no timers 50 150
+ on device nx-osv-1 alias None</msg>
+<msg timestamp="20190610 14:14:44.869" level="INFO">[2019-06-10 14:14:44,036] +++ nx-osv-1: config +++
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+nx-osv-1(config)# router bgp 65000
+nx-osv-1(config-router)# neighbor 10.1.1.1
+nx-osv-1(config-router-neighbor)# no timers 50 150
+nx-osv-1(config-router-neighbor)# end
+nx-osv-1#</msg>
+<status starttime="20190610 14:14:44.036" status="PASS" endtime="20190610 14:14:44.869"></status>
+</kw>
+<kw library="unicon.robot.UniconRobot" name="execute &quot;clear bgp all 10.1.1.1&quot; on device &quot;nx-osv-1&quot;">
+<doc>Execute command on a specific device. "device" name is the name
+of the device from the testbed file</doc>
+<msg timestamp="20190610 14:14:44.870" level="INFO">Executing command clear bgp all 10.1.1.1 on device nx-osv-1 alias None</msg>
+<msg timestamp="20190610 14:14:45.050" level="INFO">[2019-06-10 14:14:44,871] +++ nx-osv-1: executing command 'clear bgp all 10.1.1.1' +++
+clear bgp all 10.1.1.1
+nx-osv-1#</msg>
+<status starttime="20190610 14:14:44.870" status="PASS" endtime="20190610 14:14:45.050"></status>
+</kw>
+<kw library="BuiltIn" name="Sleep">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>30s</arg>
+</arguments>
+<msg timestamp="20190610 14:15:15.052" level="INFO">Slept 30 seconds</msg>
+<status starttime="20190610 14:14:45.050" status="PASS" endtime="20190610 14:15:15.053"></status>
+</kw>
+<kw library="unicon.robot.UniconRobot" name="execute &quot;show ip bgp neighbor 10.1.1.1 | inc 'hold time'&quot; on device &quot;nx-osv-1&quot;">
+<doc>Execute command on a specific device. "device" name is the name
+of the device from the testbed file</doc>
+<assign>
+<var>${cmd}</var>
+</assign>
+<msg timestamp="20190610 14:15:15.054" level="INFO">Executing command show ip bgp neighbor 10.1.1.1 | inc 'hold time' on device nx-osv-1 alias None</msg>
+<msg timestamp="20190610 14:15:15.232" level="INFO">[2019-06-10 14:15:15,054] +++ nx-osv-1: executing command 'show ip bgp neighbor 10.1.1.1 | inc 'hold time'' +++
+show ip bgp neighbor 10.1.1.1 | inc 'hold time'
+  Last read 00:00:19, hold time = 180, keepalive interval is 60 seconds
+nx-osv-1#</msg>
+<msg timestamp="20190610 14:15:15.232" level="INFO">${cmd} =   Last read 00:00:19, hold time = 180, keepalive interval is 60 seconds</msg>
+<status starttime="20190610 14:15:15.053" status="PASS" endtime="20190610 14:15:15.232"></status>
+</kw>
+<kw library="BuiltIn" name="Should Contain">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${cmd}</arg>
+<arg>hold time = 180, keepalive interval is 60 seconds</arg>
+</arguments>
+<status starttime="20190610 14:15:15.233" status="PASS" endtime="20190610 14:15:15.233"></status>
+</kw>
+<status starttime="20190610 14:14:12.733" status="PASS" critical="yes" endtime="20190610 14:15:15.233"></status>
+</test>
+<status starttime="20190610 14:14:00.018" status="PASS" endtime="20190610 14:15:15.234"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0">Critical Tests</stat>
+<stat pass="2" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat id="s1" pass="2" fail="0" name="V4">V4</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

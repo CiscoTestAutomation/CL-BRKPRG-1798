@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20190608 20:03:56.703" rpa="false" generator="Robot 3.1.2 (Python 3.4.7 on darwin)">
+<suite name="Telnet" id="s1" source="/Users/jeaubin/genie/CL-BRKPRG-1798/2-telnet/telnet.robot">
+<test name="Telnet To NXOS" id="s1-t1">
+<kw name="Open Connection" library="Telnet">
+<doc>Opens a new Telnet connection to the given host and port.</doc>
+<arguments>
+<arg>host=172.25.192.90</arg>
+<arg>port=17016</arg>
+<arg>prompt=nx-osv-1#</arg>
+</arguments>
+<msg timestamp="20190608 20:03:56.779" level="INFO">Opening connection to 172.25.192.90:17016 with prompt: nx-osv-1#</msg>
+<status status="PASS" endtime="20190608 20:03:56.865" starttime="20190608 20:03:56.778"></status>
+</kw>
+<kw name="Write" library="Telnet">
+<doc>Writes the given text plus a newline into the connection.</doc>
+<arguments>
+<arg>admin</arg>
+</arguments>
+<msg timestamp="20190608 20:03:57.030" level="INFO">admin</msg>
+<status status="PASS" endtime="20190608 20:03:57.030" starttime="20190608 20:03:56.865"></status>
+</kw>
+<kw name="Write" library="Telnet">
+<doc>Writes the given text plus a newline into the connection.</doc>
+<arguments>
+<arg>admin</arg>
+</arguments>
+<msg timestamp="20190608 20:03:57.031" level="INFO">^</msg>
+<status status="PASS" endtime="20190608 20:03:57.031" starttime="20190608 20:03:57.030"></status>
+</kw>
+<kw name="Read Until Prompt" library="Telnet">
+<doc>Reads output until the prompt is encountered.</doc>
+<msg timestamp="20190608 20:03:57.032" level="INFO">% Invalid command at '^' marker.
+nx-osv-1#</msg>
+<status status="PASS" endtime="20190608 20:03:57.032" starttime="20190608 20:03:57.031"></status>
+</kw>
+<kw name="Write" library="Telnet">
+<doc>Writes the given text plus a newline into the connection.</doc>
+<arguments>
+<arg>terminal length 0</arg>
+</arguments>
+<status status="PASS" endtime="20190608 20:03:57.032" starttime="20190608 20:03:57.032"></status>
+</kw>
+<kw name="Read Until" library="Telnet">
+<doc>Reads output until ``expected`` text is encountered.</doc>
+<arguments>
+<arg>terminal length 0</arg>
+</arguments>
+<msg timestamp="20190608 20:03:57.281" level="INFO">nx-osv-1# admin
+           ^
+% Invalid command at '^' marker.
+nx-osv-1# 
+nx-osv-1# terminal length 0</msg>
+<status status="PASS" endtime="20190608 20:03:57.282" starttime="20190608 20:03:57.033"></status>
+</kw>
+<kw name="Read Until Prompt" library="Telnet">
+<doc>Reads output until the prompt is encountered.</doc>
+<msg timestamp="20190608 20:03:57.283" level="INFO">nx-osv-1#</msg>
+<status status="PASS" endtime="20190608 20:03:57.283" starttime="20190608 20:03:57.282"></status>
+</kw>
+<kw name="Write" library="Telnet">
+<doc>Writes the given text plus a newline into the connection.</doc>
+<arguments>
+<arg>show interface brief</arg>
+</arguments>
+<status status="PASS" endtime="20190608 20:03:57.284" starttime="20190608 20:03:57.283"></status>
+</kw>
+<kw name="Read Until" library="Telnet">
+<doc>Reads output until ``expected`` text is encountered.</doc>
+<arguments>
+<arg>show interface brief</arg>
+</arguments>
+<msg timestamp="20190608 20:03:57.411" level="INFO">nx-osv-1# show interface brief</msg>
+<status status="PASS" endtime="20190608 20:03:57.411" starttime="20190608 20:03:57.284"></status>
+</kw>
+<kw name="Read Until Prompt" library="Telnet">
+<doc>Reads output until the prompt is encountered.</doc>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20190608 20:03:57.706" level="INFO">--------------------------------------------------------------------------------
+Port   VRF          Status IP Address                              Speed    MTU
+--------------------------------------------------------------------------------
+mgmt0  --           up     --                                      1000     1500
+
+--------------------------------------------------------------------------------
+Ethernet      VLAN    Type Mode   Status  Reason                   Speed     Port
+Interface                                                                    Ch #
+--------------------------------------------------------------------------------
+Eth2/1        --      eth  routed up      none                       1000(D) --
+Eth2/2        --      eth  routed up      none                       1000(D) --
+Eth2/3        --      eth  routed down    Administratively down      auto(D) --
+Eth2/4        --      eth  routed down    Administratively down      auto(D) --
+Eth2/5        --      eth  routed down    Administratively down      auto(D) --
+Eth2/6        --      eth  routed down    Administratively down      auto(D) --
+Eth2/7        --      eth  routed down    Link not connected         auto(D) --
+Eth2/8        --      eth  routed down    Administratively down      auto(D) --
+Eth2/9        --      eth  routed down    Administratively down      auto(D) --
+Eth2/10       --      eth  routed down    Administratively down      auto(D) --
+Eth2/11       --      eth  routed down    Administratively down      auto(D) --
+Eth2/12       --      eth  routed down    Administratively down      auto(D) --
+Eth2/13       --      eth  routed down    Administratively down      auto(D) --
+Eth2/14       --      eth  routed down    Administratively down      auto(D) --
+Eth2/15       --      eth  routed down    Administratively down      auto(D) --
+Eth2/16       --      eth  routed down    Administratively down      auto(D) --
+Eth2/17       --      eth  routed down    Administratively down      auto(D) --
+Eth2/18       --      eth  routed down    Administratively down      auto(D) --
+Eth2/19       --      eth  routed down    Administratively down      auto(D) --
+Eth2/20       --      eth  routed down    Administratively down      auto(D) --
+Eth2/21       --      eth  routed down    Administratively down      auto(D) --
+Eth2/22       --      eth  routed down    Administratively down      auto(D) --
+Eth2/23       --      eth  routed down    Administratively down      auto(D) --
+Eth2/24       --      eth  routed down    Administratively down      auto(D) --
+Eth2/25       --      eth  routed down    Administratively down      auto(D) --
+Eth2/26       --      eth  routed down    Administratively down      auto(D) --
+Eth2/27       --      eth  routed down    Administratively down      auto(D) --
+Eth2/28       --      eth  routed down    Administratively down      auto(D) --
+Eth2/29       --      eth  routed down    Administratively down      auto(D) --
+Eth2/30       --      eth  routed down    Administratively down      auto(D) --
+Eth2/31       --      eth  routed down    Administratively down      auto(D) --
+Eth2/32       --      eth  routed down    Administratively down      auto(D) --
+Eth2/33       --      eth  routed down    Administratively down      auto(D) --
+Eth2/34       --      eth  routed down    Administratively down      auto(D) --
+Eth2/35       --      eth  routed down    Administratively down      auto(D) --
+Eth2/36       --      eth  routed down    Administratively down      auto(D) --
+Eth2/37       --      eth  routed down    Administratively down      auto(D) --
+Eth2/38       --      eth  routed down    Administratively down      auto(D) --
+Eth2/39       --      eth  routed down    Administratively down      auto(D) --
+Eth2/40       --      eth  routed down    Administratively down      auto(D) --
+Eth2/41       --      eth  routed down    Administratively down      auto(D) --
+Eth2/42       --      eth  routed down    Administratively down      auto(D) --
+Eth2/43       --      eth  routed down    Administratively down      auto(D) --
+Eth2/44       --      eth  routed down    Administratively down      auto(D) --
+Eth2/45       --      eth  routed down    Administratively down      auto(D) --
+Eth2/46       --      eth  routed down    Administratively down      auto(D) --
+Eth2/47       --      eth  routed down    Administratively down      auto(D) --
+Eth2/48       --      eth  routed down    Administratively down      auto(D) --
+Eth3/1        --      eth  routed down    Administratively down      auto(D) --
+Eth3/2        --      eth  routed down    Administratively down      auto(D) --
+Eth3/3        --      eth  routed down    Administratively down      auto(D) --
+Eth3/4        --      eth  routed down    Administratively down      auto(D) --
+Eth3/5        --      eth  routed down    Administratively down      auto(D) --
+Eth3/6        --      eth  routed down    Administratively down      auto(D) --
+Eth3/7        --      eth  routed down    Administratively down      auto(D) --
+Eth3/8        --      eth  routed down    Administratively down      auto(D) --
+Eth3/9        --      eth  routed down    Administratively down      auto(D) --
+Eth3/10       --      eth  routed down    Administratively down      auto(D) --
+Eth3/11       --      eth  routed down    Administratively down      auto(D) --
+Eth3/12       --      eth  routed down    Administratively down      auto(D) --
+Eth3/13       --      eth  routed down    Administratively down      auto(D) --
+Eth3/14       --      eth  routed down    Administratively down      auto(D) --
+Eth3/15       --      eth  routed down    Administratively down      auto(D) --
+Eth3/16       --      eth  routed down    Administratively down      auto(D) --
+Eth3/17       --      eth  routed down    Administratively down      auto(D) --
+Eth3/18       --      eth  routed down    Administratively down      auto(D) --
+Eth3/19       --      eth  routed down    Administratively down      auto(D) --
+Eth3/20       --      eth  routed down    Administratively down      auto(D) --
+Eth3/21       --      eth  routed down    Administratively down      auto(D) --
+Eth3/22       --      eth  routed down    Administratively down      auto(D) --
+Eth3/23       --      eth  routed down    Administratively down      auto(D) --
+Eth3/24       --      eth  routed down    Administratively down      auto(D) --
+Eth3/25       --      eth  routed down    Administratively down      auto(D) --
+Eth3/26       --      eth  routed down    Administratively down      auto(D) --
+Eth3/27       --      eth  routed down    Administratively down      auto(D) --
+Eth3/28       --      eth  routed down    Administratively down      auto(D) --
+Eth3/29       --      eth  routed down    Administratively down      auto(D) --
+Eth3/30       --      eth  routed down    Administratively down      auto(D) --
+Eth3/31       --      eth  routed down    Administratively down      auto(D) --
+Eth3/32       --      eth  routed down    Administratively down      auto(D) --
+Eth3/33       --      eth  routed down    Administratively down      auto(D) --
+Eth3/34       --      eth  routed down    Administratively down      auto(D) --
+Eth3/35       --      eth  routed down    Administratively down      auto(D) --
+Eth3/36       --      eth  routed down    Administratively down      auto(D) --
+Eth3/37       --      eth  routed down    Administratively down      auto(D) --
+Eth3/38       --      eth  routed down    Administratively down      auto(D) --
+Eth3/39       --      eth  routed down    Administratively down      auto(D) --
+Eth3/40       --      eth  routed down    Administratively down      auto(D) --
+Eth3/41       --      eth  routed down    Administratively down      auto(D) --
+Eth3/42       --      eth  routed down    Administratively down      auto(D) --
+Eth3/43       --      eth  routed down    Administratively down      auto(D) --
+Eth3/44       --      eth  routed down    Administratively down      auto(D) --
+Eth3/45       --      eth  routed down    Administratively down      auto(D) --
+Eth3/46       --      eth  routed down    Administratively down      auto(D) --
+Eth3/47       --      eth  routed down    Administratively down      auto(D) --
+Eth3/48       --      eth  routed down    Administratively down      auto(D) --
+Eth4/1        1       eth  access down    Link not connected         auto(D) --
+Eth4/2        1       eth  access down    Link not connected         auto(D) --
+Eth4/3        1       eth  access down    Link not connected         auto(D) --
+Eth4/4        1       eth  access down    Link not connected         auto(D) --
+Eth4/5        1       eth  access down    Link not connected         auto(D) --
+Eth4/6        1       eth  access down    Link not connected         auto(D) --
+Eth4/7        1       eth  access down    Link not connected         auto(D) --
+Eth4/8        1       eth  access down    Link not connected         auto(D) --
+Eth4/9        1       eth  access down    Link not connected         auto(D) --
+Eth4/10       1       eth  access down    Link not connected         auto(D) --
+Eth4/11       1       eth  access down    Link not connected         auto(D) --
+Eth4/12       1       eth  access down    Link not connected         auto(D) --
+Eth4/13       1       eth  access down    Link not connected         auto(D) --
+Eth4/14       1       eth  access down    Link not connected         auto(D) --
+Eth4/15       1       eth  access down    Link not connected         auto(D) --
+Eth4/16       1       eth  access down    Link not connected         auto(D) --
+Eth4/17       1       eth  access down    Link not connected         auto(D) --
+Eth4/18       1       eth  access down    Link not connected         auto(D) --
+Eth4/19       1       eth  access down    Link not connected         auto(D) --
+Eth4/20       1       eth  access down    Link not connected         auto(D) --
+Eth4/21       1       eth  access down    Link not connected         auto(D) --
+Eth4/22       1       eth  access down    Link not connected         auto(D) --
+Eth4/23       1       eth  access down    Link not connected         auto(D) --
+Eth4/24       1       eth  access down    Link not connected         auto(D) --
+Eth4/25       1       eth  access down    Link not connected         auto(D) --
+Eth4/26       1       eth  access down    Link not connected         auto(D) --
+Eth4/27       1       eth  access down    Link not connected         auto(D) --
+Eth4/28       1       eth  access down    Link not connected         auto(D) --
+Eth4/29       1       eth  access down    Link not connected         auto(D) --
+Eth4/30       1       eth  access down    Link not connected         auto(D) --
+Eth4/31       1       eth  access down    Link not connected         auto(D) --
+Eth4/32       1       eth  access down    Link not connected         auto(D) --
+Eth4/33       1       eth  access down    Link not connected         auto(D) --
+Eth4/34       1       eth  access down    Link not connected         auto(D) --
+Eth4/35       1       eth  access down    Link not connected         auto(D) --
+Eth4/36       1       eth  access down    Link not connected         auto(D) --
+Eth4/37       1       eth  access down    Link not connected         auto(D) --
+Eth4/38       1       eth  access down    Link not connected         auto(D) --
+Eth4/39       1       eth  access down    Link not connected         auto(D) --
+Eth4/40       1       eth  access down    Link not connected         auto(D) --
+Eth4/41       1       eth  access down    Link not connected         auto(D) --
+Eth4/42       1       eth  access down    Link not connected         auto(D) --
+Eth4/43       1       eth  access down    Link not connected         auto(D) --
+Eth4/44       1       eth  access down    Link not connected         auto(D) --
+Eth4/45       1       eth  access down    Link not connected         auto(D) --
+Eth4/46       1       eth  access down    Link not connected         auto(D) --
+Eth4/47       1       eth  access down    Link not connected         auto(D) --
+Eth4/48       1       eth  access down    Link not connected         auto(D) --
+
+--------------------------------------------------------------------------------
+Interface     Status     Description
+--------------------------------------------------------------------------------
+Lo0           up         --
+Lo1           up         --
+nx-osv-1#</msg>
+<msg timestamp="20190608 20:03:57.706" level="INFO">${output} = 
+
+--------------------------------------------------------------------------------
+Port   VRF          Status IP Address                              Speed    MTU
+--------------------------------...</msg>
+<status status="PASS" endtime="20190608 20:03:57.706" starttime="20190608 20:03:57.411"></status>
+</kw>
+<kw name="Write" library="Telnet">
+<doc>Writes the given text plus a newline into the connection.</doc>
+<arguments>
+<arg>exit</arg>
+</arguments>
+<status status="PASS" endtime="20190608 20:03:57.707" starttime="20190608 20:03:57.706"></status>
+</kw>
+<kw name="Close All Connections" library="Telnet">
+<doc>Closes all open connections and empties the connection cache.</doc>
+<status status="PASS" endtime="20190608 20:03:57.707" starttime="20190608 20:03:57.707"></status>
+</kw>
+<status status="PASS" endtime="20190608 20:03:57.708" starttime="20190608 20:03:56.778" critical="yes"></status>
+</test>
+<status status="PASS" endtime="20190608 20:03:57.708" starttime="20190608 20:03:56.705"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat id="s1" pass="1" name="Telnet" fail="0">Telnet</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

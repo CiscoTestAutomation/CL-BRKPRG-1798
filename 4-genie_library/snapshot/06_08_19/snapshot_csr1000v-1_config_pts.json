@@ -1,0 +1,141 @@
+{
+    "config": {
+        "csr1000v-1": {
+            "output": "Building configuration...\r\n\r\nCurrent configuration : 4223 bytes\r\n!\r\n! Last configuration change at 23:36:50 UTC Sat Jun 8 2019\r\n!\r\nversion 16.9\r\nservice config\r\nservice timestamps debug datetime msec\r\nservice timestamps log datetime msec\r\nplatform qfp utilization monitor load 80\r\nno platform punt-keepalive disable-kernel-core\r\nplatform console serial\r\n!\r\nhostname csr1000v-1\r\n!\r\nboot-start-marker\r\nboot-end-marker\r\n!\r\n!\r\nno logging console\r\nenable secret 5 $1$z20V$K9DPe81/eyJ3gsyCODIDj1\r\n!\r\nno aaa new-model\r\n!\r\n!\r\n!\r\n!\r\n!\r\n!\r\n!\r\nip admission watch-list expiry-time 0\r\n!\r\n!\r\n!\r\n!\r\n!\r\n!\r\n!\r\n!\r\n!\r\n!\r\nsubscriber templating\r\n! \r\n! \r\n! \r\n! \r\n!\r\nmultilink bundle-name authenticated\r\n!\r\n!\r\n!\r\n!\r\n!\r\ncrypto pki trustpoint TP-self-signed-1308374108\r\n enrollment selfsigned\r\n subject-name cn=IOS-Self-Signed-Certificate-1308374108\r\n revocation-check none\r\n rsakeypair TP-self-signed-1308374108\r\n!\r\n!\r\ncrypto pki certificate chain TP-self-signed-1308374108\r\n certificate self-signed 01\r\n  30820330 30820218 A0030201 02020101 300D0609 2A864886 F70D0101 05050030 \r\n  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 \r\n  69666963 6174652D 31333038 33373431 3038301E 170D3139 30353135 31393232 \r\n  30325A17 0D333030 31303130 30303030 305A3031 312F302D 06035504 03132649 \r\n  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D31 33303833 \r\n  37343130 38308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201 \r\n  0A028201 0100C480 24DD09B1 135EF374 E7CDA33E E3D30023 F79E389F FE31FDCD \r\n  E6B9BC62 7C30223B 1D16D06F 878CAADF 74D3A321 FD1F8AFE B1FE5E58 72FB45BE \r\n  2DF29703 36FAAD5F 51E1D423 F8A5F27A 77082ED1 5D85A569 6EAEEEBD 5A4FDCED \r\n  006F1E5C 70652A75 851BBC10 27338ADB 738E9EA3 961C7735 F142F0F2 70A28A8D \r\n  8CE058A8 B57996D4 4B9EE162 D78AD771 6B37D624 EDB49ED8 381973BC C20F3E1C \r\n  67085E20 1C467350 90BADB1B 94300C10 E522D148 B03E3F52 261EBD3F AC389BC5 \r\n  73D08D1C D758F97A 1C856A8B 4D3EDEF0 85C27E39 EC8F1C91 26D6DC6C 0A8951B6 \r\n  1ED6E82E A29DC0C4 533B11D2 7C35D90C 2DE350D1 86307B0C 71242F12 F4C51890 \r\n  500C1BF0 0AFD0203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF \r\n  301F0603 551D2304 18301680 14103E56 6B0D17D6 74EB64A7 E94397CE 7DDD1561 \r\n  18301D06 03551D0E 04160414 103E566B 0D17D674 EB64A7E9 4397CE7D DD156118 \r\n  300D0609 2A864886 F70D0101 05050003 82010100 203ADD25 ABAF396F 348A3680 \r\n  9B4FD1FE 05DE785C 8D999FAE 9D0477B5 03D70878 860CC342 2BBB3378 33800BEE \r\n  01460FF9 973E3E32 16F5C030 06969847 8C47503E AAFAF90A 48745921 55D5873F \r\n  F90BA4D2 B222AB59 C7539637 36021CEC ACAEB927 66C836CC 2FC748E7 3FFBD40C \r\n  CE3BCD0F FEABAC13 18204BD3 4CCD9F2F 49C8A28D 97E7159F 8253B406 AC518F21 \r\n  E198C3D3 28CA8409 E0CC2299 A9A4F5AA 402F7567 2059C199 9F06B086 4A1AD317 \r\n  EA0301C0 439F77D2 9731528F 60D074DC 46E35398 157EF8A5 DCB57F84 FD2BC0B0 \r\n  052AA610 07C218AB 9B6D3DA6 9C3D7C64 55E1728C CA859964 1E63F478 5094758D \r\n  6D1C182B 377B1C7B CD69B295 462FC993 AC5D7DDE\r\n  \tquit\r\n!\r\n!\r\n!\r\n!\r\n!\r\n!\r\n!\r\n!\r\nlicense udi pid CSR1000V sn 9PKLPWLJBUH\r\nno license smart enable\r\ndiagnostic bootup level minimal\r\n!\r\nspanning-tree extend system-id\r\n!\r\n!\r\n!\r\nusername cisco privilege 15 secret 5 $1$X1Ro$v9gBz2yrIDe3v6TDIsGk9/\r\n!\r\nredundancy\r\n!\r\n!\r\n!\r\n!\r\n!\r\n!\r\n! \r\n!\r\n!\r\n!\r\n!\r\n!\r\n!\r\n!\r\n!\r\n!\r\n!\r\n!\r\n!\r\n! \r\n! \r\n!\r\n!\r\ninterface Loopback0\r\n ip address 10.1.1.1 255.255.255.255\r\n ip ospf 1 area 0\r\n!\r\ninterface Loopback1\r\n ip address 10.11.11.11 255.255.255.255\r\n!\r\ninterface GigabitEthernet1\r\n ip address dhcp\r\n negotiation auto\r\n no mop enabled\r\n no mop sysid\r\n!\r\ninterface GigabitEthernet2\r\n ip address 10.0.1.1 255.255.255.0\r\n ip ospf 1 area 0\r\n negotiation auto\r\n no mop enabled\r\n no mop sysid\r\n!\r\ninterface GigabitEthernet3\r\n ip address 10.0.2.1 255.255.255.0\r\n ip ospf 1 area 0\r\n negotiation auto\r\n no mop enabled\r\n no mop sysid\r\n!\r\nrouter ospf 1\r\n router-id 10.1.1.1\r\n!\r\nrouter bgp 65000\r\n bgp router-id 10.1.1.1\r\n bgp log-neighbor-changes\r\n no bgp default ipv4-unicast\r\n neighbor 10.2.2.2 remote-as 65000\r\n neighbor 10.2.2.2 update-source Loopback0\r\n !\r\n address-family ipv4\r\n  network 10.11.11.11 mask 255.255.255.255\r\n  neighbor 10.2.2.2 activate\r\n exit-address-family\r\n!\r\n!\r\nvirtual-service csr_mgmt\r\n!\r\nip forward-protocol nd\r\nno ip http server\r\nip http authentication local\r\nno ip http secure-server\r\nip http client source-interface GigabitEthernet1\r\n!\r\n!\r\n!\r\n!\r\n!\r\n!\r\ncontrol-plane\r\n!\r\n!\r\n!\r\n!\r\n!\r\n!\r\nline con 0\r\n exec-timeout 0 0\r\n stopbits 1\r\nline vty 0\r\n login\r\nline vty 1\r\n login\r\n length 0\r\nline vty 2 4\r\n login\r\n!\r\n!\r\n!\r\n!\r\n!\r\n!\r\nend",
+            "config": {
+                "crypto pki trustpoint TP-self-signed-1308374108": {
+                    "revocation-check none": {},
+                    "subject-name cn=IOS-Self-Signed-Certificate-1308374108": {},
+                    "enrollment selfsigned": {},
+                    "rsakeypair TP-self-signed-1308374108": {}
+                },
+                "no license smart enable": {},
+                "license udi pid CSR1000V sn 9PKLPWLJBUH": {},
+                "service timestamps debug datetime msec": {},
+                "username cisco privilege 15 secret 5 $1$X1Ro$v9gBz2yrIDe3v6TDIsGk9/": {},
+                "platform console serial": {},
+                "spanning-tree extend system-id": {},
+                "line vty 0": {
+                    "login": {}
+                },
+                "ip forward-protocol nd": {},
+                "subscriber templating": {},
+                "boot-start-marker": {},
+                "line con 0": {
+                    "stopbits 1": {},
+                    "exec-timeout 0 0": {}
+                },
+                "interface GigabitEthernet3": {
+                    "ip ospf 1 area 0": {},
+                    "no mop enabled": {},
+                    "ip address 10.0.2.1 255.255.255.0": {},
+                    "negotiation auto": {},
+                    "no mop sysid": {}
+                },
+                "router bgp 65000": {
+                    "neighbor 10.2.2.2 remote-as 65000": {},
+                    "neighbor 10.2.2.2 update-source Loopback0": {},
+                    "exit-address-family": {},
+                    "address-family ipv4": {
+                        "network 10.11.11.11 mask 255.255.255.255": {},
+                        "neighbor 10.2.2.2 activate": {}
+                    },
+                    "bgp log-neighbor-changes": {},
+                    "bgp router-id 10.1.1.1": {},
+                    "no bgp default ipv4-unicast": {}
+                },
+                "interface Loopback0": {
+                    "ip ospf 1 area 0": {},
+                    "ip address 10.1.1.1 255.255.255.255": {}
+                },
+                "crypto pki certificate chain TP-self-signed-1308374108": {
+                    "certificate self-signed 01": {
+                        "30325A17 0D333030 31303130 30303030 305A3031 312F302D 06035504 03132649": {},
+                        "500C1BF0 0AFD0203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF": {},
+                        "9B4FD1FE 05DE785C 8D999FAE 9D0477B5 03D70878 860CC342 2BBB3378 33800BEE": {},
+                        "01460FF9 973E3E32 16F5C030 06969847 8C47503E AAFAF90A 48745921 55D5873F": {},
+                        "300D0609 2A864886 F70D0101 05050003 82010100 203ADD25 ABAF396F 348A3680": {},
+                        "67085E20 1C467350 90BADB1B 94300C10 E522D148 B03E3F52 261EBD3F AC389BC5": {},
+                        "30820330 30820218 A0030201 02020101 300D0609 2A864886 F70D0101 05050030": {},
+                        "052AA610 07C218AB 9B6D3DA6 9C3D7C64 55E1728C CA859964 1E63F478 5094758D": {},
+                        "73D08D1C D758F97A 1C856A8B 4D3EDEF0 85C27E39 EC8F1C91 26D6DC6C 0A8951B6": {},
+                        "6D1C182B 377B1C7B CD69B295 462FC993 AC5D7DDE": {
+                            "quit": {}
+                        },
+                        "31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274": {},
+                        "E6B9BC62 7C30223B 1D16D06F 878CAADF 74D3A321 FD1F8AFE B1FE5E58 72FB45BE": {},
+                        "1ED6E82E A29DC0C4 533B11D2 7C35D90C 2DE350D1 86307B0C 71242F12 F4C51890": {},
+                        "006F1E5C 70652A75 851BBC10 27338ADB 738E9EA3 961C7735 F142F0F2 70A28A8D": {},
+                        "8CE058A8 B57996D4 4B9EE162 D78AD771 6B37D624 EDB49ED8 381973BC C20F3E1C": {},
+                        "69666963 6174652D 31333038 33373431 3038301E 170D3139 30353135 31393232": {},
+                        "301F0603 551D2304 18301680 14103E56 6B0D17D6 74EB64A7 E94397CE 7DDD1561": {},
+                        "E198C3D3 28CA8409 E0CC2299 A9A4F5AA 402F7567 2059C199 9F06B086 4A1AD317": {},
+                        "0A028201 0100C480 24DD09B1 135EF374 E7CDA33E E3D30023 F79E389F FE31FDCD": {},
+                        "EA0301C0 439F77D2 9731528F 60D074DC 46E35398 157EF8A5 DCB57F84 FD2BC0B0": {},
+                        "37343130 38308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201": {},
+                        "CE3BCD0F FEABAC13 18204BD3 4CCD9F2F 49C8A28D 97E7159F 8253B406 AC518F21": {},
+                        "4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D31 33303833": {},
+                        "18301D06 03551D0E 04160414 103E566B 0D17D674 EB64A7E9 4397CE7D DD156118": {},
+                        "2DF29703 36FAAD5F 51E1D423 F8A5F27A 77082ED1 5D85A569 6EAEEEBD 5A4FDCED": {},
+                        "F90BA4D2 B222AB59 C7539637 36021CEC ACAEB927 66C836CC 2FC748E7 3FFBD40C": {}
+                    }
+                },
+                "Building configuration...": {},
+                "no platform punt-keepalive disable-kernel-core": {},
+                "service config": {},
+                "router ospf 1": {
+                    "router-id 10.1.1.1": {}
+                },
+                "no ip http server": {},
+                "interface Loopback1": {
+                    "ip address 10.11.11.11 255.255.255.255": {}
+                },
+                "hostname csr1000v-1": {},
+                "interface GigabitEthernet1": {
+                    "negotiation auto": {},
+                    "no mop enabled": {},
+                    "ip address dhcp": {},
+                    "no mop sysid": {}
+                },
+                "virtual-service csr_mgmt": {},
+                "ip admission watch-list expiry-time 0": {},
+                "boot-end-marker": {},
+                "multilink bundle-name authenticated": {},
+                "line vty 2 4": {
+                    "login": {}
+                },
+                "platform qfp utilization monitor load 80": {},
+                "end": {},
+                "diagnostic bootup level minimal": {},
+                "ip http authentication local": {},
+                "no logging console": {},
+                "interface GigabitEthernet2": {
+                    "ip ospf 1 area 0": {},
+                    "no mop enabled": {},
+                    "negotiation auto": {},
+                    "no mop sysid": {},
+                    "ip address 10.0.1.1 255.255.255.0": {}
+                },
+                "no aaa new-model": {},
+                "no ip http secure-server": {},
+                "service timestamps log datetime msec": {},
+                "enable secret 5 $1$z20V$K9DPe81/eyJ3gsyCODIDj1": {},
+                "Current configuration : 4223 bytes": {},
+                "redundancy": {},
+                "control-plane": {},
+                "version 16.9": {},
+                "line vty 1": {
+                    "length 0": {},
+                    "login": {}
+                },
+                "ip http client source-interface GigabitEthernet1": {}
+            },
+            "exclude": [
+                "!",
+                null,
+                "\r",
+                ""
+            ]
+        }
+    }
+}

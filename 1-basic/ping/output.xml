@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot rpa="false" generated="20190608 20:01:47.277" generator="Robot 3.1.2 (Python 3.4.7 on darwin)">
+<suite name="Ping" source="/Users/jeaubin/genie/CL-BRKPRG-1798/1-basic/ping.robot" id="s1">
+<test name="Ping 127.0.0.1" id="s1-t1">
+<kw name="Run Process" library="Process">
+<doc>Runs a process and waits for it to complete.</doc>
+<arguments>
+<arg>ping 127.0.0.1 -c 1</arg>
+<arg>shell=True</arg>
+<arg>stdout=stdout.txt</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190608 20:01:47.326" level="INFO">Starting process:
+ping 127.0.0.1 -c 1</msg>
+<msg timestamp="20190608 20:01:47.332" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20190608 20:01:47.379" level="INFO">Process completed.</msg>
+<msg timestamp="20190608 20:01:47.379" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status endtime="20190608 20:01:47.380" starttime="20190608 20:01:47.325" status="PASS"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>all output: ${result.stdout}</arg>
+</arguments>
+<msg timestamp="20190608 20:01:47.382" level="INFO">all output: PING 127.0.0.1 (127.0.0.1): 56 data bytes
+64 bytes from 127.0.0.1: icmp_seq=0 ttl=64 time=0.045 ms
+
+--- 127.0.0.1 ping statistics ---
+1 packets transmitted, 1 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 0.045/0.045/0.045/0.000 ms</msg>
+<status endtime="20190608 20:01:47.382" starttime="20190608 20:01:47.380" status="PASS"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${result.stdout}</arg>
+<arg>, 0.0% packet loss</arg>
+</arguments>
+<status endtime="20190608 20:01:47.382" starttime="20190608 20:01:47.382" status="PASS"></status>
+</kw>
+<status critical="yes" endtime="20190608 20:01:47.383" starttime="20190608 20:01:47.325" status="PASS"></status>
+</test>
+<test name="Ping localhost" id="s1-t2">
+<kw name="Run Process" library="Process">
+<doc>Runs a process and waits for it to complete.</doc>
+<arguments>
+<arg>ping localhost -c 1</arg>
+<arg>shell=True</arg>
+<arg>stdout=stdout.txt</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190608 20:01:47.385" level="INFO">Starting process:
+ping localhost -c 1</msg>
+<msg timestamp="20190608 20:01:47.394" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20190608 20:01:47.400" level="INFO">Process completed.</msg>
+<msg timestamp="20190608 20:01:47.401" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status endtime="20190608 20:01:47.401" starttime="20190608 20:01:47.384" status="PASS"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>all output: ${result.stdout}</arg>
+</arguments>
+<msg timestamp="20190608 20:01:47.403" level="INFO">all output: PING localhost (127.0.0.1): 56 data bytes
+64 bytes from 127.0.0.1: icmp_seq=0 ttl=64 time=0.039 ms
+
+--- localhost ping statistics ---
+1 packets transmitted, 1 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 0.039/0.039/0.039/0.000 ms</msg>
+<status endtime="20190608 20:01:47.403" starttime="20190608 20:01:47.402" status="PASS"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${result.stdout}</arg>
+<arg>, 0.0% packet loss</arg>
+</arguments>
+<status endtime="20190608 20:01:47.404" starttime="20190608 20:01:47.403" status="PASS"></status>
+</kw>
+<status critical="yes" endtime="20190608 20:01:47.404" starttime="20190608 20:01:47.383" status="PASS"></status>
+</test>
+<test name="Ping InternetAccess" id="s1-t3">
+<kw name="Run Process" library="Process">
+<doc>Runs a process and waits for it to complete.</doc>
+<arguments>
+<arg>ping 8.8.8.8 -c 1</arg>
+<arg>shell=True</arg>
+<arg>stdout=stdout.txt</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190608 20:01:47.406" level="INFO">Starting process:
+ping 8.8.8.8 -c 1</msg>
+<msg timestamp="20190608 20:01:47.412" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20190608 20:01:47.451" level="INFO">Process completed.</msg>
+<msg timestamp="20190608 20:01:47.451" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status endtime="20190608 20:01:47.451" starttime="20190608 20:01:47.405" status="PASS"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>all output: ${result.stdout}</arg>
+</arguments>
+<msg timestamp="20190608 20:01:47.453" level="INFO">all output: PING 8.8.8.8 (8.8.8.8): 56 data bytes
+64 bytes from 8.8.8.8: icmp_seq=0 ttl=50 time=33.876 ms
+
+--- 8.8.8.8 ping statistics ---
+1 packets transmitted, 1 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 33.876/33.876/33.876/0.000 ms</msg>
+<status endtime="20190608 20:01:47.453" starttime="20190608 20:01:47.452" status="PASS"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${result.stdout}</arg>
+<arg>, 0.0% packet loss</arg>
+</arguments>
+<status endtime="20190608 20:01:47.454" starttime="20190608 20:01:47.453" status="PASS"></status>
+</kw>
+<status critical="yes" endtime="20190608 20:01:47.454" starttime="20190608 20:01:47.405" status="PASS"></status>
+</test>
+<test name="Ping WrongAddress" id="s1-t4">
+<kw name="Run Process" library="Process">
+<doc>Runs a process and waits for it to complete.</doc>
+<arguments>
+<arg>ping 1.2.3.4 -c 1</arg>
+<arg>shell=True</arg>
+<arg>stdout=stdout.txt</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190608 20:01:47.456" level="INFO">Starting process:
+ping 1.2.3.4 -c 1</msg>
+<msg timestamp="20190608 20:01:47.461" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20190608 20:01:58.470" level="INFO">Process completed.</msg>
+<msg timestamp="20190608 20:01:58.471" level="INFO">${result} = &lt;result object with rc 2&gt;</msg>
+<status endtime="20190608 20:01:58.471" starttime="20190608 20:01:47.455" status="PASS"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>all output: ${result.stdout}</arg>
+</arguments>
+<msg timestamp="20190608 20:01:58.476" level="INFO">all output: PING 1.2.3.4 (1.2.3.4): 56 data bytes
+
+--- 1.2.3.4 ping statistics ---
+1 packets transmitted, 0 packets received, 100.0% packet loss</msg>
+<status endtime="20190608 20:01:58.477" starttime="20190608 20:01:58.472" status="PASS"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${result.stdout}</arg>
+<arg>, 0.0% packet loss</arg>
+</arguments>
+<msg timestamp="20190608 20:01:58.478" level="FAIL">'PING 1.2.3.4 (1.2.3.4): 56 data bytes
+
+--- 1.2.3.4 ping statistics ---
+1 packets transmitted, 0 packets received, 100.0% packet loss' does not contain ', 0.0% packet loss'</msg>
+<status endtime="20190608 20:01:58.478" starttime="20190608 20:01:58.477" status="FAIL"></status>
+</kw>
+<status critical="yes" endtime="20190608 20:01:58.478" starttime="20190608 20:01:47.455" status="FAIL">'PING 1.2.3.4 (1.2.3.4): 56 data bytes
+
+--- 1.2.3.4 ping statistics ---
+1 packets transmitted, 0 packets received, 100.0% packet loss' does not contain ', 0.0% packet loss'</status>
+</test>
+<status endtime="20190608 20:01:58.479" starttime="20190608 20:01:47.279" status="FAIL"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="1">Critical Tests</stat>
+<stat pass="3" fail="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" name="Ping" fail="1" id="s1">Ping</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

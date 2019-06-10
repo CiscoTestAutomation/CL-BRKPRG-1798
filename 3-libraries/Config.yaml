@@ -1,0 +1,4 @@
+Interface_config: |
+ interface e2/7
+ ip address 1.1.1.1/24
+ no shutdown
