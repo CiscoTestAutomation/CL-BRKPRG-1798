@@ -1,29 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot rpa="false" generated="20190608 19:40:45.663" generator="Robot 3.1.2 (Python 3.4.7 on darwin)">
-<suite name="Compare" id="s1" source="/Users/jeaubin/genie/CL-BRKPRG-1798/4-genie/snapshot/compare.robot">
+<robot rpa="false" generated="20190611 08:49:13.456" generator="Robot 3.1.2 (Python 3.4.7 on darwin)">
+<suite source="/Users/jeaubin/genie/CL-BRKPRG-1798/4-genie_library/snapshot/compare.robot" name="Compare" id="s1">
 <test name="Compare 2 snapshots" id="s1-t1">
-<kw name="Compare profile &quot;${snapshot1}&quot; with &quot;${snapshot2}&quot; on devices &quot;${devices}&quot;" library="genie.libs.robot.GenieRobot">
+<kw library="genie.libs.robot.GenieRobot" name="Compare profile &quot;${snapshot1}&quot; with &quot;${snapshot2}&quot; on devices &quot;${devices}&quot;">
 <doc>Compare system profiles taken as snapshots during the run</doc>
-<msg level="INFO" timestamp="20190608 19:40:48.829">Comparison between ./06_08_19/snapshot and ./06_08_20/snapshot is identical
-</msg>
-<msg level="FAIL" timestamp="20190608 19:40:48.848">
+<msg timestamp="20190611 08:49:22.659" level="FAIL">
 **********
 Comparison between ./06_08_19/snapshot and ./06_08_20/snapshot is different for feature 'config' for device:
 
 'nx-osv-1'
-interface Ethernet2/3
-+ description changed</msg>
-<status status="FAIL" starttime="20190608 19:40:48.793" endtime="20190608 19:40:48.848"></status>
+interface Ethernet2/1
+- no shutdown 
++ shutdown
+
+**********
+Comparison between ./06_08_19/snapshot and ./06_08_20/snapshot is different for feature 'ospf' for device:
+
+'nx-osv-1'
+info:
+ vrf:
+  default:
+   address_family:
+    ipv4:
+     instance:
+      1:
+       areas:
+        0.0.0.0:
+         interfaces:
+          Ethernet2/1:
++           enable: False
+-           enable: True
+-           neighbors: 
+-            10.1.1.1: 
+-             address: 10.0.1.1
+-             bdr_ip_addr: 10.0.1.1
+-             dead_timer: 00:00:35
+-             dr_ip_addr: 10.0.1.2
+-             last_state_change: 18:23:54
+-             neighbor_router_id: 10.1.1.1
+-             state: full
+-             statistics: 
+-              nbr_event_count: 5</msg>
+<status endtime="20190611 08:49:22.659" starttime="20190611 08:49:22.608" status="FAIL"></status>
 </kw>
-<status status="FAIL" critical="yes" starttime="20190608 19:40:48.792" endtime="20190608 19:40:48.849">
+<status endtime="20190611 08:49:22.660" starttime="20190611 08:49:22.607" critical="yes" status="FAIL">
 **********
 Comparison between ./06_08_19/snapshot and ./06_08_20/snapshot is different for feature 'config' for device:
 
 'nx-osv-1'
-interface Ethernet2/3
-+ description changed</status>
+interface Ethernet2/1
+- no shutdown 
++ shutdown
+
+**********
+Comparison between ./06_08_19/snapshot and ./06_08_20/snapshot is different for feature 'ospf' for device:
+
+'nx-osv-1'
+info:
+ vrf:
+  default:
+   address_family:
+    ipv4:
+     instance:
+      1:
+       areas:
+        0.0.0.0:
+         interfaces:
+          Ethernet2/1:
++           enable: False
+-           enable: True
+-           neighbors: 
+-            10.1.1.1: 
+-             address: 10.0.1.1
+-             bdr_ip_addr: 10.0.1.1
+-             dead_timer: 00:00:35
+-             dr_ip_addr: 10.0.1.2
+-             last_state_change: 18:23:54
+-             neighbor_router_id: 10.1.1.1
+-             state: full
+-             statistics: 
+-              nbr_event_count: 5</status>
 </test>
-<status status="FAIL" starttime="20190608 19:40:45.665" endtime="20190608 19:40:48.849"></status>
+<status endtime="20190611 08:49:22.660" starttime="20190611 08:49:13.459" status="FAIL"></status>
 </suite>
 <statistics>
 <total>
@@ -33,7 +91,7 @@ interface Ethernet2/3
 <tag>
 </tag>
 <suite>
-<stat pass="0" id="s1" name="Compare" fail="1">Compare</stat>
+<stat pass="0" id="s1" fail="1" name="Compare">Compare</stat>
 </suite>
 </statistics>
 <errors>

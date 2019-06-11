@@ -1,131 +1,451 @@
 {
     "config": {
         "nx-osv-1": {
-            "output": "\r\n!Command: show running-config\r\n!Time: Sat Jun  8 23:39:58 2019\r\n\r\nversion 7.3(0)D1(1)\r\npower redundancy-mode redundant\r\nlicense grace-period\r\n\r\nhostname nx-osv-1\r\nvdc nx-osv-1 id 1\r\n  limit-resource module-type m1 m1xl m2xl f2e \r\n  allocate interface Ethernet2/1-48\r\n  allocate interface Ethernet3/1-48\r\n  allocate interface Ethernet4/1-48\r\n  limit-resource vlan minimum 16 maximum 4094\r\n  limit-resource vrf minimum 2 maximum 4096\r\n  limit-resource port-channel minimum 0 maximum 768\r\n  limit-resource u4route-mem minimum 96 maximum 96\r\n  limit-resource u6route-mem minimum 24 maximum 24\r\n  limit-resource m4route-mem minimum 58 maximum 58\r\n  limit-resource m6route-mem minimum 8 maximum 8\r\n\r\nfeature ospf\r\nfeature bgp\r\n\r\nusername admin password 5 $5$Otc7T0NC$K.ulnSZnSyXLrTGNBdtLgZJXEa8EeNx.BrdZ98XyK2C  role network-admin\r\nno password strength-check\r\nip domain-lookup\r\nvlan dot1Q tag native\r\nsystem default switchport\r\nsystem jumbomtu 0\r\nno logging event trunk-status enable\r\ncopp profile strict\r\nsnmp-server user admin auth md5 0x328945d53e05e8e7207f8c20b142f0b7 priv 0x328945d53e05e8e7207f8c20b142f0b7 localizedkey engineID 128:0:0:9:3:0:0:0:0:0:0\r\nrmon event 1 log description FATAL(1) owner PMON@FATAL\r\nrmon event 2 log description CRITICAL(2) owner PMON@CRITICAL\r\nrmon event 3 log description ERROR(3) owner PMON@ERROR\r\nrmon event 4 log description WARNING(4) owner PMON@WARNING\r\nrmon event 5 log description INFORMATION(5) owner PMON@INFO\r\nsnmp-server enable traps link\r\nsnmp-server enable traps link cisco-xcvr-mon-status-chg\r\n\r\nvlan 1\r\n\r\nvrf context management\r\n\r\ninterface mgmt0\r\n  vrf member management\r\n\r\ninterface Ethernet2/1\r\n  description changed\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n  ip address 10.0.1.2/24\r\n  ip router ospf 1 area 0.0.0.0\r\n  no shutdown\r\n\r\ninterface Ethernet2/2\r\n  description test\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n  ip address 10.0.2.2/24\r\n  ip router ospf 1 area 0.0.0.0\r\n  no shutdown\r\n\r\ninterface Ethernet2/3\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/4\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/5\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/6\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/7\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n  ip address 1.1.1.1/24\r\n  no shutdown\r\n\r\ninterface Ethernet2/8\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/9\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/10\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/11\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/12\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/13\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/14\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/15\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/16\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/17\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/18\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/19\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/20\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/21\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/22\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/23\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/24\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/25\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/26\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/27\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/28\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/29\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/30\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/31\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/32\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/33\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/34\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/35\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/36\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/37\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/38\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/39\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/40\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/41\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/42\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/43\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/44\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/45\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/46\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/47\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/48\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet3/1\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/2\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/3\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/4\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/5\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/6\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/7\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/8\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/9\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/10\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/11\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/12\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/13\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/14\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/15\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/16\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/17\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/18\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/19\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/20\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/21\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/22\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/23\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/24\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/25\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/26\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/27\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/28\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/29\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/30\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/31\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/32\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/33\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/34\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/35\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/36\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/37\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/38\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/39\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/40\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/41\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/42\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/43\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/44\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/45\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/46\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/47\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet3/48\r\n  shutdown\r\n  no switchport\r\n  medium p2p\r\n\r\ninterface Ethernet4/1\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/2\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/3\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/4\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/5\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/6\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/7\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/8\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/9\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/10\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/11\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/12\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/13\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/14\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/15\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/16\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/17\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/18\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/19\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/20\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/21\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/22\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/23\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/24\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/25\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/26\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/27\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/28\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/29\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/30\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/31\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/32\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/33\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/34\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/35\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/36\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/37\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/38\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/39\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/40\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/41\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/42\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/43\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/44\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/45\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/46\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/47\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/48\r\n  switchport\r\n  no shutdown\r\n\r\ninterface loopback0\r\n  ip address 10.2.2.2/32\r\n  ip router ospf 1 area 0.0.0.0\r\n\r\ninterface loopback1\r\n  ip address 10.22.22.22/32\r\nline console\r\n  exec-timeout 0\r\n  terminal width  511\r\nline vty\r\nboot kickstart bootflash:/titanium-d1-kickstart.7.3.0.D1.1.bin\r\nboot system bootflash:/titanium-d1.7.3.0.D1.1.bin \r\nrouter ospf 1\r\n  router-id 10.2.2.2\r\nrouter bgp 65000\r\n  router-id 10.2.2.2\r\n  address-family ipv4 unicast\r\n    network 10.22.22.22/32\r\n  neighbor 10.1.1.1\r\n    remote-as 65000\r\n    update-source loopback0\r\n    address-family ipv4 unicast\r\nno logging console",
+            "exclude": [
+                "!",
+                null,
+                "\r",
+                ""
+            ],
             "config": {
-                "interface Ethernet3/13": {
+                "interface Ethernet4/21": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet3/17": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet4/22": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet3/9": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet4/43": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet2/2": {
+                    "ip address 10.0.2.2/24": {},
+                    "mac-address 0000.0000.002f": {},
+                    "no switchport": {},
+                    "ip router ospf 1 area 0.0.0.0": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet2/28": {
                     "shutdown": {},
-                    "medium p2p": {},
+                    "mac-address 0000.0000.002f": {},
                     "no switchport": {}
                 },
-                "interface Ethernet4/30": {
-                    "no shutdown": {},
-                    "switchport": {}
+                "interface Ethernet3/46": {
+                    "switchport": {},
+                    "no shutdown": {}
                 },
-                "interface Ethernet3/23": {
+                "interface Ethernet4/18": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet3/1": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet4/10": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet3/44": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet4/47": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet2/47": {
                     "shutdown": {},
-                    "medium p2p": {},
+                    "mac-address 0000.0000.002f": {},
                     "no switchport": {}
                 },
-                "interface Ethernet3/31": {
+                "rmon event 1 log description FATAL(1) owner PMON@FATAL": {},
+                "interface Ethernet2/29": {
                     "shutdown": {},
-                    "medium p2p": {},
+                    "mac-address 0000.0000.002f": {},
                     "no switchport": {}
                 },
-                "version 7.3(0)D1(1)": {},
-                "interface Ethernet3/32": {
+                "interface Ethernet4/4": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet3/19": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet4/37": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet4/34": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet3/7": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet4/19": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet3/34": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet4/27": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet2/3": {
                     "shutdown": {},
-                    "medium p2p": {},
+                    "mac-address 0000.0000.002f": {},
                     "no switchport": {}
                 },
-                "interface Ethernet3/14": {
+                "interface Ethernet4/9": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet4/17": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet4/36": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet4/24": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet4/8": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet2/13": {
                     "shutdown": {},
-                    "medium p2p": {},
+                    "mac-address 0000.0000.002f": {},
                     "no switchport": {}
                 },
-                "vdc nx-osv-1 id 1": {
-                    "limit-resource port-channel minimum 0 maximum 768": {},
-                    "limit-resource u6route-mem minimum 24 maximum 24": {},
-                    "allocate interface Ethernet3/1-48": {},
-                    "limit-resource vrf minimum 2 maximum 4096": {},
-                    "allocate interface Ethernet2/1-48": {},
-                    "limit-resource m4route-mem minimum 58 maximum 58": {},
-                    "allocate interface Ethernet4/1-48": {},
-                    "limit-resource m6route-mem minimum 8 maximum 8": {},
-                    "limit-resource module-type m1 m1xl m2xl f2e": {},
-                    "limit-resource vlan minimum 16 maximum 4094": {},
-                    "limit-resource u4route-mem minimum 96 maximum 96": {}
+                "interface loopback1": {
+                    "ip address 10.22.22.22/32": {}
                 },
                 "interface Ethernet2/42": {
                     "shutdown": {},
                     "mac-address 0000.0000.002f": {},
                     "no switchport": {}
                 },
-                "interface Ethernet2/43": {
+                "interface Ethernet3/45": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet2/26": {
                     "shutdown": {},
                     "mac-address 0000.0000.002f": {},
                     "no switchport": {}
                 },
-                "interface Ethernet4/20": {
-                    "no shutdown": {},
-                    "switchport": {}
+                "line vty": {},
+                "interface Ethernet4/7": {
+                    "switchport": {},
+                    "no shutdown": {}
                 },
-                "interface Ethernet4/8": {
-                    "no shutdown": {},
-                    "switchport": {}
+                "interface Ethernet3/40": {
+                    "switchport": {},
+                    "no shutdown": {}
                 },
-                "interface Ethernet2/6": {
+                "interface Ethernet4/25": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet2/23": {
                     "shutdown": {},
                     "mac-address 0000.0000.002f": {},
                     "no switchport": {}
                 },
-                "interface Ethernet2/37": {
+                "interface Ethernet2/36": {
                     "shutdown": {},
                     "mac-address 0000.0000.002f": {},
                     "no switchport": {}
                 },
-                "interface Ethernet2/25": {
+                "interface Ethernet2/48": {
                     "shutdown": {},
                     "mac-address 0000.0000.002f": {},
                     "no switchport": {}
                 },
-                "interface Ethernet3/47": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
+                "interface Ethernet4/26": {
+                    "switchport": {},
+                    "no shutdown": {}
                 },
-                "interface Ethernet3/3": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
+                "interface Ethernet4/13": {
+                    "switchport": {},
+                    "no shutdown": {}
                 },
-                "license grace-period": {},
-                "interface Ethernet2/24": {
-                    "shutdown": {},
-                    "mac-address 0000.0000.002f": {},
-                    "no switchport": {}
-                },
-                "hostname nx-osv-1": {},
-                "interface Ethernet4/31": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "system jumbomtu 0": {},
                 "interface Ethernet2/39": {
                     "shutdown": {},
                     "mac-address 0000.0000.002f": {},
                     "no switchport": {}
                 },
-                "interface Ethernet2/10": {
+                "interface Ethernet3/24": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet3/15": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet2/16": {
                     "shutdown": {},
                     "mac-address 0000.0000.002f": {},
                     "no switchport": {}
                 },
-                "interface Ethernet4/44": {
+                "interface Ethernet2/1": {
+                    "ip address 10.0.1.2/24": {},
+                    "ip router ospf 1 area 0.0.0.0": {},
                     "no shutdown": {},
-                    "switchport": {}
+                    "mac-address 0000.0000.002f": {},
+                    "description Hello": {},
+                    "no switchport": {}
                 },
-                "interface Ethernet4/36": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "feature bgp": {},
-                "interface Ethernet2/3": {
+                "interface Ethernet2/41": {
                     "shutdown": {},
                     "mac-address 0000.0000.002f": {},
                     "no switchport": {}
+                },
+                "rmon event 3 log description ERROR(3) owner PMON@ERROR": {},
+                "system default switchport": {},
+                "interface Ethernet3/8": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "snmp-server user admin auth md5 0x328945d53e05e8e7207f8c20b142f0b7 priv 0x328945d53e05e8e7207f8c20b142f0b7 localizedkey engineID 128:0:0:9:3:0:0:0:0:0:0": {},
+                "interface Ethernet3/35": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "license grace-period": {},
+                "interface Ethernet2/44": {
+                    "shutdown": {},
+                    "mac-address 0000.0000.002f": {},
+                    "no switchport": {}
+                },
+                "interface Ethernet3/26": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet4/20": {
+                    "switchport": {},
+                    "no shutdown": {}
                 },
                 "interface Ethernet2/20": {
+                    "shutdown": {},
+                    "mac-address 0000.0000.002f": {},
+                    "no switchport": {}
+                },
+                "interface Ethernet4/41": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet4/45": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "snmp-server enable traps link": {},
+                "interface Ethernet2/32": {
+                    "shutdown": {},
+                    "mac-address 0000.0000.002f": {},
+                    "no switchport": {},
+                    "description Hi": {}
+                },
+                "interface Ethernet4/6": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "feature ospf": {},
+                "power redundancy-mode redundant": {},
+                "interface Ethernet4/14": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet4/28": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet3/42": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet3/2": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet3/21": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet3/18": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "no logging event trunk-status enable": {},
+                "vrf context management": {},
+                "interface Ethernet4/29": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet4/32": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "version 7.3(0)D1(1)": {},
+                "interface Ethernet3/48": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet4/11": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "system jumbomtu 0": {},
+                "interface Ethernet2/12": {
+                    "shutdown": {},
+                    "mac-address 0000.0000.002f": {},
+                    "no switchport": {}
+                },
+                "interface Ethernet4/40": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet2/33": {
+                    "shutdown": {},
+                    "mac-address 0000.0000.002f": {},
+                    "no switchport": {}
+                },
+                "interface Ethernet2/24": {
+                    "shutdown": {},
+                    "mac-address 0000.0000.002f": {},
+                    "no switchport": {}
+                },
+                "interface Ethernet4/35": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet3/31": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet3/10": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface mgmt0": {
+                    "vrf member management": {}
+                },
+                "rmon event 4 log description WARNING(4) owner PMON@WARNING": {},
+                "interface Ethernet3/33": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet3/4": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet4/15": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet2/17": {
+                    "shutdown": {},
+                    "mac-address 0000.0000.002f": {},
+                    "no switchport": {}
+                },
+                "interface Ethernet3/32": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet2/9": {
+                    "shutdown": {},
+                    "mac-address 0000.0000.002f": {},
+                    "no switchport": {}
+                },
+                "interface Ethernet4/2": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet4/1": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet4/31": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet3/16": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet3/36": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "copp profile strict": {},
+                "interface Ethernet2/15": {
+                    "shutdown": {},
+                    "mac-address 0000.0000.002f": {},
+                    "no switchport": {}
+                },
+                "interface Ethernet4/42": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet3/12": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet4/3": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet3/25": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet3/43": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet2/43": {
+                    "shutdown": {},
+                    "mac-address 0000.0000.002f": {},
+                    "no switchport": {}
+                },
+                "interface Ethernet4/39": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet2/45": {
+                    "shutdown": {},
+                    "mac-address 0000.0000.002f": {},
+                    "no switchport": {}
+                },
+                "router ospf 1": {
+                    "router-id 10.2.2.2": {}
+                },
+                "interface Ethernet2/34": {
+                    "shutdown": {},
+                    "mac-address 0000.0000.002f": {},
+                    "no switchport": {}
+                },
+                "interface Ethernet2/46": {
                     "shutdown": {},
                     "mac-address 0000.0000.002f": {},
                     "no switchport": {}
@@ -135,115 +455,222 @@
                     "mac-address 0000.0000.002f": {},
                     "no switchport": {}
                 },
-                "interface Ethernet4/15": {
-                    "no shutdown": {},
-                    "switchport": {}
+                "interface Ethernet3/5": {
+                    "switchport": {},
+                    "no shutdown": {}
                 },
-                "interface Ethernet3/19": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
+                "interface Ethernet3/14": {
+                    "switchport": {},
+                    "no shutdown": {}
                 },
-                "interface Ethernet3/40": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet2/8": {
+                "interface Ethernet2/4": {
                     "shutdown": {},
                     "mac-address 0000.0000.002f": {},
                     "no switchport": {}
                 },
-                "interface Ethernet4/37": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "interface Ethernet3/34": {
+                "interface Ethernet2/11": {
                     "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet3/42": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet4/19": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "interface Ethernet2/2": {
-                    "description test": {},
-                    "ip address 10.0.2.2/24": {},
-                    "ip router ospf 1 area 0.0.0.0": {},
                     "mac-address 0000.0000.002f": {},
-                    "no shutdown": {},
                     "no switchport": {}
                 },
-                "interface Ethernet3/9": {
+                "interface Ethernet4/38": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet4/5": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet3/11": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "no logging console": {},
+                "interface Ethernet3/30": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet3/13": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet2/25": {
                     "shutdown": {},
-                    "medium p2p": {},
+                    "mac-address 0000.0000.002f": {},
                     "no switchport": {}
                 },
+                "interface Ethernet2/27": {
+                    "shutdown": {},
+                    "mac-address 0000.0000.002f": {},
+                    "no switchport": {}
+                },
+                "vlan 1": {},
+                "interface Ethernet4/23": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet3/41": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet4/30": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet2/37": {
+                    "shutdown": {},
+                    "mac-address 0000.0000.002f": {},
+                    "no switchport": {}
+                },
+                "interface Ethernet3/28": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet3/37": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet3/20": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "rmon event 2 log description CRITICAL(2) owner PMON@CRITICAL": {},
+                "interface Ethernet4/12": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet2/18": {
+                    "shutdown": {},
+                    "mac-address 0000.0000.002f": {},
+                    "no switchport": {}
+                },
+                "feature bgp": {},
+                "interface Ethernet3/23": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet3/3": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "router bgp 65000": {
+                    "neighbor 10.1.1.1": {
+                        "update-source loopback0": {},
+                        "address-family ipv4 unicast": {},
+                        "remote-as 65000": {}
+                    },
+                    "address-family ipv4 unicast": {
+                        "network 10.22.22.22/32": {}
+                    },
+                    "router-id 10.2.2.2": {}
+                },
+                "interface loopback0": {
+                    "ip address 10.2.2.2/32": {},
+                    "ip router ospf 1 area 0.0.0.0": {}
+                },
+                "snmp-server enable traps link cisco-xcvr-mon-status-chg": {},
+                "interface Ethernet3/29": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet4/48": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "ip domain-lookup": {},
+                "interface Ethernet3/6": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet2/22": {
+                    "shutdown": {},
+                    "mac-address 0000.0000.002f": {},
+                    "no switchport": {}
+                },
+                "boot system bootflash:/titanium-d1.7.3.0.D1.1.bin": {},
+                "interface Ethernet3/39": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "line console": {
+                    "terminal width  511": {},
+                    "exec-timeout 0": {}
+                },
+                "rmon event 5 log description INFORMATION(5) owner PMON@INFO": {},
                 "interface Ethernet2/21": {
                     "shutdown": {},
                     "mac-address 0000.0000.002f": {},
                     "no switchport": {}
-                },
-                "interface Ethernet4/39": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "interface Ethernet4/11": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "interface Ethernet3/28": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "feature ospf": {},
-                "interface Ethernet4/42": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "interface Ethernet4/45": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "interface Ethernet4/48": {
-                    "no shutdown": {},
-                    "switchport": {}
                 },
                 "interface Ethernet2/31": {
                     "shutdown": {},
                     "mac-address 0000.0000.002f": {},
                     "no switchport": {}
                 },
-                "interface Ethernet4/35": {
-                    "no shutdown": {},
-                    "switchport": {}
+                "interface Ethernet4/33": {
+                    "switchport": {},
+                    "no shutdown": {}
                 },
-                "interface Ethernet2/29": {
+                "interface Ethernet2/38": {
                     "shutdown": {},
                     "mac-address 0000.0000.002f": {},
                     "no switchport": {}
                 },
-                "interface Ethernet3/11": {
+                "interface Ethernet2/30": {
                     "shutdown": {},
-                    "medium p2p": {},
+                    "mac-address 0000.0000.002f": {},
                     "no switchport": {}
                 },
-                "rmon event 2 log description CRITICAL(2) owner PMON@CRITICAL": {},
-                "interface mgmt0": {
-                    "vrf member management": {}
+                "interface Ethernet4/44": {
+                    "switchport": {},
+                    "no shutdown": {}
                 },
-                "interface Ethernet4/18": {
-                    "no shutdown": {},
-                    "switchport": {}
+                "interface Ethernet3/22": {
+                    "switchport": {},
+                    "no shutdown": {}
                 },
-                "interface Ethernet2/28": {
+                "interface Ethernet4/46": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet3/27": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet3/47": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet2/14": {
+                    "shutdown": {},
+                    "mac-address 0000.0000.002f": {},
+                    "no switchport": {}
+                },
+                "username admin password 5 $5$Otc7T0NC$K.ulnSZnSyXLrTGNBdtLgZJXEa8EeNx.BrdZ98XyK2C  role network-admin": {},
+                "interface Ethernet2/6": {
+                    "shutdown": {},
+                    "mac-address 0000.0000.002f": {},
+                    "no switchport": {}
+                },
+                "boot kickstart bootflash:/titanium-d1-kickstart.7.3.0.D1.1.bin": {},
+                "vdc nx-osv-1 id 1": {
+                    "limit-resource u6route-mem minimum 24 maximum 24": {},
+                    "allocate interface Ethernet2/1-48": {},
+                    "limit-resource vlan minimum 16 maximum 4094": {},
+                    "limit-resource m4route-mem minimum 58 maximum 58": {},
+                    "limit-resource module-type m1 m1xl m2xl f2e": {},
+                    "allocate interface Ethernet3/1-48": {},
+                    "limit-resource port-channel minimum 0 maximum 768": {},
+                    "limit-resource vrf minimum 2 maximum 4096": {},
+                    "allocate interface Ethernet4/1-48": {},
+                    "limit-resource u4route-mem minimum 96 maximum 96": {},
+                    "limit-resource m6route-mem minimum 8 maximum 8": {}
+                },
+                "interface Ethernet3/38": {
+                    "switchport": {},
+                    "no shutdown": {}
+                },
+                "interface Ethernet2/40": {
                     "shutdown": {},
                     "mac-address 0000.0000.002f": {},
                     "no switchport": {}
@@ -253,511 +680,36 @@
                     "mac-address 0000.0000.002f": {},
                     "no switchport": {}
                 },
-                "router bgp 65000": {
-                    "neighbor 10.1.1.1": {
-                        "remote-as 65000": {},
-                        "update-source loopback0": {},
-                        "address-family ipv4 unicast": {}
-                    },
-                    "address-family ipv4 unicast": {
-                        "network 10.22.22.22/32": {}
-                    },
-                    "router-id 10.2.2.2": {}
-                },
-                "interface Ethernet3/22": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet4/28": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "interface Ethernet3/24": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet3/15": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet3/30": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "boot kickstart bootflash:/titanium-d1-kickstart.7.3.0.D1.1.bin": {},
-                "interface Ethernet4/4": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "interface Ethernet2/27": {
-                    "shutdown": {},
-                    "mac-address 0000.0000.002f": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet2/13": {
-                    "shutdown": {},
-                    "mac-address 0000.0000.002f": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet2/32": {
-                    "shutdown": {},
-                    "mac-address 0000.0000.002f": {},
-                    "no switchport": {}
-                },
-                "vlan dot1Q tag native": {},
-                "interface Ethernet3/29": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet3/39": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet2/7": {
-                    "ip address 1.1.1.1/24": {},
-                    "mac-address 0000.0000.002f": {},
-                    "no shutdown": {},
-                    "no switchport": {}
-                },
-                "rmon event 1 log description FATAL(1) owner PMON@FATAL": {},
-                "interface Ethernet4/33": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "interface Ethernet4/21": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "interface Ethernet2/48": {
-                    "shutdown": {},
-                    "mac-address 0000.0000.002f": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet4/43": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "interface Ethernet4/23": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "interface Ethernet4/29": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "vlan 1": {},
-                "username admin password 5 $5$Otc7T0NC$K.ulnSZnSyXLrTGNBdtLgZJXEa8EeNx.BrdZ98XyK2C  role network-admin": {},
-                "interface Ethernet3/38": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "boot system bootflash:/titanium-d1.7.3.0.D1.1.bin": {},
-                "interface Ethernet4/32": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "copp profile strict": {},
-                "interface Ethernet3/10": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "snmp-server enable traps link": {},
-                "interface Ethernet2/16": {
-                    "shutdown": {},
-                    "mac-address 0000.0000.002f": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet2/44": {
-                    "shutdown": {},
-                    "mac-address 0000.0000.002f": {},
-                    "no switchport": {}
-                },
-                "vrf context management": {},
-                "no logging console": {},
-                "snmp-server enable traps link cisco-xcvr-mon-status-chg": {},
-                "interface Ethernet3/33": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet4/1": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "interface Ethernet3/8": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet2/45": {
-                    "shutdown": {},
-                    "mac-address 0000.0000.002f": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet2/4": {
-                    "shutdown": {},
-                    "mac-address 0000.0000.002f": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet3/44": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet2/18": {
-                    "shutdown": {},
-                    "mac-address 0000.0000.002f": {},
-                    "no switchport": {}
-                },
-                "system default switchport": {},
-                "interface Ethernet2/26": {
-                    "shutdown": {},
-                    "mac-address 0000.0000.002f": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet4/46": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "interface Ethernet4/47": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "interface Ethernet4/27": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "interface Ethernet3/12": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet4/2": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "interface Ethernet4/22": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "interface Ethernet4/7": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "interface Ethernet4/41": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "no password strength-check": {},
-                "interface Ethernet4/34": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "interface Ethernet3/21": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet4/25": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "interface Ethernet2/9": {
-                    "shutdown": {},
-                    "mac-address 0000.0000.002f": {},
-                    "no switchport": {}
-                },
-                "rmon event 4 log description WARNING(4) owner PMON@WARNING": {},
-                "interface Ethernet2/17": {
-                    "shutdown": {},
-                    "mac-address 0000.0000.002f": {},
-                    "no switchport": {}
-                },
-                "line console": {
-                    "terminal width  511": {},
-                    "exec-timeout 0": {}
-                },
-                "interface Ethernet3/43": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet2/38": {
-                    "shutdown": {},
-                    "mac-address 0000.0000.002f": {},
-                    "no switchport": {}
-                },
-                "ip domain-lookup": {},
-                "interface Ethernet2/15": {
-                    "shutdown": {},
-                    "mac-address 0000.0000.002f": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet4/12": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
                 "interface Ethernet2/19": {
                     "shutdown": {},
                     "mac-address 0000.0000.002f": {},
                     "no switchport": {}
                 },
-                "interface loopback1": {
-                    "ip address 10.22.22.22/32": {}
-                },
-                "interface Ethernet3/6": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "rmon event 3 log description ERROR(3) owner PMON@ERROR": {},
-                "interface Ethernet3/4": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet3/26": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet4/6": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "interface Ethernet2/1": {
-                    "description changed": {},
-                    "no shutdown": {},
-                    "mac-address 0000.0000.002f": {},
-                    "ip router ospf 1 area 0.0.0.0": {},
-                    "ip address 10.0.1.2/24": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet4/26": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "power redundancy-mode redundant": {},
-                "snmp-server user admin auth md5 0x328945d53e05e8e7207f8c20b142f0b7 priv 0x328945d53e05e8e7207f8c20b142f0b7 localizedkey engineID 128:0:0:9:3:0:0:0:0:0:0": {},
-                "interface Ethernet2/14": {
-                    "shutdown": {},
-                    "mac-address 0000.0000.002f": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet3/37": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet2/47": {
-                    "shutdown": {},
-                    "mac-address 0000.0000.002f": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet4/14": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "interface Ethernet3/27": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet4/9": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "interface Ethernet3/46": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "no logging event trunk-status enable": {},
-                "interface Ethernet3/25": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet2/40": {
-                    "shutdown": {},
-                    "mac-address 0000.0000.002f": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet3/35": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet3/48": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet2/12": {
-                    "shutdown": {},
-                    "mac-address 0000.0000.002f": {},
-                    "no switchport": {}
-                },
                 "interface Ethernet4/16": {
-                    "no shutdown": {},
-                    "switchport": {}
+                    "switchport": {},
+                    "no shutdown": {}
                 },
-                "interface Ethernet4/17": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "interface Ethernet3/16": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet4/10": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "router ospf 1": {
-                    "router-id 10.2.2.2": {}
-                },
-                "interface Ethernet3/36": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet2/11": {
+                "hostname nx-osv-1": {},
+                "interface Ethernet2/8": {
                     "shutdown": {},
                     "mac-address 0000.0000.002f": {},
                     "no switchport": {}
                 },
-                "interface Ethernet3/7": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet2/23": {
+                "vlan dot1Q tag native": {},
+                "interface Ethernet2/10": {
                     "shutdown": {},
                     "mac-address 0000.0000.002f": {},
                     "no switchport": {}
                 },
-                "interface Ethernet3/17": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "line vty": {},
-                "interface Ethernet4/3": {
+                "interface Ethernet2/7": {
                     "no shutdown": {},
-                    "switchport": {}
-                },
-                "interface Ethernet2/30": {
-                    "shutdown": {},
                     "mac-address 0000.0000.002f": {},
-                    "no switchport": {}
+                    "no switchport": {},
+                    "ip address 1.1.1.1/24": {}
                 },
-                "interface Ethernet2/41": {
-                    "shutdown": {},
-                    "mac-address 0000.0000.002f": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet3/2": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet4/5": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "interface Ethernet2/22": {
-                    "shutdown": {},
-                    "mac-address 0000.0000.002f": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet3/5": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "rmon event 5 log description INFORMATION(5) owner PMON@INFO": {},
-                "interface Ethernet4/13": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "interface Ethernet4/38": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "interface Ethernet2/34": {
-                    "shutdown": {},
-                    "mac-address 0000.0000.002f": {},
-                    "no switchport": {}
-                },
-                "interface loopback0": {
-                    "ip address 10.2.2.2/32": {},
-                    "ip router ospf 1 area 0.0.0.0": {}
-                },
-                "interface Ethernet4/40": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "interface Ethernet3/45": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet2/36": {
-                    "shutdown": {},
-                    "mac-address 0000.0000.002f": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet3/1": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet2/33": {
-                    "shutdown": {},
-                    "mac-address 0000.0000.002f": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet3/41": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet2/46": {
-                    "shutdown": {},
-                    "mac-address 0000.0000.002f": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet3/20": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                },
-                "interface Ethernet4/24": {
-                    "no shutdown": {},
-                    "switchport": {}
-                },
-                "interface Ethernet3/18": {
-                    "shutdown": {},
-                    "medium p2p": {},
-                    "no switchport": {}
-                }
+                "no password strength-check": {}
             },
-            "exclude": [
-                "!",
-                null,
-                "\r",
-                ""
-            ]
+            "output": "\r\n!Command: show running-config\r\n!Time: Tue Jun 11 15:48:09 2019\r\n\r\nversion 7.3(0)D1(1)\r\npower redundancy-mode redundant\r\nlicense grace-period\r\n\r\nhostname nx-osv-1\r\nvdc nx-osv-1 id 1\r\n  limit-resource module-type m1 m1xl m2xl f2e \r\n  allocate interface Ethernet2/1-48\r\n  allocate interface Ethernet3/1-48\r\n  allocate interface Ethernet4/1-48\r\n  limit-resource vlan minimum 16 maximum 4094\r\n  limit-resource vrf minimum 2 maximum 4096\r\n  limit-resource port-channel minimum 0 maximum 768\r\n  limit-resource u4route-mem minimum 96 maximum 96\r\n  limit-resource u6route-mem minimum 24 maximum 24\r\n  limit-resource m4route-mem minimum 58 maximum 58\r\n  limit-resource m6route-mem minimum 8 maximum 8\r\n\r\nfeature ospf\r\nfeature bgp\r\n\r\nusername admin password 5 $5$Otc7T0NC$K.ulnSZnSyXLrTGNBdtLgZJXEa8EeNx.BrdZ98XyK2C  role network-admin\r\nno password strength-check\r\nip domain-lookup\r\nvlan dot1Q tag native\r\nsystem default switchport\r\nsystem jumbomtu 0\r\nno logging event trunk-status enable\r\ncopp profile strict\r\nsnmp-server user admin auth md5 0x328945d53e05e8e7207f8c20b142f0b7 priv 0x328945d53e05e8e7207f8c20b142f0b7 localizedkey engineID 128:0:0:9:3:0:0:0:0:0:0\r\nrmon event 1 log description FATAL(1) owner PMON@FATAL\r\nrmon event 2 log description CRITICAL(2) owner PMON@CRITICAL\r\nrmon event 3 log description ERROR(3) owner PMON@ERROR\r\nrmon event 4 log description WARNING(4) owner PMON@WARNING\r\nrmon event 5 log description INFORMATION(5) owner PMON@INFO\r\nsnmp-server enable traps link\r\nsnmp-server enable traps link cisco-xcvr-mon-status-chg\r\n\r\nvlan 1\r\n\r\nvrf context management\r\n\r\ninterface mgmt0\r\n  vrf member management\r\n\r\ninterface Ethernet2/1\r\n  description Hello\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n  ip address 10.0.1.2/24\r\n  ip router ospf 1 area 0.0.0.0\r\n  no shutdown\r\n\r\ninterface Ethernet2/2\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n  ip address 10.0.2.2/24\r\n  ip router ospf 1 area 0.0.0.0\r\n  no shutdown\r\n\r\ninterface Ethernet2/3\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/4\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/5\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/6\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/7\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n  ip address 1.1.1.1/24\r\n  no shutdown\r\n\r\ninterface Ethernet2/8\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/9\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/10\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/11\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/12\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/13\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/14\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/15\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/16\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/17\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/18\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/19\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/20\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/21\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/22\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/23\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/24\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/25\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/26\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/27\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/28\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/29\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/30\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/31\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/32\r\n  description Hi\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/33\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/34\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/35\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/36\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/37\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/38\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/39\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/40\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/41\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/42\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/43\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/44\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/45\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/46\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/47\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet2/48\r\n  shutdown\r\n  no switchport\r\n  mac-address 0000.0000.002f\r\n\r\ninterface Ethernet3/1\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/2\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/3\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/4\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/5\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/6\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/7\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/8\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/9\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/10\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/11\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/12\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/13\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/14\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/15\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/16\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/17\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/18\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/19\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/20\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/21\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/22\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/23\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/24\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/25\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/26\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/27\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/28\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/29\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/30\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/31\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/32\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/33\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/34\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/35\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/36\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/37\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/38\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/39\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/40\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/41\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/42\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/43\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/44\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/45\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/46\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/47\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet3/48\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/1\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/2\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/3\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/4\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/5\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/6\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/7\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/8\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/9\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/10\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/11\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/12\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/13\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/14\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/15\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/16\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/17\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/18\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/19\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/20\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/21\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/22\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/23\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/24\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/25\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/26\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/27\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/28\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/29\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/30\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/31\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/32\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/33\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/34\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/35\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/36\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/37\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/38\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/39\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/40\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/41\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/42\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/43\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/44\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/45\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/46\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/47\r\n  switchport\r\n  no shutdown\r\n\r\ninterface Ethernet4/48\r\n  switchport\r\n  no shutdown\r\n\r\ninterface loopback0\r\n  ip address 10.2.2.2/32\r\n  ip router ospf 1 area 0.0.0.0\r\n\r\ninterface loopback1\r\n  ip address 10.22.22.22/32\r\nline console\r\n  exec-timeout 0\r\n  terminal width  511\r\nline vty\r\nboot kickstart bootflash:/titanium-d1-kickstart.7.3.0.D1.1.bin\r\nboot system bootflash:/titanium-d1.7.3.0.D1.1.bin \r\nrouter ospf 1\r\n  router-id 10.2.2.2\r\nrouter bgp 65000\r\n  router-id 10.2.2.2\r\n  address-family ipv4 unicast\r\n    network 10.22.22.22/32\r\n  neighbor 10.1.1.1\r\n    remote-as 65000\r\n    update-source loopback0\r\n    address-family ipv4 unicast\r\nno logging console"
         }
     }
 }

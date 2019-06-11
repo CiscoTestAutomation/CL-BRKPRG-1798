@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.1.2 (Python 3.4.7 on darwin)" generated="20190608 19:39:51.287" rpa="false">
-<suite name="Snapshots" id="s1" source="/Users/jeaubin/genie/CL-BRKPRG-1798/4-genie/snapshot/snapshots.robot">
+<robot generated="20190611 08:48:40.912" rpa="false" generator="Robot 3.1.2 (Python 3.4.7 on darwin)">
+<suite source="/Users/jeaubin/genie/CL-BRKPRG-1798/4-genie_library/snapshot/snapshots.robot" name="Snapshots" id="s1">
 <test name="Initialize" id="s1-t1">
-<kw name="use genie testbed &quot;${testbed}&quot;" library="genie.libs.robot.GenieRobot">
+<kw library="genie.libs.robot.GenieRobot" name="use genie testbed &quot;${testbed}&quot;">
 <doc>Create the genie testbed</doc>
-<msg level="INFO" timestamp="20190608 19:39:53.924">+------------------------------------------------------------------------------+
+<msg level="INFO" timestamp="20190611 08:48:50.416">+------------------------------------------------------------------------------+
 |                            Genie datafiles used:                             |
 +------------------------------------------------------------------------------+</msg>
-<msg level="INFO" timestamp="20190608 19:39:53.924">Trigger datafile          | /Users/jeaubin/genie/genie_yamls/nxos/trigger_datafile_nxos.yaml</msg>
-<msg level="INFO" timestamp="20190608 19:39:53.924">Verification  datafile    | /Users/jeaubin/genie/genie_yamls/nxos/verification_datafile_nxos.yaml</msg>
-<msg level="INFO" timestamp="20190608 19:39:53.924">Pts datafile              | /Users/jeaubin/genie/genie_yamls/pts_datafile.yaml</msg>
-<msg level="INFO" timestamp="20190608 19:39:53.925">Subsection datafile       | /Users/jeaubin/genie/genie_yamls/subsection_datafile.yaml</msg>
-<msg level="INFO" timestamp="20190608 19:39:53.925">Config datafile           | None</msg>
-<status starttime="20190608 19:39:53.877" status="PASS" endtime="20190608 19:39:56.531"></status>
+<msg level="INFO" timestamp="20190611 08:48:50.416">Trigger datafile          | /Users/jeaubin/genie/genie_yamls/nxos/trigger_datafile_nxos.yaml</msg>
+<msg level="INFO" timestamp="20190611 08:48:50.416">Verification  datafile    | /Users/jeaubin/genie/genie_yamls/nxos/verification_datafile_nxos.yaml</msg>
+<msg level="INFO" timestamp="20190611 08:48:50.416">Pts datafile              | /Users/jeaubin/genie/genie_yamls/pts_datafile.yaml</msg>
+<msg level="INFO" timestamp="20190611 08:48:50.416">Subsection datafile       | /Users/jeaubin/genie/genie_yamls/subsection_datafile.yaml</msg>
+<msg level="INFO" timestamp="20190611 08:48:50.416">Config datafile           | None</msg>
+<status status="PASS" endtime="20190611 08:48:52.765" starttime="20190611 08:48:50.353"></status>
 </kw>
-<kw name="connect to devices &quot;${devices}&quot;" library="ats.robot.pyATSRobot">
+<kw library="ats.robot.pyATSRobot" name="connect to devices &quot;${devices}&quot;">
 <doc>Connect to devices via connection as defined in testbed.yaml.
 Specify devices with semi-colon separated list, e.g. "R1;R2"</doc>
-<msg level="INFO" timestamp="20190608 19:39:56.531">Connecting to device 'Device nx-osv-1 (alias=uut), type router'</msg>
-<msg level="INFO" timestamp="20190608 19:39:56.532">kwargs: {}</msg>
-<msg level="INFO" timestamp="20190608 19:39:59.291">Connecting to device 'Device csr1000v-1 (alias=helper), type router'</msg>
-<msg level="INFO" timestamp="20190608 19:39:59.291">kwargs: {}</msg>
-<msg level="INFO" timestamp="20190608 19:40:01.886">[2019-06-08 19:39:56,532] +++ nx-osv-1 logfile /tmp/nx-osv-1-cli-20190608T193956532.log +++
-[2019-06-08 19:39:56,533] +++ Unicon plugin nxos +++
+<msg level="INFO" timestamp="20190611 08:48:52.766">Connecting to device 'Device nx-osv-1 (alias=uut), type router'</msg>
+<msg level="INFO" timestamp="20190611 08:48:52.766">kwargs: {}</msg>
+<msg level="INFO" timestamp="20190611 08:48:55.573">Connecting to device 'Device csr1000v-1 (alias=helper), type router'</msg>
+<msg level="INFO" timestamp="20190611 08:48:55.573">kwargs: {}</msg>
+<msg level="INFO" timestamp="20190611 08:48:57.789">[2019-06-11 08:48:52,767] +++ nx-osv-1 logfile /tmp/nx-osv-1-cli-20190611T084852767.log +++
+[2019-06-11 08:48:52,767] +++ Unicon plugin nxos +++
 Trying 172.25.192.90...
 
-[2019-06-08 19:39:56,571] +++ connection to spawn: telnet 172.25.192.90 17016, id: 4593307096 +++
-[2019-06-08 19:39:56,571] connection to nx-osv-1
+[2019-06-11 08:48:52,805] +++ connection to spawn: telnet 172.25.192.90 17016, id: 4539353128 +++
+[2019-06-11 08:48:52,806] connection to nx-osv-1
 Connected to asg-virl-ubuntu.cisco.com.
 Escape character is '^]'.
 
 nx-osv-1(config-if)# 
-[2019-06-08 19:39:57,430] +++ initializing handle +++
+[2019-06-11 08:48:53,633] +++ initializing handle +++
 end
 nx-osv-1# 
-[2019-06-08 19:39:57,640] +++ nx-osv-1: executing command 'term length 0' +++
+[2019-06-11 08:48:53,859] +++ nx-osv-1: executing command 'term length 0' +++
 term length 0
 nx-osv-1# 
-[2019-06-08 19:39:57,852] +++ nx-osv-1: executing command 'term width 511' +++
+[2019-06-11 08:48:54,026] +++ nx-osv-1: executing command 'term width 511' +++
 term width 511
 nx-osv-1# 
-[2019-06-08 19:39:58,046] +++ nx-osv-1: executing command 'terminal session-timeout 0' +++
+[2019-06-11 08:48:54,189] +++ nx-osv-1: executing command 'terminal session-timeout 0' +++
 terminal session-timeout 0
 nx-osv-1# 
-[2019-06-08 19:39:58,227] +++ nx-osv-1: config +++
+[2019-06-11 08:48:54,425] +++ nx-osv-1: config +++
 config term
 Enter configuration commands, one per line.  End with CNTL/Z.
 nx-osv-1(config)# no logging console
@@ -52,24 +52,24 @@ Enter configuration commands, one per line.  End with CNTL/Z.
 nx-osv-1(config-console)# terminal width 511
 nx-osv-1(config-console)# end
 nx-osv-1# 
-[2019-06-08 19:39:59,293] +++ csr1000v-1 logfile /tmp/csr1000v-1-cli-20190608T193959292.log +++
-[2019-06-08 19:39:59,293] +++ Unicon plugin iosxe +++
+[2019-06-11 08:48:55,575] +++ csr1000v-1 logfile /tmp/csr1000v-1-cli-20190611T084855574.log +++
+[2019-06-11 08:48:55,575] +++ Unicon plugin iosxe +++
 Trying 172.25.192.90...
 
-[2019-06-08 19:39:59,329] +++ connection to spawn: telnet 172.25.192.90 17000, id: 4593333640 +++
-[2019-06-08 19:39:59,329] connection to csr1000v-1
+[2019-06-11 08:48:55,607] +++ connection to spawn: telnet 172.25.192.90 17000, id: 4539381352 +++
+[2019-06-11 08:48:55,607] connection to csr1000v-1
 Connected to asg-virl-ubuntu.cisco.com.
 Escape character is '^]'.
 
 csr1000v-1#
-[2019-06-08 19:40:00,162] +++ initializing handle +++
-[2019-06-08 19:40:00,163] +++ csr1000v-1: executing command 'term length 0' +++
+[2019-06-11 08:48:56,426] +++ initializing handle +++
+[2019-06-11 08:48:56,428] +++ csr1000v-1: executing command 'term length 0' +++
 term length 0
 csr1000v-1#
-[2019-06-08 19:40:00,342] +++ csr1000v-1: executing command 'term width 0' +++
+[2019-06-11 08:48:56,580] +++ csr1000v-1: executing command 'term width 0' +++
 term width 0
 csr1000v-1#
-[2019-06-08 19:40:00,523] +++ csr1000v-1: executing command 'show version' +++
+[2019-06-11 08:48:56,736] +++ csr1000v-1: executing command 'show version' +++
 show version
 Cisco IOS XE Software, Version 16.09.01
 Cisco IOS Software [Fuji], Virtual XE Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version 16.9.1, RELEASE SOFTWARE (fc2)
@@ -91,8 +91,8 @@ software.
 
 ROM: IOS-XE ROMMON
 
-csr1000v-1 uptime is 3 weeks, 3 days, 4 hours, 16 minutes
-Uptime for this control processor is 3 weeks, 3 days, 4 hours, 18 minutes
+csr1000v-1 uptime is 18 hours, 25 minutes
+Uptime for this control processor is 18 hours, 27 minutes
 System returned to ROM by reload
 System image file is "bootflash:packages.conf"
 Last reload reason: Reload Command
@@ -119,7 +119,7 @@ License Type: Default. No valid license found.
 Next reload license Level: ax
 
 cisco CSR1000V (VXE) processor (revision VXE) with 1217428K/3075K bytes of memory.
-Processor board ID 9PKLPWLJBUH
+Processor board ID 9KPK2087UV2
 3 Gigabit Ethernet interfaces
 32768K bytes of non-volatile configuration memory.
 3018864K bytes of physical memory.
@@ -129,7 +129,7 @@ Processor board ID 9PKLPWLJBUH
 Configuration register is 0x2102
 
 csr1000v-1#
-[2019-06-08 19:40:00,813] +++ csr1000v-1: config +++
+[2019-06-11 08:48:57,008] +++ csr1000v-1: config +++
 config term
 Enter configuration commands, one per line.  End with CNTL/Z.
 csr1000v-1(config)#no logging console
@@ -137,73 +137,73 @@ csr1000v-1(config)#line console 0
 csr1000v-1(config-line)#exec-timeout 0
 csr1000v-1(config-line)#end
 csr1000v-1#</msg>
-<status starttime="20190608 19:39:56.531" status="PASS" endtime="20190608 19:40:01.887"></status>
+<status status="PASS" endtime="20190611 08:48:57.789" starttime="20190611 08:48:52.766"></status>
 </kw>
-<status starttime="20190608 19:39:53.876" status="PASS" critical="yes" endtime="20190608 19:40:01.887"></status>
+<status status="PASS" critical="yes" endtime="20190611 08:48:57.790" starttime="20190611 08:48:50.352"></status>
 </test>
 <test name="Profile features" id="s1-t2">
-<kw name="Profile the system for &quot;${features}&quot; on devices &quot;${devices}&quot; as &quot;${snapshot}&quot;" library="genie.libs.robot.GenieRobot">
+<kw library="genie.libs.robot.GenieRobot" name="Profile the system for &quot;${features}&quot; on devices &quot;${devices}&quot; as &quot;${snapshot}&quot;">
 <doc>Profile system as per the provided features on the devices</doc>
-<msg level="INFO" timestamp="20190608 19:40:01.890">Start learning feature ospf</msg>
-<msg level="INFO" timestamp="20190608 19:40:05.150">Could not learn &lt;class 'genie.libs.parser.nxos.show_ospf.ShowIpOspfVirtualLinks'&gt;
+<msg level="INFO" timestamp="20190611 08:48:57.793">Start learning feature ospf</msg>
+<msg level="INFO" timestamp="20190611 08:49:01.556">Could not learn &lt;class 'genie.libs.parser.nxos.show_ospf.ShowIpOspfVirtualLinks'&gt;
 Parser Output is empty</msg>
-<msg level="INFO" timestamp="20190608 19:40:05.999">Could not learn &lt;class 'genie.libs.parser.nxos.show_ospf.ShowIpOspfShamLinks'&gt;
+<msg level="INFO" timestamp="20190611 08:49:02.130">Could not learn &lt;class 'genie.libs.parser.nxos.show_ospf.ShowIpOspfShamLinks'&gt;
 Invalid command has been executed</msg>
-<msg level="INFO" timestamp="20190608 19:40:06.001">+====================================================================================================================================================+</msg>
-<msg level="INFO" timestamp="20190608 19:40:06.001">| Commands for learning feature 'Ospf'                                                                                                               |</msg>
-<msg level="INFO" timestamp="20190608 19:40:06.001">+====================================================================================================================================================+</msg>
-<msg level="INFO" timestamp="20190608 19:40:06.001">| - Parsed commands                                                                                                                                  |</msg>
-<msg level="INFO" timestamp="20190608 19:40:06.001">|----------------------------------------------------------------------------------------------------------------------------------------------------|</msg>
-<msg level="INFO" timestamp="20190608 19:40:06.001">|   cmd: &lt;class 'genie.libs.parser.nxos.show_feature.ShowFeature'&gt;                                                                                   |</msg>
-<msg level="INFO" timestamp="20190608 19:40:06.001">|   cmd: &lt;class 'genie.libs.parser.nxos.show_ospf.ShowIpOspf'&gt;, arguments: {'vrf':'all'}                                                             |</msg>
-<msg level="INFO" timestamp="20190608 19:40:06.002">|   cmd: &lt;class 'genie.libs.parser.nxos.show_ospf.ShowIpOspfMplsLdpInterface'&gt;, arguments: {'vrf':'all'}                                             |</msg>
-<msg level="INFO" timestamp="20190608 19:40:06.002">|   cmd: &lt;class 'genie.libs.parser.nxos.show_ospf.ShowIpOspfDatabaseRouterDetail'&gt;, arguments: {'vrf':'all'}                                         |</msg>
-<msg level="INFO" timestamp="20190608 19:40:06.002">|   cmd: &lt;class 'genie.libs.parser.nxos.show_ospf.ShowIpOspfDatabaseNetworkDetail'&gt;, arguments: {'vrf':'all'}                                        |</msg>
-<msg level="INFO" timestamp="20190608 19:40:06.002">|   cmd: &lt;class 'genie.libs.parser.nxos.show_ospf.ShowIpOspfDatabaseSummaryDetail'&gt;, arguments: {'vrf':'all'}                                        |</msg>
-<msg level="INFO" timestamp="20190608 19:40:06.002">|   cmd: &lt;class 'genie.libs.parser.nxos.show_ospf.ShowIpOspfDatabaseExternalDetail'&gt;, arguments: {'vrf':'all'}                                       |</msg>
-<msg level="INFO" timestamp="20190608 19:40:06.002">|   cmd: &lt;class 'genie.libs.parser.nxos.show_ospf.ShowIpOspfDatabaseOpaqueAreaDetail'&gt;, arguments: {'vrf':'all'}                                     |</msg>
-<msg level="INFO" timestamp="20190608 19:40:06.002">|   cmd: &lt;class 'genie.libs.parser.nxos.show_ospf.ShowIpOspfInterface'&gt;, arguments: {'vrf':'all'}                                                    |</msg>
-<msg level="INFO" timestamp="20190608 19:40:06.002">|   cmd: &lt;class 'genie.libs.parser.nxos.show_ospf.ShowIpOspfNeighborDetail'&gt;, arguments: {'vrf':'all'}                                               |</msg>
-<msg level="INFO" timestamp="20190608 19:40:06.002">|====================================================================================================================================================|</msg>
-<msg level="INFO" timestamp="20190608 19:40:06.002">| - Commands not accepted on the device                                                                                                              |</msg>
-<msg level="INFO" timestamp="20190608 19:40:06.002">|----------------------------------------------------------------------------------------------------------------------------------------------------|</msg>
-<msg level="INFO" timestamp="20190608 19:40:06.003">|   cmd: &lt;class 'genie.libs.parser.nxos.show_ospf.ShowIpOspfShamLinks'&gt;, arguments: {'vrf':'all'}                                                    |</msg>
-<msg level="INFO" timestamp="20190608 19:40:06.003">|====================================================================================================================================================|</msg>
-<msg level="INFO" timestamp="20190608 19:40:06.003">| - Commands with empty output                                                                                                                       |</msg>
-<msg level="INFO" timestamp="20190608 19:40:06.003">|----------------------------------------------------------------------------------------------------------------------------------------------------|</msg>
-<msg level="INFO" timestamp="20190608 19:40:06.003">|   cmd: &lt;class 'genie.libs.parser.nxos.show_ospf.ShowIpOspfVirtualLinks'&gt;, arguments: {'vrf':'all'}                                                 |</msg>
-<msg level="INFO" timestamp="20190608 19:40:06.003">|====================================================================================================================================================|</msg>
-<msg level="INFO" timestamp="20190608 19:40:06.204">Start learning device configuration</msg>
-<msg level="INFO" timestamp="20190608 19:40:07.137">Start learning feature ospf</msg>
-<msg level="INFO" timestamp="20190608 19:40:09.812">Could not learn &lt;class 'genie.libs.parser.iosxe.show_ospf.ShowIpOspfVirtualLinks'&gt;
+<msg level="INFO" timestamp="20190611 08:49:02.132">+====================================================================================================================================================+</msg>
+<msg level="INFO" timestamp="20190611 08:49:02.132">| Commands for learning feature 'Ospf'                                                                                                               |</msg>
+<msg level="INFO" timestamp="20190611 08:49:02.132">+====================================================================================================================================================+</msg>
+<msg level="INFO" timestamp="20190611 08:49:02.133">| - Parsed commands                                                                                                                                  |</msg>
+<msg level="INFO" timestamp="20190611 08:49:02.133">|----------------------------------------------------------------------------------------------------------------------------------------------------|</msg>
+<msg level="INFO" timestamp="20190611 08:49:02.133">|   cmd: &lt;class 'genie.libs.parser.nxos.show_feature.ShowFeature'&gt;                                                                                   |</msg>
+<msg level="INFO" timestamp="20190611 08:49:02.133">|   cmd: &lt;class 'genie.libs.parser.nxos.show_ospf.ShowIpOspf'&gt;, arguments: {'vrf':'all'}                                                             |</msg>
+<msg level="INFO" timestamp="20190611 08:49:02.133">|   cmd: &lt;class 'genie.libs.parser.nxos.show_ospf.ShowIpOspfMplsLdpInterface'&gt;, arguments: {'vrf':'all'}                                             |</msg>
+<msg level="INFO" timestamp="20190611 08:49:02.133">|   cmd: &lt;class 'genie.libs.parser.nxos.show_ospf.ShowIpOspfDatabaseRouterDetail'&gt;, arguments: {'vrf':'all'}                                         |</msg>
+<msg level="INFO" timestamp="20190611 08:49:02.134">|   cmd: &lt;class 'genie.libs.parser.nxos.show_ospf.ShowIpOspfDatabaseNetworkDetail'&gt;, arguments: {'vrf':'all'}                                        |</msg>
+<msg level="INFO" timestamp="20190611 08:49:02.134">|   cmd: &lt;class 'genie.libs.parser.nxos.show_ospf.ShowIpOspfDatabaseSummaryDetail'&gt;, arguments: {'vrf':'all'}                                        |</msg>
+<msg level="INFO" timestamp="20190611 08:49:02.134">|   cmd: &lt;class 'genie.libs.parser.nxos.show_ospf.ShowIpOspfDatabaseExternalDetail'&gt;, arguments: {'vrf':'all'}                                       |</msg>
+<msg level="INFO" timestamp="20190611 08:49:02.134">|   cmd: &lt;class 'genie.libs.parser.nxos.show_ospf.ShowIpOspfDatabaseOpaqueAreaDetail'&gt;, arguments: {'vrf':'all'}                                     |</msg>
+<msg level="INFO" timestamp="20190611 08:49:02.134">|   cmd: &lt;class 'genie.libs.parser.nxos.show_ospf.ShowIpOspfInterface'&gt;, arguments: {'vrf':'all'}                                                    |</msg>
+<msg level="INFO" timestamp="20190611 08:49:02.134">|   cmd: &lt;class 'genie.libs.parser.nxos.show_ospf.ShowIpOspfNeighborDetail'&gt;, arguments: {'vrf':'all'}                                               |</msg>
+<msg level="INFO" timestamp="20190611 08:49:02.134">|====================================================================================================================================================|</msg>
+<msg level="INFO" timestamp="20190611 08:49:02.135">| - Commands not accepted on the device                                                                                                              |</msg>
+<msg level="INFO" timestamp="20190611 08:49:02.135">|----------------------------------------------------------------------------------------------------------------------------------------------------|</msg>
+<msg level="INFO" timestamp="20190611 08:49:02.135">|   cmd: &lt;class 'genie.libs.parser.nxos.show_ospf.ShowIpOspfShamLinks'&gt;, arguments: {'vrf':'all'}                                                    |</msg>
+<msg level="INFO" timestamp="20190611 08:49:02.135">|====================================================================================================================================================|</msg>
+<msg level="INFO" timestamp="20190611 08:49:02.135">| - Commands with empty output                                                                                                                       |</msg>
+<msg level="INFO" timestamp="20190611 08:49:02.135">|----------------------------------------------------------------------------------------------------------------------------------------------------|</msg>
+<msg level="INFO" timestamp="20190611 08:49:02.136">|   cmd: &lt;class 'genie.libs.parser.nxos.show_ospf.ShowIpOspfVirtualLinks'&gt;, arguments: {'vrf':'all'}                                                 |</msg>
+<msg level="INFO" timestamp="20190611 08:49:02.136">|====================================================================================================================================================|</msg>
+<msg level="INFO" timestamp="20190611 08:49:02.298">Start learning device configuration</msg>
+<msg level="INFO" timestamp="20190611 08:49:03.156">Start learning feature ospf</msg>
+<msg level="INFO" timestamp="20190611 08:49:05.272">Could not learn &lt;class 'genie.libs.parser.iosxe.show_ospf.ShowIpOspfVirtualLinks'&gt;
 Parser Output is empty</msg>
-<msg level="INFO" timestamp="20190608 19:40:12.140">Could not learn &lt;class 'genie.libs.parser.iosxe.show_ospf.ShowIpOspfShamLinks'&gt;
+<msg level="INFO" timestamp="20190611 08:49:07.382">Could not learn &lt;class 'genie.libs.parser.iosxe.show_ospf.ShowIpOspfShamLinks'&gt;
 Parser Output is empty</msg>
-<msg level="INFO" timestamp="20190608 19:40:12.141">+====================================================================================================================================================+</msg>
-<msg level="INFO" timestamp="20190608 19:40:12.141">| Commands for learning feature 'Ospf'                                                                                                               |</msg>
-<msg level="INFO" timestamp="20190608 19:40:12.141">+====================================================================================================================================================+</msg>
-<msg level="INFO" timestamp="20190608 19:40:12.141">| - Parsed commands                                                                                                                                  |</msg>
-<msg level="INFO" timestamp="20190608 19:40:12.142">|----------------------------------------------------------------------------------------------------------------------------------------------------|</msg>
-<msg level="INFO" timestamp="20190608 19:40:12.142">|   cmd: &lt;class 'genie.libs.parser.iosxe.show_ospf.ShowIpOspf'&gt;                                                                                      |</msg>
-<msg level="INFO" timestamp="20190608 19:40:12.142">|   cmd: &lt;class 'genie.libs.parser.iosxe.show_protocols.ShowIpProtocols'&gt;                                                                            |</msg>
-<msg level="INFO" timestamp="20190608 19:40:12.142">|   cmd: &lt;class 'genie.libs.parser.iosxe.show_ospf.ShowIpOspfMplsLdpInterface'&gt;                                                                      |</msg>
-<msg level="INFO" timestamp="20190608 19:40:12.142">|   cmd: &lt;class 'genie.libs.parser.iosxe.show_ospf.ShowIpOspfMplsTrafficEngLink'&gt;                                                                    |</msg>
-<msg level="INFO" timestamp="20190608 19:40:12.142">|   cmd: &lt;class 'genie.libs.parser.iosxe.show_ospf.ShowIpOspfDatabaseRouter'&gt;                                                                        |</msg>
-<msg level="INFO" timestamp="20190608 19:40:12.142">|   cmd: &lt;class 'genie.libs.parser.iosxe.show_ospf.ShowIpOspfDatabaseNetwork'&gt;                                                                       |</msg>
-<msg level="INFO" timestamp="20190608 19:40:12.142">|   cmd: &lt;class 'genie.libs.parser.iosxe.show_ospf.ShowIpOspfDatabaseExternal'&gt;                                                                      |</msg>
-<msg level="INFO" timestamp="20190608 19:40:12.143">|   cmd: &lt;class 'genie.libs.parser.iosxe.show_ospf.ShowIpOspfDatabaseSummary'&gt;                                                                       |</msg>
-<msg level="INFO" timestamp="20190608 19:40:12.143">|   cmd: &lt;class 'genie.libs.parser.iosxe.show_ospf.ShowIpOspfDatabaseOpaqueArea'&gt;                                                                    |</msg>
-<msg level="INFO" timestamp="20190608 19:40:12.143">|   cmd: &lt;class 'genie.libs.parser.iosxe.show_ospf.ShowIpOspfInterface'&gt;                                                                             |</msg>
-<msg level="INFO" timestamp="20190608 19:40:12.143">|   cmd: &lt;class 'genie.libs.parser.iosxe.show_ospf.ShowIpOspfNeighborDetail'&gt;                                                                        |</msg>
-<msg level="INFO" timestamp="20190608 19:40:12.143">|====================================================================================================================================================|</msg>
-<msg level="INFO" timestamp="20190608 19:40:12.143">| - Commands with empty output                                                                                                                       |</msg>
-<msg level="INFO" timestamp="20190608 19:40:12.144">|----------------------------------------------------------------------------------------------------------------------------------------------------|</msg>
-<msg level="INFO" timestamp="20190608 19:40:12.144">|   cmd: &lt;class 'genie.libs.parser.iosxe.show_ospf.ShowIpOspfVirtualLinks'&gt;                                                                          |</msg>
-<msg level="INFO" timestamp="20190608 19:40:12.144">|   cmd: &lt;class 'genie.libs.parser.iosxe.show_ospf.ShowIpOspfShamLinks'&gt;                                                                             |</msg>
-<msg level="INFO" timestamp="20190608 19:40:12.144">|====================================================================================================================================================|</msg>
-<msg level="INFO" timestamp="20190608 19:40:12.361">Start learning device configuration</msg>
-<msg level="INFO" timestamp="20190608 19:40:13.044">Saved system profile as file: /Users/jeaubin/genie/CL-BRKPRG-1798/4-genie/snapshot/./06_08_20/snapshot_nx-osv-1_ospf_pts.json</msg>
-<msg level="INFO" timestamp="20190608 19:40:13.045">[2019-06-08 19:40:02,531] +++ nx-osv-1: executing command 'show feature' +++
+<msg level="INFO" timestamp="20190611 08:49:07.384">+====================================================================================================================================================+</msg>
+<msg level="INFO" timestamp="20190611 08:49:07.384">| Commands for learning feature 'Ospf'                                                                                                               |</msg>
+<msg level="INFO" timestamp="20190611 08:49:07.384">+====================================================================================================================================================+</msg>
+<msg level="INFO" timestamp="20190611 08:49:07.384">| - Parsed commands                                                                                                                                  |</msg>
+<msg level="INFO" timestamp="20190611 08:49:07.384">|----------------------------------------------------------------------------------------------------------------------------------------------------|</msg>
+<msg level="INFO" timestamp="20190611 08:49:07.385">|   cmd: &lt;class 'genie.libs.parser.iosxe.show_ospf.ShowIpOspf'&gt;                                                                                      |</msg>
+<msg level="INFO" timestamp="20190611 08:49:07.385">|   cmd: &lt;class 'genie.libs.parser.iosxe.show_protocols.ShowIpProtocols'&gt;                                                                            |</msg>
+<msg level="INFO" timestamp="20190611 08:49:07.385">|   cmd: &lt;class 'genie.libs.parser.iosxe.show_ospf.ShowIpOspfMplsLdpInterface'&gt;                                                                      |</msg>
+<msg level="INFO" timestamp="20190611 08:49:07.385">|   cmd: &lt;class 'genie.libs.parser.iosxe.show_ospf.ShowIpOspfMplsTrafficEngLink'&gt;                                                                    |</msg>
+<msg level="INFO" timestamp="20190611 08:49:07.385">|   cmd: &lt;class 'genie.libs.parser.iosxe.show_ospf.ShowIpOspfDatabaseRouter'&gt;                                                                        |</msg>
+<msg level="INFO" timestamp="20190611 08:49:07.385">|   cmd: &lt;class 'genie.libs.parser.iosxe.show_ospf.ShowIpOspfDatabaseNetwork'&gt;                                                                       |</msg>
+<msg level="INFO" timestamp="20190611 08:49:07.386">|   cmd: &lt;class 'genie.libs.parser.iosxe.show_ospf.ShowIpOspfDatabaseExternal'&gt;                                                                      |</msg>
+<msg level="INFO" timestamp="20190611 08:49:07.386">|   cmd: &lt;class 'genie.libs.parser.iosxe.show_ospf.ShowIpOspfDatabaseSummary'&gt;                                                                       |</msg>
+<msg level="INFO" timestamp="20190611 08:49:07.386">|   cmd: &lt;class 'genie.libs.parser.iosxe.show_ospf.ShowIpOspfDatabaseOpaqueArea'&gt;                                                                    |</msg>
+<msg level="INFO" timestamp="20190611 08:49:07.386">|   cmd: &lt;class 'genie.libs.parser.iosxe.show_ospf.ShowIpOspfInterface'&gt;                                                                             |</msg>
+<msg level="INFO" timestamp="20190611 08:49:07.386">|   cmd: &lt;class 'genie.libs.parser.iosxe.show_ospf.ShowIpOspfNeighborDetail'&gt;                                                                        |</msg>
+<msg level="INFO" timestamp="20190611 08:49:07.386">|====================================================================================================================================================|</msg>
+<msg level="INFO" timestamp="20190611 08:49:07.386">| - Commands with empty output                                                                                                                       |</msg>
+<msg level="INFO" timestamp="20190611 08:49:07.387">|----------------------------------------------------------------------------------------------------------------------------------------------------|</msg>
+<msg level="INFO" timestamp="20190611 08:49:07.387">|   cmd: &lt;class 'genie.libs.parser.iosxe.show_ospf.ShowIpOspfVirtualLinks'&gt;                                                                          |</msg>
+<msg level="INFO" timestamp="20190611 08:49:07.387">|   cmd: &lt;class 'genie.libs.parser.iosxe.show_ospf.ShowIpOspfShamLinks'&gt;                                                                             |</msg>
+<msg level="INFO" timestamp="20190611 08:49:07.387">|====================================================================================================================================================|</msg>
+<msg level="INFO" timestamp="20190611 08:49:07.568">Start learning device configuration</msg>
+<msg level="INFO" timestamp="20190611 08:49:08.169">Saved system profile as file: /Users/jeaubin/genie/CL-BRKPRG-1798/4-genie_library/snapshot/./06_08_20/snapshot_nx-osv-1_ospf_pts.json</msg>
+<msg level="INFO" timestamp="20190611 08:49:08.170">[2019-06-11 08:48:59,612] +++ nx-osv-1: executing command 'show feature' +++
 show feature
 Feature Name         Instance State 
 -------------------- -------- -----
@@ -340,7 +340,7 @@ vrrpv3               1        disabled
 vtp                  1        disabled
 wccp                 1        disabled
 nx-osv-1# 
-[2019-06-08 19:40:03,002] +++ nx-osv-1: executing command 'show ip ospf vrf all' +++
+[2019-06-11 08:49:00,120] +++ nx-osv-1: executing command 'show ip ospf vrf all' +++
 show ip ospf vrf all
 
  Routing Process 1 with ID 10.2.2.2 VRF default
@@ -369,16 +369,16 @@ show ip ospf vrf all
  Install discard route for summarized external routes.
  Install discard route for summarized internal routes.
    Area BACKBONE(0.0.0.0) 
-        Area has existed for 3w3d
-        Interfaces in this area: 3 Active interfaces: 3
+        Area has existed for 18:25:30
+        Interfaces in this area: 3 Active interfaces: 2
         Passive interfaces: 0  Loopback interfaces: 1
         No authentication available
-        SPF calculation has run 365 times
-         Last SPF ran for 0.000155s
+        SPF calculation has run 4 times
+         Last SPF ran for 0.000175s
         Area ranges are
-        Number of LSAs: 4, checksum sum 0x1997f
+        Number of LSAs: 3, checksum sum 0xc478
 nx-osv-1# 
-[2019-06-08 19:40:03,308] +++ nx-osv-1: executing command 'show ip ospf mpls ldp interface vrf all' +++
+[2019-06-11 08:49:00,355] +++ nx-osv-1: executing command 'show ip ospf mpls ldp interface vrf all' +++
 show ip ospf mpls ldp interface vrf all
 loopback0 - Process ID 1 VRF default, area 0.0.0.0
     LDP Autoconfig not enabled
@@ -387,25 +387,25 @@ loopback0 - Process ID 1 VRF default, area 0.0.0.0
 Ethernet2/1 - Process ID 1 VRF default, area 0.0.0.0
     LDP Autoconfig not enabled
     LDP Sync not enabled, not required
-    State BDR, Network type BROADCAST
+    State DOWN, Network type BROADCAST
 Ethernet2/2 - Process ID 1 VRF default, area 0.0.0.0
     LDP Autoconfig not enabled
     LDP Sync not enabled, not required
-    State BDR, Network type BROADCAST
+    State DR, Network type BROADCAST
 nx-osv-1# 
-[2019-06-08 19:40:03,566] +++ nx-osv-1: executing command 'show ip ospf database router detail vrf all' +++
+[2019-06-11 08:49:00,527] +++ nx-osv-1: executing command 'show ip ospf database router detail vrf all' +++
 show ip ospf database router detail vrf all
         OSPF Router with ID (10.2.2.2) (Process ID 1 VRF default)
 
                 Router Link States (Area 0.0.0.0)
 
-   LS age: 1479
+   LS age: 28
    Options: 0x22 (No TOS-capability, DC)
    LS Type: Router Links
    Link State ID: 10.1.1.1 
    Advertising Router: 10.1.1.1
-   LS Seq Number: 0x800004c5
-   Checksum: 0x2cc3
+   LS Seq Number: 0x80000029
+   Checksum: 0x7e1d
    Length: 60
     Number of links: 3
 
@@ -415,27 +415,27 @@ show ip ospf database router detail vrf all
        Number of TOS metrics: 0
          TOS   0 Metric: 1
 
-     Link connected to: a Transit Network
-      (Link ID) Designated Router address: 10.0.1.1
-      (Link Data) Router Interface address: 10.0.1.1
+     Link connected to: a Stub Network
+      (Link ID) Network/Subnet Number: 10.0.1.0
+      (Link Data) Network Mask: 255.255.255.0
        Number of TOS metrics: 0
          TOS   0 Metric: 1
 
      Link connected to: a Transit Network
-      (Link ID) Designated Router address: 10.0.2.1
+      (Link ID) Designated Router address: 10.0.2.2
       (Link Data) Router Interface address: 10.0.2.1
        Number of TOS metrics: 0
          TOS   0 Metric: 1
 
-   LS age: 1805
+   LS age: 27
    Options: 0x2 (No TOS-capability, No DC)
    LS Type: Router Links
    Link State ID: 10.2.2.2 
    Advertising Router: 10.2.2.2
-   LS Seq Number: 0x80000599
-   Checksum: 0x8b56
-   Length: 60
-    Number of links: 3
+   LS Seq Number: 0x80000028
+   Checksum: 0x2d7a
+   Length: 48
+    Number of links: 2
 
      Link connected to: a Stub Network
       (Link ID) Network/Subnet Number: 10.2.2.2
@@ -444,95 +444,76 @@ show ip ospf database router detail vrf all
          TOS   0 Metric: 1
 
      Link connected to: a Transit Network
-      (Link ID) Designated Router address: 10.0.1.1
-      (Link Data) Router Interface address: 10.0.1.2
-       Number of TOS metrics: 0
-         TOS   0 Metric: 40
-
-     Link connected to: a Transit Network
-      (Link ID) Designated Router address: 10.0.2.1
+      (Link ID) Designated Router address: 10.0.2.2
       (Link Data) Router Interface address: 10.0.2.2
        Number of TOS metrics: 0
          TOS   0 Metric: 40
 
 
 nx-osv-1# 
-[2019-06-08 19:40:03,868] +++ nx-osv-1: executing command 'show ip ospf database network detail vrf all' +++
+[2019-06-11 08:49:00,757] +++ nx-osv-1: executing command 'show ip ospf database network detail vrf all' +++
 show ip ospf database network detail vrf all
         OSPF Router with ID (10.2.2.2) (Process ID 1 VRF default)
 
                 Network Link States (Area 0.0.0.0)
 
-   LS age: 1479
-   Options: 0x22 (No TOS-capability, DC)
+   LS age: 703
+   Options: 0x2 (No TOS-capability, No DC)
    LS Type: Network Links
-   Link State ID: 10.0.1.1 (Designated Router address)
-   Advertising Router: 10.1.1.1
-   LS Seq Number: 0x800003e8
-   Checksum: 0xdd3b
+   Link State ID: 10.0.2.2 (Designated Router address)
+   Advertising Router: 10.2.2.2
+   LS Seq Number: 0x80000026
+   Checksum: 0x18e1
    Length: 32
    Network Mask: /24
-         Attached Router: 10.1.1.1
          Attached Router: 10.2.2.2
-
-   LS age: 1479
-   Options: 0x22 (No TOS-capability, DC)
-   LS Type: Network Links
-   Link State ID: 10.0.2.1 (Designated Router address)
-   Advertising Router: 10.1.1.1
-   LS Seq Number: 0x800000d4
-   Checksum: 0x042b
-   Length: 32
-   Network Mask: /24
          Attached Router: 10.1.1.1
-         Attached Router: 10.2.2.2
 
 
 nx-osv-1# 
-[2019-06-08 19:40:04,054] +++ nx-osv-1: executing command 'show ip ospf database summary detail vrf all' +++
+[2019-06-11 08:49:00,919] +++ nx-osv-1: executing command 'show ip ospf database summary detail vrf all' +++
 show ip ospf database summary detail vrf all
         OSPF Router with ID (10.2.2.2) (Process ID 1 VRF default)
 
 nx-osv-1# 
-[2019-06-08 19:40:04,230] +++ nx-osv-1: executing command 'show ip ospf database external detail vrf all' +++
+[2019-06-11 08:49:01,082] +++ nx-osv-1: executing command 'show ip ospf database external detail vrf all' +++
 show ip ospf database external detail vrf all
         OSPF Router with ID (10.2.2.2) (Process ID 1 VRF default)
 
 nx-osv-1# 
-[2019-06-08 19:40:04,481] +++ nx-osv-1: executing command 'show ip ospf database opaque-area detail vrf all' +++
+[2019-06-11 08:49:01,241] +++ nx-osv-1: executing command 'show ip ospf database opaque-area detail vrf all' +++
 show ip ospf database opaque-area detail vrf all
         OSPF Router with ID (10.2.2.2) (Process ID 1 VRF default)
 
 nx-osv-1# 
-[2019-06-08 19:40:04,814] +++ nx-osv-1: executing command 'show ip ospf virtual-links vrf all' +++
+[2019-06-11 08:49:01,401] +++ nx-osv-1: executing command 'show ip ospf virtual-links vrf all' +++
 show ip ospf virtual-links vrf all
 nx-osv-1# 
-[2019-06-08 19:40:05,151] +++ nx-osv-1: executing command 'show ip ospf interface vrf all' +++
+[2019-06-11 08:49:01,556] +++ nx-osv-1: executing command 'show ip ospf interface vrf all' +++
 show ip ospf interface vrf all
- Ethernet2/1 is up, line protocol is up
+ Ethernet2/1 is down, line protocol is down
     IP address 10.0.1.2/24
     Process ID 1 VRF default, area 0.0.0.0
     Enabled by interface configuration
-    State BDR, Network type BROADCAST, cost 40
+    State DOWN, Network type BROADCAST, cost 40
     Index 2, Transmit delay 1 sec, Router Priority 1
-    Designated Router ID: 10.1.1.1, address: 10.0.1.1
-    Backup Designated Router ID: 10.2.2.2, address: 10.0.1.2
-    1 Neighbors, flooding to 1, adjacent with 1
+    No designated router on this network
+    No backup designated router on this network
+    0 Neighbors, flooding to 0, adjacent with 0
     Timer intervals: Hello 10, Dead 40, Wait 40, Retransmit 5
-      Hello timer due in 00:00:00
     No authentication
     Number of opaque link LSAs: 0, checksum sum 0
  Ethernet2/2 is up, line protocol is up
     IP address 10.0.2.2/24
     Process ID 1 VRF default, area 0.0.0.0
     Enabled by interface configuration
-    State BDR, Network type BROADCAST, cost 40
+    State DR, Network type BROADCAST, cost 40
     Index 3, Transmit delay 1 sec, Router Priority 1
-    Designated Router ID: 10.1.1.1, address: 10.0.2.1
-    Backup Designated Router ID: 10.2.2.2, address: 10.0.2.2
+    Designated Router ID: 10.2.2.2, address: 10.0.2.2
+    Backup Designated Router ID: 10.1.1.1, address: 10.0.2.1
     1 Neighbors, flooding to 1, adjacent with 1
     Timer intervals: Hello 10, Dead 40, Wait 40, Retransmit 5
-      Hello timer due in 00:00:07
+      Hello timer due in 00:00:00
     No authentication
     Number of opaque link LSAs: 0, checksum sum 0
  loopback0 is up, line protocol is up
@@ -543,36 +524,28 @@ show ip ospf interface vrf all
     Index 1
 
 nx-osv-1# 
-[2019-06-08 19:40:05,462] +++ nx-osv-1: executing command 'show ip ospf neighbors detail vrf all' +++
+[2019-06-11 08:49:01,781] +++ nx-osv-1: executing command 'show ip ospf neighbors detail vrf all' +++
 show ip ospf neighbors detail vrf all
- Neighbor 10.1.1.1, interface address 10.0.1.1
-    Process ID 1 VRF default, in area 0.0.0.0 via interface Ethernet2/1
-    State is FULL, 5 state changes, last change 3w2d
-    Neighbor priority is 1
-    DR is 10.0.1.1 BDR is 10.0.1.2
-    Hello options 0x12, dbd options 0x52
-    Last non-hello packet received never
-      Dead timer due in 00:00:37
  Neighbor 10.1.1.1, interface address 10.0.2.1
     Process ID 1 VRF default, in area 0.0.0.0 via interface Ethernet2/2
-    State is FULL, 5 state changes, last change 4d22h
+    State is FULL, 5 state changes, last change 18:24:52
     Neighbor priority is 1
-    DR is 10.0.2.1 BDR is 10.0.2.2
+    DR is 10.0.2.2 BDR is 10.0.2.1
     Hello options 0x12, dbd options 0x52
     Last non-hello packet received never
-      Dead timer due in 00:00:35
+      Dead timer due in 00:00:31
 
 nx-osv-1# 
-[2019-06-08 19:40:05,727] +++ nx-osv-1: executing command 'show ip ospf sham-links vrf all' +++
+[2019-06-11 08:49:01,958] +++ nx-osv-1: executing command 'show ip ospf sham-links vrf all' +++
 show ip ospf sham-links vrf all
                         ^
 % Invalid command at '^' marker.
 nx-osv-1# 
-[2019-06-08 19:40:06,204] +++ nx-osv-1: executing command 'show running-config' +++
+[2019-06-11 08:49:02,298] +++ nx-osv-1: executing command 'show running-config' +++
 show running-config
 
 !Command: show running-config
-!Time: Sat Jun  8 23:41:37 2019
+!Time: Tue Jun 11 15:49:06 2019
 
 version 7.3(0)D1(1)
 power redundancy-mode redundant
@@ -620,15 +593,14 @@ interface mgmt0
   vrf member management
 
 interface Ethernet2/1
-  description changed
+  description Hello
+  shutdown
   no switchport
   mac-address 0000.0000.002f
   ip address 10.0.1.2/24
   ip router ospf 1 area 0.0.0.0
-  no shutdown
 
 interface Ethernet2/2
-  description test
   no switchport
   mac-address 0000.0000.002f
   ip address 10.0.2.2/24
@@ -636,7 +608,6 @@ interface Ethernet2/2
   no shutdown
 
 interface Ethernet2/3
-  description changed
   shutdown
   no switchport
   mac-address 0000.0000.002f
@@ -783,6 +754,7 @@ interface Ethernet2/31
   mac-address 0000.0000.002f
 
 interface Ethernet2/32
+  description Hi
   shutdown
   no switchport
   mac-address 0000.0000.002f
@@ -868,244 +840,196 @@ interface Ethernet2/48
   mac-address 0000.0000.002f
 
 interface Ethernet3/1
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/2
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/3
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/4
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/5
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/6
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/7
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/8
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/9
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/10
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/11
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/12
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/13
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/14
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/15
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/16
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/17
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/18
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/19
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/20
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/21
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/22
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/23
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/24
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/25
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/26
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/27
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/28
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/29
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/30
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/31
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/32
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/33
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/34
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/35
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/36
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/37
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/38
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/39
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/40
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/41
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/42
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/43
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/44
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/45
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/46
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/47
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet3/48
-  shutdown
-  no switchport
-  medium p2p
+  switchport
+  no shutdown
 
 interface Ethernet4/1
   switchport
@@ -1325,10 +1249,10 @@ no logging console
 
 
 nx-osv-1# 
-[2019-06-08 19:40:07,164] +++ csr1000v-1: executing command 'show ip ospf' +++
+[2019-06-11 08:49:03,183] +++ csr1000v-1: executing command 'show ip ospf' +++
 show ip ospf
  Routing Process "ospf 1" with ID 10.1.1.1
- Start time: 00:01:54.255, Time elapsed: 3w3d
+ Start time: 00:01:51.344, Time elapsed: 18:25:48.614
  Supports only single TOS(TOS0) routes
  Supports opaque LSA
  Supports Link-local Signaling (LLS)
@@ -1362,18 +1286,18 @@ show ip ospf
     Area BACKBONE(0)
         Number of interfaces in this area is 3 (1 loopback)
 	Area has no authentication
-	SPF algorithm last executed 4d22h ago
-	SPF algorithm executed 401 times
+	SPF algorithm last executed 00:00:29.883 ago
+	SPF algorithm executed 9 times
 	Area ranges are
-	Number of LSA 4. Checksum Sum 0x01997F
+	Number of LSA 3. Checksum Sum 0x00C478
 	Number of opaque link LSA 0. Checksum Sum 0x000000
-	Number of DCbitless LSA 1
+	Number of DCbitless LSA 2
 	Number of indication LSA 0
 	Number of DoNotAge LSA 0
 	Flood list length 0
 
 csr1000v-1#
-[2019-06-08 19:40:07,463] +++ csr1000v-1: executing command 'show ip protocols' +++
+[2019-06-11 08:49:03,383] +++ csr1000v-1: executing command 'show ip protocols' +++
 show ip protocols
 *** IP Routing is NSF aware ***
 
@@ -1401,7 +1325,7 @@ Routing Protocol is "ospf 1"
     GigabitEthernet3
   Routing Information Sources:
     Gateway         Distance      Last Update
-    10.2.2.2             110      4d22h
+    10.2.2.2             110      18:24:46
   Distance: (default is 110)
 
 Routing Protocol is "bgp 65000"
@@ -1415,16 +1339,16 @@ Routing Protocol is "bgp 65000"
   Maximum path: 1
   Routing Information Sources:
     Gateway         Distance      Last Update
-    10.2.2.2             200      1d04h
+    10.2.2.2             200      18:24:37
   Distance: external 20 internal 200 local 200
 
 csr1000v-1#
-[2019-06-08 19:40:07,712] +++ csr1000v-1: executing command 'show running-config | section router ospf 1' +++
+[2019-06-11 08:49:03,556] +++ csr1000v-1: executing command 'show running-config | section router ospf 1' +++
 show running-config | section router ospf 1
 router ospf 1
  router-id 10.1.1.1
 csr1000v-1#
-[2019-06-08 19:40:08,026] +++ csr1000v-1: executing command 'show ip ospf mpls ldp interface' +++
+[2019-06-11 08:49:03,718] +++ csr1000v-1: executing command 'show ip ospf mpls ldp interface' +++
 show ip ospf mpls ldp interface
 Loopback0
   Process ID 1, Area 0
@@ -1445,32 +1369,32 @@ GigabitEthernet3
   Holddown timer is disabled
   Interface is up 
 csr1000v-1#
-[2019-06-08 19:40:08,216] +++ csr1000v-1: executing command 'show ip ospf mpls traffic-eng link' +++
+[2019-06-11 08:49:03,884] +++ csr1000v-1: executing command 'show ip ospf mpls traffic-eng link' +++
 show ip ospf mpls traffic-eng link
 
             OSPF Router with ID (10.1.1.1) (Process ID 1)
 
   Area 0 MPLS TE not initialized
 csr1000v-1#
-[2019-06-08 19:40:08,401] +++ csr1000v-1: executing command 'show running-config | section router ospf 1' +++
+[2019-06-11 08:49:04,045] +++ csr1000v-1: executing command 'show running-config | section router ospf 1' +++
 show running-config | section router ospf 1
 router ospf 1
  router-id 10.1.1.1
 csr1000v-1#
-[2019-06-08 19:40:08,611] +++ csr1000v-1: executing command 'show ip ospf database router' +++
+[2019-06-11 08:49:04,313] +++ csr1000v-1: executing command 'show ip ospf database router' +++
 show ip ospf database router
 
             OSPF Router with ID (10.1.1.1) (Process ID 1)
 
 		Router Link States (Area 0)
 
-  LS age: 1482
+  LS age: 31
   Options: (No TOS-capability, DC)
   LS Type: Router Links
   Link State ID: 10.1.1.1
   Advertising Router: 10.1.1.1
-  LS Seq Number: 800004C5
-  Checksum: 0x2CC3
+  LS Seq Number: 80000029
+  Checksum: 0x7E1D
   Length: 60
   Number of Links: 3
 
@@ -1480,28 +1404,28 @@ show ip ospf database router
       Number of MTID metrics: 0
        TOS 0 Metrics: 1
 
-    Link connected to: a Transit Network
-     (Link ID) Designated Router address: 10.0.1.1
-     (Link Data) Router Interface address: 10.0.1.1
+    Link connected to: a Stub Network
+     (Link ID) Network/subnet number: 10.0.1.0
+     (Link Data) Network Mask: 255.255.255.0
       Number of MTID metrics: 0
        TOS 0 Metrics: 1
 
     Link connected to: a Transit Network
-     (Link ID) Designated Router address: 10.0.2.1
+     (Link ID) Designated Router address: 10.0.2.2
      (Link Data) Router Interface address: 10.0.2.1
       Number of MTID metrics: 0
        TOS 0 Metrics: 1
 
 
-  LS age: 1811
+  LS age: 32
   Options: (No TOS-capability, No DC)
   LS Type: Router Links
   Link State ID: 10.2.2.2
   Advertising Router: 10.2.2.2
-  LS Seq Number: 80000599
-  Checksum: 0x8B56
-  Length: 60
-  Number of Links: 3
+  LS Seq Number: 80000028
+  Checksum: 0x2D7A
+  Length: 48
+  Number of Links: 2
 
     Link connected to: a Stub Network
      (Link ID) Network/subnet number: 10.2.2.2
@@ -1510,70 +1434,52 @@ show ip ospf database router
        TOS 0 Metrics: 1
 
     Link connected to: a Transit Network
-     (Link ID) Designated Router address: 10.0.1.1
-     (Link Data) Router Interface address: 10.0.1.2
-      Number of MTID metrics: 0
-       TOS 0 Metrics: 40
-
-    Link connected to: a Transit Network
-     (Link ID) Designated Router address: 10.0.2.1
+     (Link ID) Designated Router address: 10.0.2.2
      (Link Data) Router Interface address: 10.0.2.2
       Number of MTID metrics: 0
        TOS 0 Metrics: 40
 
 
 csr1000v-1#
-[2019-06-08 19:40:08,886] +++ csr1000v-1: executing command 'show ip ospf database network' +++
+[2019-06-11 08:49:04,490] +++ csr1000v-1: executing command 'show ip ospf database network' +++
 show ip ospf database network
 
             OSPF Router with ID (10.1.1.1) (Process ID 1)
 
 		Net Link States (Area 0)
 
-  LS age: 1483
-  Options: (No TOS-capability, DC)
+  LS age: 708
+  Options: (No TOS-capability, No DC)
   LS Type: Network Links
-  Link State ID: 10.0.1.1 (address of Designated Router)
-  Advertising Router: 10.1.1.1
-  LS Seq Number: 800003E8
-  Checksum: 0xDD3B
+  Link State ID: 10.0.2.2 (address of Designated Router)
+  Advertising Router: 10.2.2.2
+  LS Seq Number: 80000026
+  Checksum: 0x18E1
   Length: 32
   Network Mask: /24
-	Attached Router: 10.1.1.1
 	Attached Router: 10.2.2.2
-
-  LS age: 1483
-  Options: (No TOS-capability, DC)
-  LS Type: Network Links
-  Link State ID: 10.0.2.1 (address of Designated Router)
-  Advertising Router: 10.1.1.1
-  LS Seq Number: 800000D4
-  Checksum: 0x42B
-  Length: 32
-  Network Mask: /24
 	Attached Router: 10.1.1.1
-	Attached Router: 10.2.2.2
 
 csr1000v-1#
-[2019-06-08 19:40:09,087] +++ csr1000v-1: executing command 'show ip ospf database external' +++
+[2019-06-11 08:49:04,645] +++ csr1000v-1: executing command 'show ip ospf database external' +++
 show ip ospf database external
 
             OSPF Router with ID (10.1.1.1) (Process ID 1)
 csr1000v-1#
-[2019-06-08 19:40:09,272] +++ csr1000v-1: executing command 'show ip ospf database summary' +++
+[2019-06-11 08:49:04,802] +++ csr1000v-1: executing command 'show ip ospf database summary' +++
 show ip ospf database summary
 
             OSPF Router with ID (10.1.1.1) (Process ID 1)
 csr1000v-1#
-[2019-06-08 19:40:09,451] +++ csr1000v-1: executing command 'show ip ospf database opaque-area' +++
+[2019-06-11 08:49:04,957] +++ csr1000v-1: executing command 'show ip ospf database opaque-area' +++
 show ip ospf database opaque-area
 
             OSPF Router with ID (10.1.1.1) (Process ID 1)
 csr1000v-1#
-[2019-06-08 19:40:09,622] +++ csr1000v-1: executing command 'show ip ospf virtual-links' +++
+[2019-06-11 08:49:05,113] +++ csr1000v-1: executing command 'show ip ospf virtual-links' +++
 show ip ospf virtual-links
 csr1000v-1#
-[2019-06-08 19:40:09,813] +++ csr1000v-1: executing command 'show ip ospf interface' +++
+[2019-06-11 08:49:05,272] +++ csr1000v-1: executing command 'show ip ospf interface' +++
 show ip ospf interface
 Loopback0 is up, line protocol is up 
   Internet Address 10.1.1.1/32, Interface ID 11, Area 0
@@ -1592,10 +1498,10 @@ GigabitEthernet2 is up, line protocol is up
   Enabled by interface config, including secondary ip addresses
   Transmit Delay is 1 sec, State DR, Priority 1
   Designated Router (ID) 10.1.1.1, Interface address 10.0.1.1
-  Backup Designated router (ID) 10.2.2.2, Interface address 10.0.1.2
+  No backup designated router on this network
   Timer intervals configured, Hello 10, Dead 40, Wait 40, Retransmit 5
     oob-resync timeout 40
-    Hello due in 00:00:00
+    Hello due in 00:00:07
   Supports Link-local Signaling (LLS)
   Cisco NSF helper support enabled
   IETF NSF helper support enabled
@@ -1604,10 +1510,9 @@ GigabitEthernet2 is up, line protocol is up
   Not Protected by per-prefix TI-LFA
   Index 1/3/3, flood queue length 0
   Next 0x0(0)/0x0(0)/0x0(0)
-  Last flood scan length is 3, maximum is 3
+  Last flood scan length is 1, maximum is 1
   Last flood scan time is 0 msec, maximum is 1 msec
-  Neighbor Count is 1, Adjacent neighbor count is 1 
-    Adjacent with neighbor 10.2.2.2  (Backup Designated Router)
+  Neighbor Count is 1, Adjacent neighbor count is 0 
   Suppress hello for 0 neighbor(s)
 GigabitEthernet3 is up, line protocol is up 
   Internet Address 10.0.2.1/24, Interface ID 9, Area 0
@@ -1616,9 +1521,9 @@ GigabitEthernet3 is up, line protocol is up
   Topology-MTID    Cost    Disabled    Shutdown      Topology Name
         0           1         no          no            Base
   Enabled by interface config, including secondary ip addresses
-  Transmit Delay is 1 sec, State DR, Priority 1
-  Designated Router (ID) 10.1.1.1, Interface address 10.0.2.1
-  Backup Designated router (ID) 10.2.2.2, Interface address 10.0.2.2
+  Transmit Delay is 1 sec, State BDR, Priority 1
+  Designated Router (ID) 10.2.2.2, Interface address 10.0.2.2
+  Backup Designated router (ID) 10.1.1.1, Interface address 10.0.2.1
   Timer intervals configured, Hello 10, Dead 40, Wait 40, Retransmit 5
     oob-resync timeout 40
     Hello due in 00:00:06
@@ -1630,55 +1535,53 @@ GigabitEthernet3 is up, line protocol is up
   Not Protected by per-prefix TI-LFA
   Index 1/2/2, flood queue length 0
   Next 0x0(0)/0x0(0)/0x0(0)
-  Last flood scan length is 3, maximum is 3
-  Last flood scan time is 0 msec, maximum is 1 msec
+  Last flood scan length is 1, maximum is 1
+  Last flood scan time is 0 msec, maximum is 0 msec
   Neighbor Count is 1, Adjacent neighbor count is 1 
-    Adjacent with neighbor 10.2.2.2  (Backup Designated Router)
+    Adjacent with neighbor 10.2.2.2  (Designated Router)
   Suppress hello for 0 neighbor(s)
 csr1000v-1#
-[2019-06-08 19:40:10,104] +++ csr1000v-1: executing command 'show running-config | section router ospf 1' +++
+[2019-06-11 08:49:05,544] +++ csr1000v-1: executing command 'show running-config | section router ospf 1' +++
 show running-config | section router ospf 1
 router ospf 1
  router-id 10.1.1.1
 csr1000v-1#
-[2019-06-08 19:40:10,396] +++ csr1000v-1: executing command 'show running-config | section router ospf 1' +++
+[2019-06-11 08:49:05,842] +++ csr1000v-1: executing command 'show running-config | section router ospf 1' +++
 show running-config | section router ospf 1
 router ospf 1
  router-id 10.1.1.1
 csr1000v-1#
-[2019-06-08 19:40:10,617] +++ csr1000v-1: executing command 'show running-config | section router ospf 1' +++
+[2019-06-11 08:49:06,127] +++ csr1000v-1: executing command 'show running-config | section router ospf 1' +++
 show running-config | section router ospf 1
 router ospf 1
  router-id 10.1.1.1
 csr1000v-1#
-[2019-06-08 19:40:10,825] +++ csr1000v-1: executing command 'show ip ospf neighbor detail' +++
+[2019-06-11 08:49:06,363] +++ csr1000v-1: executing command 'show ip ospf neighbor detail' +++
 show ip ospf neighbor detail
  Neighbor 10.2.2.2, interface address 10.0.1.2
     In the area 0 via interface GigabitEthernet2
-    Neighbor priority is 1, State is FULL, 6 state changes
-    DR is 10.0.1.1 BDR is 10.0.1.2
+    Neighbor priority is 1, State is INIT, 7 state changes
+    DR is 0.0.0.0 BDR is 0.0.0.0
     Options is 0x2 in Hello (E-bit)
-    Options is 0x42 in DBD (E-bit, O-bit)
-    Dead timer due in 00:00:35
-    Neighbor is up for 3w2d    
-    Index 1/1/1, retransmission queue length 0, number of retransmission 0
+    Dead timer due in 00:00:06
+    Index 0/0/0, retransmission queue length 0, number of retransmission 0
     First 0x0(0)/0x0(0)/0x0(0) Next 0x0(0)/0x0(0)/0x0(0)
     Last retransmission scan length is 0, maximum is 0
     Last retransmission scan time is 0 msec, maximum is 0 msec
  Neighbor 10.2.2.2, interface address 10.0.2.2
     In the area 0 via interface GigabitEthernet3
-    Neighbor priority is 1, State is FULL, 354 state changes
-    DR is 10.0.2.1 BDR is 10.0.2.2
+    Neighbor priority is 1, State is FULL, 6 state changes
+    DR is 10.0.2.2 BDR is 10.0.2.1
     Options is 0x2 in Hello (E-bit)
     Options is 0x42 in DBD (E-bit, O-bit)
-    Dead timer due in 00:00:34
-    Neighbor is up for 4d22h   
+    Dead timer due in 00:00:35
+    Neighbor is up for 18:25:21
     Index 1/2/2, retransmission queue length 0, number of retransmission 0
     First 0x0(0)/0x0(0)/0x0(0) Next 0x0(0)/0x0(0)/0x0(0)
     Last retransmission scan length is 0, maximum is 0
     Last retransmission scan time is 0 msec, maximum is 0 msec
 csr1000v-1#
-[2019-06-08 19:40:11,077] +++ csr1000v-1: executing command 'show ip ospf interface | section GigabitEthernet2' +++
+[2019-06-11 08:49:06,580] +++ csr1000v-1: executing command 'show ip ospf interface | section GigabitEthernet2' +++
 show ip ospf interface | section GigabitEthernet2
 GigabitEthernet2 is up, line protocol is up 
   Internet Address 10.0.1.1/24, Interface ID 8, Area 0
@@ -1689,10 +1592,10 @@ GigabitEthernet2 is up, line protocol is up
   Enabled by interface config, including secondary ip addresses
   Transmit Delay is 1 sec, State DR, Priority 1
   Designated Router (ID) 10.1.1.1, Interface address 10.0.1.1
-  Backup Designated router (ID) 10.2.2.2, Interface address 10.0.1.2
+  No backup designated router on this network
   Timer intervals configured, Hello 10, Dead 40, Wait 40, Retransmit 5
     oob-resync timeout 40
-    Hello due in 00:00:08
+    Hello due in 00:00:06
   Supports Link-local Signaling (LLS)
   Cisco NSF helper support enabled
   IETF NSF helper support enabled
@@ -1701,18 +1604,17 @@ GigabitEthernet2 is up, line protocol is up
   Not Protected by per-prefix TI-LFA
   Index 1/3/3, flood queue length 0
   Next 0x0(0)/0x0(0)/0x0(0)
-  Last flood scan length is 3, maximum is 3
+  Last flood scan length is 1, maximum is 1
   Last flood scan time is 0 msec, maximum is 1 msec
-  Neighbor Count is 1, Adjacent neighbor count is 1 
-    Adjacent with neighbor 10.2.2.2  (Backup Designated Router)
+  Neighbor Count is 1, Adjacent neighbor count is 0 
   Suppress hello for 0 neighbor(s)
 csr1000v-1#
-[2019-06-08 19:40:11,325] +++ csr1000v-1: executing command 'show running-config | section router ospf 1' +++
+[2019-06-11 08:49:06,742] +++ csr1000v-1: executing command 'show running-config | section router ospf 1' +++
 show running-config | section router ospf 1
 router ospf 1
  router-id 10.1.1.1
 csr1000v-1#
-[2019-06-08 19:40:11,513] +++ csr1000v-1: executing command 'show ip ospf interface | section GigabitEthernet3' +++
+[2019-06-11 08:49:06,899] +++ csr1000v-1: executing command 'show ip ospf interface | section GigabitEthernet3' +++
 show ip ospf interface | section GigabitEthernet3
 GigabitEthernet3 is up, line protocol is up 
   Internet Address 10.0.2.1/24, Interface ID 9, Area 0
@@ -1721,12 +1623,12 @@ GigabitEthernet3 is up, line protocol is up
   Topology-MTID    Cost    Disabled    Shutdown      Topology Name
         0           1         no          no            Base
   Enabled by interface config, including secondary ip addresses
-  Transmit Delay is 1 sec, State DR, Priority 1
-  Designated Router (ID) 10.1.1.1, Interface address 10.0.2.1
-  Backup Designated router (ID) 10.2.2.2, Interface address 10.0.2.2
+  Transmit Delay is 1 sec, State BDR, Priority 1
+  Designated Router (ID) 10.2.2.2, Interface address 10.0.2.2
+  Backup Designated router (ID) 10.1.1.1, Interface address 10.0.2.1
   Timer intervals configured, Hello 10, Dead 40, Wait 40, Retransmit 5
     oob-resync timeout 40
-    Hello due in 00:00:04
+    Hello due in 00:00:05
   Supports Link-local Signaling (LLS)
   Cisco NSF helper support enabled
   IETF NSF helper support enabled
@@ -1735,27 +1637,27 @@ GigabitEthernet3 is up, line protocol is up
   Not Protected by per-prefix TI-LFA
   Index 1/2/2, flood queue length 0
   Next 0x0(0)/0x0(0)/0x0(0)
-  Last flood scan length is 3, maximum is 3
-  Last flood scan time is 0 msec, maximum is 1 msec
+  Last flood scan length is 1, maximum is 1
+  Last flood scan time is 0 msec, maximum is 0 msec
   Neighbor Count is 1, Adjacent neighbor count is 1 
-    Adjacent with neighbor 10.2.2.2  (Backup Designated Router)
+    Adjacent with neighbor 10.2.2.2  (Designated Router)
   Suppress hello for 0 neighbor(s)
 csr1000v-1#
-[2019-06-08 19:40:11,778] +++ csr1000v-1: executing command 'show running-config | section router ospf 1' +++
+[2019-06-11 08:49:07,052] +++ csr1000v-1: executing command 'show running-config | section router ospf 1' +++
 show running-config | section router ospf 1
 router ospf 1
  router-id 10.1.1.1
 csr1000v-1#
-[2019-06-08 19:40:11,962] +++ csr1000v-1: executing command 'show ip ospf sham-links' +++
+[2019-06-11 08:49:07,226] +++ csr1000v-1: executing command 'show ip ospf sham-links' +++
 show ip ospf sham-links
 csr1000v-1#
-[2019-06-08 19:40:12,361] +++ csr1000v-1: executing command 'show running-config' +++
+[2019-06-11 08:49:07,568] +++ csr1000v-1: executing command 'show running-config' +++
 show running-config
 Building configuration...
 
-Current configuration : 4223 bytes
+Current configuration : 4224 bytes
 !
-! Last configuration change at 23:38:27 UTC Sat Jun 8 2019
+! Last configuration change at 15:48:56 UTC Tue Jun 11 2019
 !
 version 16.9
 service config
@@ -1772,7 +1674,7 @@ boot-end-marker
 !
 !
 no logging console
-enable secret 5 $1$z20V$K9DPe81/eyJ3gsyCODIDj1
+enable secret 5 $1$W7.b$MLABIKnJXi9emwTQVd4LF0
 !
 no aaa new-model
 !
@@ -1805,41 +1707,41 @@ multilink bundle-name authenticated
 !
 !
 !
-crypto pki trustpoint TP-self-signed-1308374108
+crypto pki trustpoint TP-self-signed-3272393623
  enrollment selfsigned
- subject-name cn=IOS-Self-Signed-Certificate-1308374108
+ subject-name cn=IOS-Self-Signed-Certificate-3272393623
  revocation-check none
- rsakeypair TP-self-signed-1308374108
+ rsakeypair TP-self-signed-3272393623
 !
 !
-crypto pki certificate chain TP-self-signed-1308374108
+crypto pki certificate chain TP-self-signed-3272393623
  certificate self-signed 01
   30820330 30820218 A0030201 02020101 300D0609 2A864886 F70D0101 05050030 
   31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
-  69666963 6174652D 31333038 33373431 3038301E 170D3139 30353135 31393232 
-  30325A17 0D333030 31303130 30303030 305A3031 312F302D 06035504 03132649 
-  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D31 33303833 
-  37343130 38308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201 
-  0A028201 0100C480 24DD09B1 135EF374 E7CDA33E E3D30023 F79E389F FE31FDCD 
-  E6B9BC62 7C30223B 1D16D06F 878CAADF 74D3A321 FD1F8AFE B1FE5E58 72FB45BE 
-  2DF29703 36FAAD5F 51E1D423 F8A5F27A 77082ED1 5D85A569 6EAEEEBD 5A4FDCED 
-  006F1E5C 70652A75 851BBC10 27338ADB 738E9EA3 961C7735 F142F0F2 70A28A8D 
-  8CE058A8 B57996D4 4B9EE162 D78AD771 6B37D624 EDB49ED8 381973BC C20F3E1C 
-  67085E20 1C467350 90BADB1B 94300C10 E522D148 B03E3F52 261EBD3F AC389BC5 
-  73D08D1C D758F97A 1C856A8B 4D3EDEF0 85C27E39 EC8F1C91 26D6DC6C 0A8951B6 
-  1ED6E82E A29DC0C4 533B11D2 7C35D90C 2DE350D1 86307B0C 71242F12 F4C51890 
-  500C1BF0 0AFD0203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 
-  301F0603 551D2304 18301680 14103E56 6B0D17D6 74EB64A7 E94397CE 7DDD1561 
-  18301D06 03551D0E 04160414 103E566B 0D17D674 EB64A7E9 4397CE7D DD156118 
-  300D0609 2A864886 F70D0101 05050003 82010100 203ADD25 ABAF396F 348A3680 
-  9B4FD1FE 05DE785C 8D999FAE 9D0477B5 03D70878 860CC342 2BBB3378 33800BEE 
-  01460FF9 973E3E32 16F5C030 06969847 8C47503E AAFAF90A 48745921 55D5873F 
-  F90BA4D2 B222AB59 C7539637 36021CEC ACAEB927 66C836CC 2FC748E7 3FFBD40C 
-  CE3BCD0F FEABAC13 18204BD3 4CCD9F2F 49C8A28D 97E7159F 8253B406 AC518F21 
-  E198C3D3 28CA8409 E0CC2299 A9A4F5AA 402F7567 2059C199 9F06B086 4A1AD317 
-  EA0301C0 439F77D2 9731528F 60D074DC 46E35398 157EF8A5 DCB57F84 FD2BC0B0 
-  052AA610 07C218AB 9B6D3DA6 9C3D7C64 55E1728C CA859964 1E63F478 5094758D 
-  6D1C182B 377B1C7B CD69B295 462FC993 AC5D7DDE
+  69666963 6174652D 33323732 33393336 3233301E 170D3139 30363130 32313233 
+  33305A17 0D333030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 32373233 
+  39333632 33308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201 
+  0A028201 0100BFE6 61D7F1DC E7080094 56936403 D305EF63 4AA1F7A2 05D675B4 
+  874F51B6 1F3012B5 0550C540 5A7024A5 06DD3934 B267FD09 72DD0C57 A14D9DE3 
+  C283C241 BFF96F59 C47C5D1B F115CFCB E93269EC 34EAE832 CB118431 CC439A06 
+  5603F56C 13CDB0C0 2137D38A 4A14A59E A7627DD9 7249D5F1 C4A49D44 BF2F70A6 
+  7D354CAB 1FC7035C BD338FC6 130211DF 38704AF5 21B345A4 A98B35C6 F166AAE3 
+  E9D573D1 1F1041AE 1DAC9B6B AA2E0218 FC5BD4B0 0ACD3816 BD401C96 0999C80C 
+  995E50B3 5EFE7065 B5D2EF30 AC06A7D7 2B2C14D7 8A03C7DA B49A8FF9 28F2BE98 
+  7FE0C220 D4EEFC30 C3216B75 E68E26E7 328DE0E7 D25103B4 91007366 E3594D56 
+  6ADD25E9 9DE70203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 
+  301F0603 551D2304 18301680 1441D1B5 780EB45F AF76543A 97D8A717 9619C78C 
+  AC301D06 03551D0E 04160414 41D1B578 0EB45FAF 76543A97 D8A71796 19C78CAC 
+  300D0609 2A864886 F70D0101 05050003 82010100 2549EE58 A1602B23 A263D40C 
+  9C0834B9 08ABAA48 E11F85F5 C5877A11 D45E265D FDF80DBB 2B7DB3E0 C8B00654 
+  34132443 86F4BF3F 9E3A4608 FAF5FECF 9C5D7EA2 BE342B5A 0B642D13 DC08ABA8 
+  52332F86 3D7CAC3A 9F74EC9B 9F100FFF B3F0907F 89FC3728 27CE0CCF 1CC276C4 
+  701AAFA7 4FC48F4E D1670412 18B42782 988D69B3 1CA48D1F 971E23D7 F0186309 
+  131C65BC 96F63F4C AE320420 4395A601 06F715A2 F023D87A E918EF86 3E012D6B 
+  71D7B2CF 0B85E779 41E81848 C11C1343 6E22AF1B 8A76D608 4D87E2EA 953AF5E9 
+  A2384B81 D3FA0BCC 54B80368 0F64896E 4F604F54 A06A81CC F760C18D A67D4226 
+  99949ED1 2210D8C0 EF91DE66 64171B86 20A5EF60
   	quit
 !
 !
@@ -1849,7 +1751,7 @@ crypto pki certificate chain TP-self-signed-1308374108
 !
 !
 !
-license udi pid CSR1000V sn 9PKLPWLJBUH
+license udi pid CSR1000V sn 9KPK2087UV2
 no license smart enable
 diagnostic bootup level minimal
 !
@@ -1857,7 +1759,7 @@ spanning-tree extend system-id
 !
 !
 !
-username cisco privilege 15 secret 5 $1$X1Ro$v9gBz2yrIDe3v6TDIsGk9/
+username cisco privilege 15 secret 5 $1$o28j$hB2NlQiG5DUdJd6DOzA4u1
 !
 redundancy
 !
@@ -1965,21 +1867,21 @@ line vty 2 4
 end
 
 csr1000v-1#</msg>
-<status starttime="20190608 19:40:01.889" status="PASS" endtime="20190608 19:40:13.046"></status>
+<status status="PASS" endtime="20190611 08:49:08.170" starttime="20190611 08:48:57.792"></status>
 </kw>
-<status starttime="20190608 19:40:01.888" status="PASS" critical="yes" endtime="20190608 19:40:13.046"></status>
+<status status="PASS" critical="yes" endtime="20190611 08:49:08.171" starttime="20190611 08:48:57.791"></status>
 </test>
-<status starttime="20190608 19:39:51.288" status="PASS" endtime="20190608 19:40:13.046"></status>
+<status status="PASS" endtime="20190611 08:49:08.172" starttime="20190611 08:48:40.914"></status>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="0">Critical Tests</stat>
-<stat pass="2" fail="0">All Tests</stat>
+<stat fail="0" pass="2">Critical Tests</stat>
+<stat fail="0" pass="2">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Snapshots" id="s1" pass="2" fail="0">Snapshots</stat>
+<stat id="s1" fail="0" name="Snapshots" pass="2">Snapshots</stat>
 </suite>
 </statistics>
 <errors>
