@@ -1,4 +1,7 @@
 # Telnet example
+
+
+
 robot -d telnet telnet.robot
 
 # Verify_telnet

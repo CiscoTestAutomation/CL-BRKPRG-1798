@@ -1,4 +1,3 @@
-
 # Hello example
 robot -d hello hello.robot
 
