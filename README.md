@@ -1,7 +1,7 @@
 # Cisco Live! BRKPRG-1798: Everybody Can Automate Now 
 
 This repository contains the files shown during 
-[Cisco Live US 2019](https://www.ciscolive.com/us.html?zid=cl-global) breakout session
+[Cisco Live US 2012](https://www.ciscolive.com/us.html?zid=cl-global) breakout session
 **BRKPRG-1798: Everybody Can Automate Now**
 
 ## General Information
@@ -11,6 +11,7 @@ This repository contains the files shown during
 - Genie Documentation: https://pubhub.devnetcloud.com/media/pyats-packages/docs/genie/index.html
   - Genie CLI: https://pubhub.devnetcloud.com/media/pyats-packages/docs/genie/cli/index.html
   - Parsers, Models: https://pubhub.devnetcloud.com/media/pyats-packages/docs/genie/genie_libs/index.html
+  - Blitz: https://pubhub.devnetcloud.com/media/pyats-development-guide/docs/writeblitz/writeblitz.html
 - pyATS Documentation: https://developer.cisco.com/docs/pyats/
 - RobotFramework standard libraries: http://robotframework.org/robotframework/
 - Support Email: pyats-support-ext@cisco.com
@@ -18,9 +19,8 @@ This repository contains the files shown during
 ## Requirements
 
 - Mac OSX, Linux or Windows 10 [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
-- Python 3.5, 3.6 or 3.7
+- Python 3.5, 3.6, 3.7, 3.8
 - Network connectivity (for downloading PyPI packages)
-- Working knowledge of Python
 
 ## Preparation
 
@@ -30,7 +30,7 @@ In a new terminal window:
 
 ```bash
 # go to your workspace directory
-# (or where you typicall work from)
+# (or where you typicaly work from)
 cd ~/workspace
 
 # create python virtual environment
@@ -44,18 +44,12 @@ source bin/activate
 pip install --upgrade pip setuptools
 ```
 
-**Step 2: Install pyATS, Genie, Robot**
+**Step 2: Install pyATS, Genie**
 
 ```bash
-# install our packages 
-pip install pyats genie pyats.robot genie.libs.robot
+# install pyATS
+pip install pyats[full]
 ```
-
-> Note:
->
-> Technically you do not have to install pyats separately as shown above - 
-> Genie builds on top of pyATS, and as such, automatically installs it as a
-> dependency. The above is only shown for explicit clarity.
 
 **Step 3: Clone This Repository**
 
@@ -68,3 +62,5 @@ cd class
 ```
 
 and now you should be ready to get going!
+
+**Head to the >[Main Workshop](workshop.md)< to start!**
