@@ -14,13 +14,13 @@ Configure:
             - configure:
                 device: R3_nx
                 command: |
-                  interface Ethernet2/3
+                  interface Ethernet1/56
                   ip address 5.5.5.5 255.255.255.0
                   no shutdown
             - configure:
-                device: csr1000v-1
+                device: R1_xe
                 command: |
-                  interface Gigabit5
+                  interface loopback3
                   ip address 5.5.5.6 255.255.255.0
                   no shutdown
 
@@ -30,11 +30,11 @@ Configure:
                 device: R3_nx
                 command: show interface
                 include:
-                  - contains('Ethernet2/3').contains('5.5.5.5/24')
-                  - contains('Ethernet2/3').contains_key_value('admin_state', 'up')
+                  - contains('Ethernet1/56').contains('5.5.5.5/24')
+                  - contains('Ethernet1/56').contains_key_value('admin_state', 'up')
             - parse:
-                device: csr1000v-1
+                device: R1_xe
                 command: show interfaces
                 include:
-                  - contains('Gigabit5').contains('5.5.5.6/24')
-                  - contains('Gigabit5').contains_key_value('admin_state', 'up')
+                  - contains('Loopback3').contains('5.5.5.6/24')
+                  - contains('Loopback3').contains_key_value('oper_status', 'up')
