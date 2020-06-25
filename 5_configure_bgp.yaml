@@ -1,0 +1,187 @@
+# Name of the testcase
+Configure:
+    # Location of the blitz trigger
+    source:
+      pkg: genie.libs.sdk
+      class: triggers.blitz.blitz.Blitz
+
+    # Field containing all the Testcase sections
+    test_sections:
+        - snapshot_pre_configuration:
+            - parallel:
+                - learn:
+                    device: R3_nx
+                    feature: bgp
+                    save:
+                      - variable_name: pre_snapshot_nxos
+                - learn:
+                    device: R1_xe
+                    feature: bgp
+                    save:
+                      - variable_name: pre_snapshot_xe
+                - learn:
+                    device: R2_xr
+                    feature: bgp
+                    save:
+                      - variable_name: pre_snapshot_xr
+
+        # Section name
+        - configure_bgp_neighbors:
+            # List of actions
+            - parallel:
+              - configure:
+                  device: R3_nx
+                  command: |
+                      interface Loopback172
+                       ip address 172.16.3.3 255.255.255.255
+                       ip router ospf 1 area 0.0.0.0
+                      !
+                      router bgp 65000
+                       neighbor 172.16.1.1
+                        remote-as 65000
+                        update-source Loopback172
+                        address-family ipv4 unicast
+                       neighbor 172.16.2.2
+                        remote-as 65000
+                        update-source Loopback172
+                        address-family ipv4 unicast
+
+              - configure:
+                  device: R1_xe
+                  command: |
+                      interface Loopback172
+                       ip address 172.16.1.1 255.255.255.255
+                       ip ospf 1 area 0
+                      !
+                      router bgp 65000
+                       neighbor 172.16.2.2 remote-as 65000
+                       neighbor 172.16.2.2 update-source Loopback172
+                       neighbor 172.16.3.3 remote-as 65000
+                       neighbor 172.16.3.3 update-source Loopback172
+                       !
+                       address-family ipv4
+                        neighbor 172.16.2.2 activate
+                        neighbor 172.16.3.3 activate
+              - configure:
+                  device: R2_xr
+                  command: |
+                      interface Loopback172
+                       ipv4 address 172.16.2.2/32
+                      !
+                      router ospf 1
+                       area 0
+                        interface Loopback172
+                      !
+                      router bgp 65000
+                       neighbor 172.16.1.1
+                        remote-as 65000
+                        update-source Loopback172
+                        address-family ipv4 unicast
+                       !
+                       neighbor 172.16.3.3
+                        remote-as 65000
+                        update-source Loopback172
+                        address-family ipv4 unicast
+                       ! 
+            - sleep:
+                sleep_time: 10
+
+        - verify_bgp_configuration:
+            # List of actions
+            - parallel:
+                - learn:
+                    device: R3_nx
+                    feature: bgp
+                    include:
+                      - contains_key_value('neighbor', '172.16.1.1').contains_key_value('session_state', 'established').contains('default')
+                      - contains_key_value('neighbor', '172.16.2.2').contains_key_value('session_state', 'established').contains('default')
+                - learn:
+                    device: R1_xe
+                    feature: bgp
+                    include:
+                      - contains_key_value('neighbor', '172.16.2.2').contains_key_value('session_state', 'Established').contains('default')
+                      - contains_key_value('neighbor', '172.16.3.3').contains_key_value('session_state', 'Established').contains('default')
+                - learn:
+                    device: R2_xr
+                    feature: bgp
+                    include:
+                      - contains_key_value('neighbor', '172.16.1.1').contains_key_value('session_state', 'established').contains('default')
+                      - contains_key_value('neighbor', '172.16.3.3').contains_key_value('session_state', 'established').contains('default')
+
+        - snapshot_post_configuration:
+            # List of actions
+            - learn:
+                device: R3_nx
+                feature: bgp
+                save:
+                  - variable_name: post_snapshot_nxos
+            - learn:
+                device: R1_xe
+                feature: bgp
+                save:
+                  - variable_name: post_snapshot_xe
+            - learn:
+                device: R2_xr
+                feature: bgp
+                save:
+                  - variable_name: post_snapshot_xr
+
+        - diff_snapshots:
+            # List of actions
+            - diff:
+                pre: "%VARIABLES{pre_snapshot_nxos}"
+                post: "%VARIABLES{post_snapshot_nxos}"
+                device: R3_nx
+                command: bgp
+            - diff:
+                pre: "%VARIABLES{pre_snapshot_xe}"
+                post: "%VARIABLES{post_snapshot_xe}"
+                device: R1_xe
+                command: bgp
+            - diff:
+                pre: "%VARIABLES{pre_snapshot_xr}"
+                post: "%VARIABLES{post_snapshot_xr}"
+                device: R2_xr
+                command: bgp
+
+Unconfigure:
+    # Location of the blitz trigger
+    source:
+      pkg: genie.libs.sdk
+      class: triggers.blitz.blitz.Blitz
+
+    # Field containing all the Testcase sections
+    test_sections:
+
+        # Section name
+        - configure_interface:
+            # List of actions
+            - parallel:
+                - configure:
+                    device: R3_nx
+                    command: |
+                        no interface Loopback172
+                        !
+                        router bgp 65000
+                        no neighbor 172.16.1.1
+                        no neighbor 172.16.2.2
+
+                - configure:
+                    device: R1_xe
+                    command: |
+                        no interface Loopback172
+                        router bgp 65000
+                         no neighbor 172.16.2.2
+                         no neighbor 172.16.3.3
+                - configure:
+                    device: R2_xr
+                    command: |
+                        no interface Loopback172
+                        !
+                        router ospf 1
+                         area 0
+                           no interface Loopback172
+                           !
+                           router bgp 65000
+                            no neighbor 172.16.1.1
+                             no neighbor 172.16.3.3
