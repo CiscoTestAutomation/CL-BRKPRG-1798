@@ -4,10 +4,10 @@
 
 Improvement of the previous example
 
-1) The Blitz datafile create 1 testcase which has 2 section with each 1 execute action.
+1) The Blitz datafile create 1 testcase which has 2 sections with each 1 execute action.
 2) Verify 10.1.1.1, remote AS 65000 and Established is in the output
-3) Verify 10.3.3.3 is not in the output
-4) Verify with Parser similar information
+3) Verify 10.9.9.3 is not in the output
+4) Verify with Parser similar information by Dq or pure keywords
 
 ## Real life scenario
 
@@ -22,4 +22,4 @@ Improvement of the previous example
 
 ## How to execute it
 
-pyats run genie --trigger-datafile 2_blitz_parser.yaml --trigger-uids Parser --testbed-file testbed_light.yaml --liveview --liveview-keepalive
+pyats run genie --trigger-datafile 2_blitz_parser.yaml --trigger-uids Parser --testbed-file ../testbed.yaml --liveview --liveview-keepalive

@@ -4,7 +4,7 @@
 
 Configure your device and verify the configuration has been done correctly
 
-1) The Blitz datafile create 1 testcase which has 2 section with each 2 execute action.
+1) The Blitz datafile create 1 testcase which has 2 sections with each 2 execute actions.
 2) Configure 1 interface on each device in parallel
 3) Verify the configuration has been done as expected in parallel
 
@@ -17,7 +17,7 @@ How do we verify our configuration is operation has expected?
 
 Ping? show run?
 
-Using this techique we can verify if it is behaving exactly as expected. 
+Using this technique we can verify if it is behaving exactly as expected. 
 
 ## Future possibilites
 
@@ -25,4 +25,4 @@ Using this techique we can verify if it is behaving exactly as expected.
 
 ## How to execute it
 
-pyats run genie --trigger-datafile 3_configure.yaml --trigger-uids Configure --testbed-file testbed_light.yaml --liveview --liveview-keepalive
+pyats run genie --trigger-datafile 3_configure.yaml --trigger-uids Configure --testbed-file ../testbed.yaml --liveview --liveview-keepalive
