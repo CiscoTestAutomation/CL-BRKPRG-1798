@@ -63,4 +63,6 @@ cd class
 
 and now you should be ready to get going!
 
+All the scripts with their own README are within the directory workshop.
+
 **Head to the >[Main Workshop](workshop.md)< to start!**
