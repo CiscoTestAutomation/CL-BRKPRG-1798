@@ -1,5 +1,5 @@
 # Name of the testcase
-Basic:
+Parser:
     # Location of the blitz trigger
     source:
       pkg: genie.libs.sdk
@@ -20,7 +20,7 @@ Basic:
                   - "remote AS 65000"
                   - "Established"
                 exclude:
-                  - "10.3.3.3"
+                  - "10.9.9.3"
 
         # The above section verify within the script if 
         # these value exists - but irrelevant of the position in the text
@@ -38,4 +38,4 @@ Basic:
                   - contains('10.1.1.1').contains_key_value('remote_as', 65000)
                   - contains('10.1.1.1').contains_key_value('session_state', 'established')
                 exclude:
-                  - contains('10.3.3.3')
+                  - contains('10.9.9.3')

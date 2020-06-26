@@ -1,0 +1,64 @@
+devices:
+  R1_xe:
+    connections:
+      cli:
+        ip: 172.16.1.159
+        protocol: ssh
+        proxy: jump_host
+    credentials:
+      default:
+        password: Cisc0123
+        username: admin
+      enable:
+        password: Cisc0123
+    os: iosxe
+    platform: iosxe
+    type: CSR1000v
+  R2_xr:
+    connections:
+      cli:
+        ip: 172.16.1.160
+        protocol: ssh
+        proxy: jump_host
+    credentials:
+      default:
+        password: admin
+        username: admin
+      enable:
+        password: admin
+    os: iosxr
+    platform: iosxrv9k
+    type: IOS XRv 9000
+  R3_nx:
+    alias: uut
+    connections:
+      cli:
+        ip: 172.16.1.161
+        protocol: ssh
+        proxy: jump_host
+    credentials:
+      default:
+        password: Cisc0123
+        username: admin
+      enable:
+        password: Cisc0123
+    custom:
+      abstraction:
+        order:
+        - os
+        - platform
+    os: nxos
+    platform: n9kv
+    type: NX-OSv 9000
+  jump_host:
+    connections:
+      cli:
+        ip: 172.25.192.90
+        port: 22
+        protocol: ssh
+    credentials:
+      default:
+        password: VIRL
+        username: virl
+    os: linux
+    type: linux
