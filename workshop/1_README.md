@@ -22,4 +22,4 @@ Just send a show command to the device, thats it.
 
 ## How to execute it
 
-pyats run genie --trigger-datafile 1_blitz_basic.yaml --trigger-uids Basic --testbed-file testbed.yaml --liveview --liveview-keepalive
+pyats run genie --trigger-datafile 1_blitz_basic.yaml --trigger-uids Basic --testbed-file ../testbed.yaml --liveview --liveview-keepalive
