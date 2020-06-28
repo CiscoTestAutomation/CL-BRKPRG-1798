@@ -1,7 +1,7 @@
 # Cisco Live! BRKPRG-1798: Everybody Can Automate Now 
 
 This repository contains the files shown during 
-[Cisco Live US 2012](https://www.ciscolive.com/us.html?zid=cl-global) breakout session
+[Cisco Live US 2020](https://www.ciscolive.com/us.html?zid=cl-global) breakout session
 **BRKPRG-1798: Everybody Can Automate Now**
 
 ## General Information
