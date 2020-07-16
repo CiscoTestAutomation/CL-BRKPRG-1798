@@ -58,7 +58,7 @@ pip install pyats[full]
 git clone https://github.com/CiscoTestAutomation/CL-BRKPRG-1798 class
 
 # cd to the directory
-cd class
+cd workshop
 ```
 
 and now you should be ready to get going!
