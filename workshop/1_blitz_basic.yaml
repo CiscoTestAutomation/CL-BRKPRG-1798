@@ -1,0 +1,17 @@
+# Name of the testcase
+Basic:
+    # Location of the blitz trigger
+    source:
+      pkg: genie.libs.sdk
+      class: triggers.blitz.blitz.Blitz
+
+    # Field containing all the Testcase sections
+    test_sections:
+
+        # Section name
+        - send_bgp_neighbor:
+            # List of actions
+            - execute:
+                device: R3_nx
+                command: |
+                  show bgp vrf all all neighbor

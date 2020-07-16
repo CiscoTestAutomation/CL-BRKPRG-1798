@@ -1,0 +1,1937 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<topology xmlns="http://www.cisco.com/VIRL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" schemaVersion="0.95" xsi:schemaLocation="http://www.cisco.com/VIRL https://raw.github.com/CiscoVIRL/schema/v0.95/virl.xsd">
+    <extensions>
+        <entry key="management_network" type="String">flat</entry>
+    </extensions>
+    <node name="R1_xe" type="SIMPLE" subtype="CSR1000v" location="208,254" vmImage="CSR1000v [c0a1a876-223e-4b24-b567-243e8f46693f]">
+        <extensions>
+            <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
+            <entry key="config" type="String">!
+! Last configuration change at 16:28:25 UTC Thu Jun 25 2020 by admin
+!
+version 16.9
+service config
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service call-home
+platform qfp utilization monitor load 80
+no platform punt-keepalive disable-kernel-core
+platform console serial
+!
+hostname R1_xe
+!
+boot-start-marker
+boot-end-marker
+!
+!
+vrf definition Mgmt-intf
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+vrf definition VRF1
+ rd 65000:1
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+no logging console
+enable secret 5 $1$niJp$c2FYNIRJWjjpFQ5YDf2Dn1
+!
+aaa new-model
+!
+!
+aaa authentication login default local
+aaa authorization exec default local 
+!
+!
+!
+!
+!
+aaa session-id common
+call-home
+ ! If contact email address in call-home is configured as sch-smart-licensing@cisco.com
+ ! the email address configured in Cisco Smart License Portal will be used as contact email address to send SCH notifications.
+ contact-email-addr sch-smart-licensing@cisco.com
+ profile "CiscoTAC-1"
+  active
+  destination transport-method http
+  no destination transport-method email
+!
+!
+!
+!
+!
+!
+!
+ip domain name cisco.com
+ip admission watch-list expiry-time 0
+ip multicast-routing distributed
+ip multicast-routing vrf VRF1 distributed
+!
+!
+!
+login on-success log
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+! 
+! 
+! 
+! 
+!
+ipv6 unicast-routing
+ipv6 rip vrf-mode enable
+ipv6 multicast-routing
+ipv6 multicast-routing vrf VRF1
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-2632774916
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-2632774916
+ revocation-check none
+ rsakeypair TP-self-signed-2632774916
+!
+crypto pki trustpoint SLA-TrustPoint
+ enrollment pkcs12
+ revocation-check crl
+!
+crypto pki trustpoint trustpoint1
+ enrollment pkcs12
+ revocation-check none
+ rsakeypair trustpoint1
+!
+!
+crypto pki certificate chain TP-self-signed-2632774916
+ certificate self-signed 01 nvram:IOS-Self-Sig#1.cer
+crypto pki certificate chain SLA-TrustPoint
+ certificate ca 01 nvram:CiscoLicensi#1CA.cer
+crypto pki certificate chain trustpoint1
+ certificate 00E3D12FCC195EF9AD nvram:rootCA#F9AD.cer
+!
+!
+!
+!
+!
+!
+!
+!
+license udi pid CSR1000V sn 9G46XR6GKCF
+no license smart enable
+diagnostic bootup level minimal
+!
+spanning-tree extend system-id
+memory free low-watermark processor 71873
+!
+netconf-yang
+!
+restconf
+!
+mac access-list extended mac_acl
+ permit host 0000.0000.0000 host 0000.0000.0000
+ deny   host 0000.0000.0000 host 0000.0000.0000 msdos
+ deny   host 0000.0000.0000 host 0000.0000.0000 vlan 10
+ permit host aaaa.aaaa.aaaa host bbbb.bbbb.bbbb aarp
+!
+username cisco privilege 15 secret 5 $1$Hz0J$NUA/huZ5d7Hb0hUtaNzvS.
+username admin privilege 15 password 0 Cisc0123
+!
+redundancy
+!
+!
+!
+!
+!
+!
+lldp run
+cdp run
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+! 
+! 
+!
+!
+interface Loopback0
+ ip address 10.1.1.1 255.255.255.255
+ ip pim sparse-mode
+ ip ospf 1 area 0
+ ipv6 address 2001:DB8:1:1::1/128
+ ipv6 rip ripng enable
+ ipv6 ospf 1 area 0
+!
+interface Loopback300
+ vrf forwarding VRF1
+ ip address 10.1.1.1 255.255.255.255
+ ip pim sparse-mode
+ ip ospf 2 area 0
+ ipv6 address 2001:DB8:1:1::1/128
+ ipv6 rip ripng enable
+!
+interface Port-channel12
+ no ip address
+ no negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface Port-channel13
+ no ip address
+ no negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet1
+ vrf forwarding Mgmt-intf
+ ip address dhcp
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet2
+ no ip address
+ negotiation auto
+ cdp enable
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet2.90
+ encapsulation dot1Q 90
+ ip address 10.12.90.1 255.255.255.0
+ ipv6 address 2001:DB8:12:90::1/64
+!
+interface GigabitEthernet2.110
+ encapsulation dot1Q 110
+ ip address 10.12.110.1 255.255.255.0
+ ip pim sparse-mode
+ ip ospf 1 area 0
+ ipv6 address 2001:DB8:12:110::1/64
+ mpls ip
+ ipv6 ospf 1 area 0
+!
+interface GigabitEthernet2.115
+ encapsulation dot1Q 115
+ ip address 10.12.115.1 255.255.255.0
+ ip router isis test
+ ip igmp join-group 239.1.1.2
+ ip igmp join-group 239.1.1.1
+ ip igmp static-group 239.1.1.4
+ ip igmp static-group 239.1.1.3
+ ipv6 address 2001:DB8:12:115::1/64
+ ipv6 mld join-group FF1E:ABCD:DEF1:1111::1
+ ipv6 mld join-group FF1E:ABCD:DEF1:1111::2
+ ipv6 mld static-group FF1E:ABCD:DEF1:1111::3
+ ipv6 mld static-group FF1E:ABCD:DEF1:1111::4
+ ipv6 router isis test
+!
+interface GigabitEthernet2.120
+ encapsulation dot1Q 120
+ ip address 10.12.120.1 255.255.255.0
+ ipv6 address 2001:DB8:12:120::1/64
+ ipv6 rip ripng enable
+!
+interface GigabitEthernet2.390
+ encapsulation dot1Q 390
+ vrf forwarding VRF1
+ ip address 10.12.90.1 255.255.255.0
+ ipv6 address 2001:DB8:12:90::1/64
+!
+interface GigabitEthernet2.410
+ encapsulation dot1Q 410
+ vrf forwarding VRF1
+ ip address 10.12.110.1 255.255.255.0
+ ip pim sparse-mode
+ ip ospf 2 area 0
+ ipv6 address 2001:DB8:12:110::1/64
+ ipv6 enable
+ mpls ip
+!
+interface GigabitEthernet2.415
+ encapsulation dot1Q 415
+ vrf forwarding VRF1
+ ip address 10.12.115.1 255.255.255.0
+ ip router isis test1
+ ip igmp join-group 239.1.1.2
+ ip igmp join-group 239.1.1.1
+ ip igmp static-group 239.1.1.4
+ ip igmp static-group 239.1.1.3
+ ipv6 address 2001:DB8:12:115::1/64
+ ipv6 mld join-group FF1E:ABCD:DEF1:1111::1
+ ipv6 mld join-group FF1E:ABCD:DEF1:1111::2
+ ipv6 mld static-group FF1E:ABCD:DEF1:1111::3
+ ipv6 mld static-group FF1E:ABCD:DEF1:1111::4
+ ipv6 router isis test1
+!
+interface GigabitEthernet2.420
+ encapsulation dot1Q 420
+ vrf forwarding VRF1
+ ip address 10.12.120.1 255.255.255.0
+ ipv6 address 2001:DB8:12:120::1/64
+ ipv6 rip ripng enable
+!
+interface GigabitEthernet3
+ no ip address
+ negotiation auto
+ cdp enable
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet3.90
+ encapsulation dot1Q 90
+ ip address 10.13.90.1 255.255.255.0
+ ipv6 address 2001:DB8:13:90::1/64
+!
+interface GigabitEthernet3.110
+ encapsulation dot1Q 110
+ ip address 10.13.110.1 255.255.255.0
+ ip pim sparse-mode
+ ip ospf 1 area 0
+ ipv6 address 2001:DB8:13:110::1/64
+ mpls ip
+ ipv6 ospf 1 area 0
+!
+interface GigabitEthernet3.115
+ encapsulation dot1Q 115
+ ip address 10.13.115.1 255.255.255.0
+ ip router isis test
+ ipv6 address 2001:DB8:13:115::1/64
+ ipv6 router isis test
+!
+interface GigabitEthernet3.120
+ encapsulation dot1Q 120
+ ip address 10.13.120.1 255.255.255.0
+ ipv6 address 2001:DB8:13:120::1/64
+ ipv6 rip ripng enable
+!
+interface GigabitEthernet3.390
+ encapsulation dot1Q 390
+ vrf forwarding VRF1
+ ip address 10.13.90.1 255.255.255.0
+ ipv6 address 2001:DB8:13:90::1/64
+!
+interface GigabitEthernet3.410
+ encapsulation dot1Q 410
+ vrf forwarding VRF1
+ ip address 10.13.110.1 255.255.255.0
+ ip pim sparse-mode
+ ip ospf 2 area 0
+ ipv6 address 2001:DB8:13:110::1/64
+ mpls ip
+!
+interface GigabitEthernet3.415
+ encapsulation dot1Q 415
+ vrf forwarding VRF1
+ ip address 10.13.115.1 255.255.255.0
+ ip router isis test1
+ ipv6 address 2001:DB8:13:115::1/64
+ ipv6 router isis test1
+!
+interface GigabitEthernet3.420
+ encapsulation dot1Q 420
+ vrf forwarding VRF1
+ ip address 10.13.120.1 255.255.255.0
+ ipv6 address 2001:DB8:13:120::1/64
+ ipv6 rip ripng enable
+!
+interface GigabitEthernet4
+ no ip address
+ negotiation auto
+ cdp enable
+ no mop enabled
+ no mop sysid
+ channel-group 12 mode active
+!
+interface GigabitEthernet5
+ no ip address
+ negotiation auto
+ cdp enable
+ no mop enabled
+ no mop sysid
+ channel-group 12 mode active
+!
+interface GigabitEthernet6
+ no ip address
+ negotiation auto
+ cdp enable
+ no mop enabled
+ no mop sysid
+ channel-group 13 mode active
+!
+interface GigabitEthernet7
+ no ip address
+ negotiation auto
+ cdp enable
+ no mop enabled
+ no mop sysid
+ channel-group 13 mode active
+!
+!
+router eigrp test
+ !
+ address-family ipv4 unicast autonomous-system 100
+  !
+  topology base
+  exit-af-topology
+  network 10.1.1.1 0.0.0.0
+  network 10.12.90.0 0.0.0.255
+  network 10.13.90.0 0.0.0.255
+ exit-address-family
+ !
+ address-family ipv4 unicast vrf VRF1 autonomous-system 100
+  !
+  topology base
+  exit-af-topology
+  network 10.1.1.1 0.0.0.0
+  network 10.12.90.0 0.0.0.255
+  network 10.13.90.0 0.0.0.255
+ exit-address-family
+ !
+ address-family ipv6 unicast autonomous-system 100
+  !
+  topology base
+  exit-af-topology
+ exit-address-family
+!
+!
+router eigrp tet
+ !
+ address-family ipv6 unicast vrf VRF1 autonomous-system 100
+  !
+  topology base
+  exit-af-topology
+ exit-address-family
+!
+router ospfv3 1
+ !
+ address-family ipv6 unicast
+ exit-address-family
+!
+router ospf 2 vrf VRF1
+ router-id 10.11.11.11
+!
+router ospf 1
+ router-id 10.1.1.1
+!
+router isis test
+ net 49.0001.1111.1111.1111.00
+ metric-style wide
+ !
+ address-family ipv6
+  multi-topology
+ exit-address-family
+!
+router isis test1
+ vrf VRF1
+ net 49.0001.1111.1111.1111.00
+ metric-style wide
+ !
+ address-family ipv6
+  multi-topology
+ exit-address-family
+!
+router rip
+ version 2
+ network 1.0.0.0
+ network 10.0.0.0
+ !
+ address-family ipv4 vrf VRF1
+  network 1.0.0.0
+  network 10.0.0.0
+  no auto-summary
+ exit-address-family
+!
+router bgp 65000
+ bgp router-id 10.1.1.1
+ bgp log-neighbor-changes
+ no bgp default ipv4-unicast
+ neighbor 10.2.2.2 remote-as 65000
+ neighbor 10.2.2.2 update-source Loopback0
+ neighbor 10.3.3.3 remote-as 65000
+ neighbor 10.3.3.3 update-source Loopback0
+ neighbor 2001:DB8:2:2::2 remote-as 65000
+ neighbor 2001:DB8:2:2::2 update-source Loopback0
+ neighbor 2001:DB8:3:3::3 remote-as 65000
+ neighbor 2001:DB8:3:3::3 update-source Loopback0
+ !
+ address-family ipv4
+  network 10.1.1.1 mask 255.255.255.255
+  neighbor 10.2.2.2 activate
+  neighbor 10.3.3.3 activate
+ exit-address-family
+ !
+ address-family ipv6
+  network 2001:DB8:1:1::1/128
+  neighbor 2001:DB8:2:2::2 activate
+  neighbor 2001:DB8:3:3::3 activate
+ exit-address-family
+ !
+ address-family ipv4 vrf VRF1
+  network 10.1.1.1 mask 255.255.255.255
+  neighbor 10.2.2.2 remote-as 65000
+  neighbor 10.2.2.2 update-source Loopback300
+  neighbor 10.2.2.2 activate
+  neighbor 10.3.3.3 remote-as 65000
+  neighbor 10.3.3.3 update-source Loopback300
+  neighbor 10.3.3.3 activate
+ exit-address-family
+ !
+ address-family ipv6 vrf VRF1
+  network 2001:DB8:1:1::1/128
+  neighbor 2001:DB8:2:2::2 remote-as 65000
+  neighbor 2001:DB8:2:2::2 update-source Loopback300
+  neighbor 2001:DB8:2:2::2 activate
+  neighbor 2001:DB8:3:3::3 remote-as 65000
+  neighbor 2001:DB8:3:3::3 update-source Loopback300
+  neighbor 2001:DB8:3:3::3 activate
+ exit-address-family
+!
+ip forward-protocol nd
+ip http server
+ip http authentication local
+ip http secure-server
+ip http client source-interface GigabitEthernet1
+ip pim rp-address 10.2.2.2
+ip pim send-rp-announce Loopback0 scope 32
+ip pim send-rp-discovery Loopback0 scope 32
+ip pim bsr-candidate Loopback0 0
+ip pim rp-candidate Loopback0
+ip pim vrf VRF1 rp-address 10.2.2.2
+ip pim vrf VRF1 send-rp-announce Loopback300 scope 32
+ip pim vrf VRF1 send-rp-discovery Loopback300 scope 32
+ip pim vrf VRF1 bsr-candidate Loopback300 0
+ip pim vrf VRF1 rp-candidate Loopback300
+ip msdp peer 10.2.2.2 connect-source Loopback0
+ip msdp peer 10.3.3.3 connect-source Loopback0
+ip msdp cache-sa-state
+ip msdp vrf VRF1 peer 10.2.2.2 connect-source Loopback300
+ip msdp vrf VRF1 peer 10.3.3.3 connect-source Loopback300
+ip msdp vrf VRF1 cache-sa-state
+!
+ip ssh version 2
+!
+!
+ip prefix-list test seq 5 permit 35.0.0.0/8
+ip prefix-list test seq 10 permit 35.0.0.0/8 le 16
+ip prefix-list test seq 15 permit 36.0.0.0/8 le 16
+ip prefix-list test seq 20 permit 37.0.0.0/8 ge 24
+ip prefix-list test seq 25 permit 38.0.0.0/8 ge 16 le 24
+!
+ip access-list extended acl_name
+ permit ip any any
+ip access-list extended ipv4_acl
+ permit tcp any any eq www
+ permit tcp any any eq 22
+ permit tcp any any eq 443
+ip access-list extended ipv4_ext
+ip access-list extended test22
+ permit tcp 192.168.1.0 0.0.0.255 host 10.1.1.1 established log
+ permit tcp host 10.2.2.2 eq www telnet 443 any precedence network ttl eq 255
+ deny   ip any any
+ip sla 1
+ udp-echo 239.1.1.1 65000
+ frequency 10
+ip sla schedule 1 life forever start-time now
+ip sla 2
+ udp-echo 239.1.1.1 65000
+ vrf VRF1
+ frequency 10
+ip sla schedule 2 life forever start-time now
+ip sla 3
+ udp-echo 239.2.2.1 65000
+ frequency 10
+ip sla schedule 3 life forever start-time now
+ip sla 4
+ udp-echo 239.2.2.1 65000
+ vrf VRF1
+ frequency 10
+ip sla schedule 4 life forever start-time now
+ip sla 5
+ udp-echo 239.3.3.1 65000
+ frequency 10
+ip sla schedule 5 life forever start-time now
+ip sla 6
+ udp-echo 239.3.3.1 65000
+ vrf VRF1
+ frequency 10
+ip sla schedule 6 life forever start-time now
+ipv6 router rip ripng
+ !
+ address-family ipv6 vrf VRF1
+ exit-address-family
+!
+ipv6 pim vrf VRF1 rp-address 2001:DB8:2:2::2
+ipv6 pim vrf VRF1 bsr candidate bsr 2001:DB8:1:1::1
+ipv6 pim vrf VRF1 bsr candidate rp 2001:DB8:1:1::1
+ipv6 pim rp-address 2001:DB8:2:2::2
+ipv6 pim bsr candidate bsr 2001:DB8:1:1::1
+ipv6 pim bsr candidate rp 2001:DB8:1:1::1
+!
+!
+ipv6 prefix-list test6 seq 5 permit 2001:DB8:1::/64
+ipv6 prefix-list test6 seq 10 permit 2001:DB8:2::/64 ge 65
+ipv6 prefix-list test6 seq 15 permit 2001:DB8:3::/64 le 128
+ipv6 prefix-list test6 seq 20 permit 2001:DB8:4::/64 ge 65 le 98
+!
+!
+!
+!
+!
+ipv6 access-list ipv6_acl
+ permit ipv6 any any log
+ permit ipv6 host 2001::1 host 2001:DB8::2
+ permit tcp any eq www 8443 host 2001:DB8::2
+!
+control-plane
+!
+!
+!
+!
+!
+!
+line con 0
+ exec-timeout 0 0
+ stopbits 1
+line vty 0 4
+ transport input telnet ssh
+!
+!
+!
+!
+!
+!
+end
+
+</entry>
+        </extensions>
+        <interface id="0" name="GigabitEthernet2" ipv4="10.0.0.5" netPrefixLenV4="30"/>
+        <interface id="1" name="GigabitEthernet3" ipv4="10.0.0.17" netPrefixLenV4="30"/>
+        <interface id="2" name="GigabitEthernet4" ipv4="10.0.0.9" netPrefixLenV4="30"/>
+        <interface id="3" name="GigabitEthernet5" ipv4="10.0.0.13" netPrefixLenV4="30"/>
+        <interface id="4" name="GigabitEthernet6" ipv4="10.0.0.21" netPrefixLenV4="30"/>
+        <interface id="5" name="GigabitEthernet7" ipv4="10.0.0.25" netPrefixLenV4="30"/>
+    </node>
+    <node name="R2_xr" type="SIMPLE" subtype="IOS XRv" location="341,153" vmImage="IOS XRv [485efdaa-b692-43c1-a1b7-09784905c0ef]">
+        <extensions>
+            <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
+            <entry key="config" type="String">!! IOS XR Configuration 6.1.3
+!! Last configuration change at Thu Jun 25 16:33:13 2020 by admin
+!
+hostname R2_xr
+logging console disable
+telnet vrf management ipv4 server max-servers 10
+domain name cisco.com
+username admin
+ secret 5 $1$gflU$3wEhQQ5K3Qo5F7GmfNK0E.
+!
+cdp
+vrf VRF1
+ address-family ipv4 unicast
+ !
+ address-family ipv6 unicast
+ !
+!
+vrf management
+!
+line console
+ exec-timeout 0 0
+ absolute-timeout 0
+ session-timeout 0
+!
+line default
+ exec-timeout 0 0
+ absolute-timeout 0
+ session-timeout 0
+!
+call-home
+ service active
+ contact smart-licensing
+ profile CiscoTAC-1
+  active
+  destination transport-method http
+ !
+!
+ipv6 access-list ipv6_acl
+ 10 permit ipv6 any any
+ 20 permit ipv6 host 2001::1 host 2001:db8::2
+ 30 permit tcp any eq 8443 host 2001:db8::2
+!
+ipv4 access-list test22
+ 10 permit tcp 192.168.1.0 0.0.0.255 host 10.1.1.1 established log
+ 20 permit tcp host 10.2.2.2 eq www any precedence network ttl eq 255
+ 30 deny ipv4 any any
+!
+ipv4 access-list acl_name
+ 10 permit ipv4 any any
+!
+ipv4 access-list ipv4_acl
+ 10 permit tcp any any eq www
+ 20 permit tcp any any eq ssh
+!
+interface Bundle-Ether12
+!
+interface Bundle-Ether23
+!
+interface Loopback0
+ ipv4 address 10.2.2.2 255.255.255.255
+ ipv6 address 2001:db8:2:2::2/128
+!
+interface Loopback300
+ vrf VRF1
+ ipv4 address 10.2.2.2 255.255.255.255
+ ipv6 address 2001:db8:2:2::2/128
+!
+interface MgmtEth0/0/CPU0/0
+ ipv4 address dhcp
+!
+interface GigabitEthernet0/0/0/0
+ cdp
+!
+interface GigabitEthernet0/0/0/0.90
+ ipv4 address 10.12.90.2 255.255.255.0
+ ipv6 address 2001:db8:12:90::2/64
+ encapsulation dot1q 90
+!
+interface GigabitEthernet0/0/0/0.110
+ ipv4 address 10.12.110.2 255.255.255.0
+ ipv6 address 2001:db8:12:110::2/64
+ encapsulation dot1q 110
+!
+interface GigabitEthernet0/0/0/0.115
+ ipv4 address 10.12.115.2 255.255.255.0
+ ipv6 address 2001:db8:12:115::2/64
+ encapsulation dot1q 115
+!
+interface GigabitEthernet0/0/0/0.120
+ ipv4 address 10.12.120.2 255.255.255.0
+ ipv6 address 2001:db8:12:120::2/64
+ encapsulation dot1q 120
+!
+interface GigabitEthernet0/0/0/0.390
+ vrf VRF1
+ ipv4 address 10.12.90.2 255.255.255.0
+ ipv6 address 2001:db8:12:90::2/64
+ encapsulation dot1q 390
+!
+interface GigabitEthernet0/0/0/0.410
+ vrf VRF1
+ ipv4 address 10.12.110.2 255.255.255.0
+ ipv6 address 2001:db8:12:110::2/64
+ encapsulation dot1q 410
+!
+interface GigabitEthernet0/0/0/0.415
+ vrf VRF1
+ ipv4 address 10.12.115.2 255.255.255.0
+ ipv6 address 2001:db8:12:115::2/64
+ encapsulation dot1q 415
+!
+interface GigabitEthernet0/0/0/0.420
+ vrf VRF1
+ ipv4 address 10.12.120.2 255.255.255.0
+ ipv6 address 2001:db8:12:120::2/64
+ encapsulation dot1q 420
+!
+interface GigabitEthernet0/0/0/1
+ cdp
+!
+interface GigabitEthernet0/0/0/1.90
+ ipv4 address 10.23.90.2 255.255.255.0
+ ipv6 address 2001:db8:23:90::2/64
+ encapsulation dot1q 90
+!
+interface GigabitEthernet0/0/0/1.110
+ ipv4 address 10.23.110.2 255.255.255.0
+ ipv6 address 2001:db8:23:110::2/64
+ encapsulation dot1q 110
+!
+interface GigabitEthernet0/0/0/1.115
+ ipv4 address 10.23.115.2 255.255.255.0
+ ipv6 address 2001:db8:23:115::2/64
+ encapsulation dot1q 115
+!
+interface GigabitEthernet0/0/0/1.120
+ ipv4 address 10.23.120.2 255.255.255.0
+ ipv6 address 2001:db8:23:120::2/64
+ encapsulation dot1q 120
+!
+interface GigabitEthernet0/0/0/1.390
+ vrf VRF1
+ ipv4 address 10.23.90.2 255.255.255.0
+ ipv6 address 2001:db8:23:90::2/64
+ encapsulation dot1q 390
+!
+interface GigabitEthernet0/0/0/1.410
+ vrf VRF1
+ ipv4 address 10.23.110.2 255.255.255.0
+ ipv6 address 2001:db8:23:110::2/64
+ encapsulation dot1q 410
+!
+interface GigabitEthernet0/0/0/1.415
+ vrf VRF1
+ ipv4 address 10.23.115.2 255.255.255.0
+ ipv6 address 2001:db8:23:115::2/64
+ encapsulation dot1q 415
+!
+interface GigabitEthernet0/0/0/1.420
+ vrf VRF1
+ ipv4 address 10.23.120.2 255.255.255.0
+ ipv6 address 2001:db8:23:120::2/64
+ encapsulation dot1q 420
+!
+interface GigabitEthernet0/0/0/2
+ bundle id 12 mode active
+ cdp
+ shutdown
+!
+interface GigabitEthernet0/0/0/3
+ bundle id 12 mode active
+ cdp
+ shutdown
+!
+interface GigabitEthernet0/0/0/4
+ bundle id 23 mode passive
+ cdp
+ shutdown
+!
+interface GigabitEthernet0/0/0/5
+ bundle id 23 mode passive
+ cdp
+ shutdown
+!
+interface preconfigure MgmtEth0/RP0/CPU0/0
+!
+prefix-set test
+  35.0.0.0/8,
+  35.0.0.0/8 le 16,
+  36.0.0.0/8 le 16,
+  37.0.0.0/8 ge 24,
+  38.0.0.0/8 ge 16 le 24
+end-set
+!
+prefix-set test6
+  2001:db8:1::/64,
+  2001:db8:2::/64 ge 65,
+  2001:db8:3::/64 le 128,
+  2001:db8:4::/64 ge 65 le 98
+end-set
+!
+router isis test
+ net 49.0001.2222.2222.2222.00
+ address-family ipv4 unicast
+  metric-style wide
+ !
+ address-family ipv6 unicast
+  metric-style wide
+ !
+ interface Loopback0
+  address-family ipv4 unicast
+  !
+  address-family ipv6 unicast
+  !
+ !
+ interface GigabitEthernet0/0/0/0.115
+  address-family ipv4 unicast
+  !
+  address-family ipv6 unicast
+  !
+ !
+ interface GigabitEthernet0/0/0/1.115
+  address-family ipv4 unicast
+  !
+  address-family ipv6 unicast
+  !
+ !
+!
+router isis test1
+ net 49.0001.2222.2222.2222.00
+ address-family ipv4 unicast
+  metric-style wide
+ !
+ address-family ipv6 unicast
+  metric-style wide
+ !
+ interface Loopback300
+  address-family ipv4 unicast
+  !
+  address-family ipv6 unicast
+  !
+ !
+ interface GigabitEthernet0/0/0/0.415
+  address-family ipv4 unicast
+  !
+  address-family ipv6 unicast
+  !
+ !
+ interface GigabitEthernet0/0/0/1.415
+  address-family ipv4 unicast
+  !
+  address-family ipv6 unicast
+  !
+ !
+!
+router ospf 1
+ router-id 10.2.2.2
+ area 0
+  interface Loopback0
+  !
+  interface GigabitEthernet0/0/0/0.110
+  !
+  interface GigabitEthernet0/0/0/1.110
+  !
+ !
+ vrf VRF1
+  area 0
+   interface Loopback300
+   !
+   interface GigabitEthernet0/0/0/0.410
+   !
+   interface GigabitEthernet0/0/0/1.410
+   !
+  !
+ !
+!
+router ospfv3 1
+ area 0
+  interface Loopback0
+  !
+  interface GigabitEthernet0/0/0/0.110
+  !
+  interface GigabitEthernet0/0/0/1.110
+  !
+ !
+ vrf VRF1
+  area 0
+   interface Loopback300
+   !
+   interface GigabitEthernet0/0/0/0.410
+   !
+   interface GigabitEthernet0/0/0/1.410
+   !
+  !
+ !
+!
+router bgp 65000
+ bgp router-id 10.2.2.2
+ address-family ipv4 unicast
+  network 10.2.2.2/32
+ !
+ address-family vpnv4 unicast
+ !
+ address-family ipv6 unicast
+  network 2001:db8:2:2::2/128
+ !
+ address-family vpnv6 unicast
+ !
+ neighbor 10.1.1.1
+  remote-as 65000
+  update-source Loopback0
+  address-family ipv4 unicast
+  !
+ !
+ neighbor 10.3.3.3
+  remote-as 65000
+  update-source Loopback0
+  address-family ipv4 unicast
+  !
+ !
+ neighbor 2001:db8:1:1::1
+  remote-as 65000
+  update-source Loopback0
+  address-family ipv6 unicast
+  !
+ !
+ neighbor 2001:db8:3:3::3
+  remote-as 65000
+  update-source Loopback0
+  address-family ipv6 unicast
+  !
+ !
+ vrf VRF1
+  rd 65000:2
+  address-family ipv4 unicast
+   network 10.2.2.2/32
+  !
+  address-family ipv6 unicast
+   network 2001:db8:2:2::2/128
+  !
+  neighbor 10.1.1.1
+   remote-as 65000
+   update-source Loopback0
+   address-family ipv4 unicast
+   !
+  !
+  neighbor 10.3.3.3
+   remote-as 65000
+   update-source Loopback0
+   address-family ipv4 unicast
+   !
+  !
+  neighbor 2001:db8:1:1::1
+   remote-as 65000
+   update-source Loopback300
+   address-family ipv6 unicast
+   !
+  !
+  neighbor 2001:db8:3:3::3
+   remote-as 65000
+   update-source Loopback300
+   address-family ipv6 unicast
+   !
+  !
+ !
+!
+mpls ldp
+ interface GigabitEthernet0/0/0/0.110
+ !
+ interface GigabitEthernet0/0/0/1.110
+ !
+ vrf VRF1
+  interface GigabitEthernet0/0/0/0.410
+  !
+  interface GigabitEthernet0/0/0/1.410
+  !
+ !
+!
+multicast-routing
+ address-family ipv4
+  interface Loopback0
+   enable
+  !
+  interface GigabitEthernet0/0/0/0.110
+   enable
+  !
+  interface GigabitEthernet0/0/0/1.110
+   enable
+  !
+ !
+ address-family ipv6
+  interface Loopback0
+   enable
+  !
+  interface GigabitEthernet0/0/0/0.110
+   enable
+  !
+  interface GigabitEthernet0/0/0/1.110
+   enable
+  !
+ !
+ vrf VRF1
+  address-family ipv4
+   interface Loopback300
+    enable
+   !
+   interface GigabitEthernet0/0/0/0.410
+    enable
+   !
+   interface GigabitEthernet0/0/0/1.410
+    enable
+   !
+  !
+  address-family ipv6
+   interface Loopback300
+    enable
+   !
+   interface GigabitEthernet0/0/0/0.410
+    enable
+   !
+   interface GigabitEthernet0/0/0/1.410
+    enable
+   !
+  !
+ !
+!
+router mld
+ interface GigabitEthernet0/0/0/0.115
+  join-group ff1e:abcd:def1:2222::1
+  join-group ff1e:abcd:def1:2222::2
+  static-group ff1e:abcd:def1:2222::3
+  static-group ff1e:abcd:def1:2222::4
+ !
+ vrf VRF1
+  interface GigabitEthernet0/0/0/0.415
+   join-group ff1e:abcd:def1:2222::1
+   join-group ff1e:abcd:def1:2222::2
+   static-group ff1e:abcd:def1:2222::3
+   static-group ff1e:abcd:def1:2222::4
+  !
+ !
+!
+router igmp
+ interface GigabitEthernet0/0/0/0.115
+  join-group 239.2.2.1
+  join-group 239.2.2.2
+  static-group 239.2.2.3
+  static-group 239.2.2.4
+ !
+ vrf VRF1
+  interface GigabitEthernet0/0/0/0.415
+   join-group 239.2.2.1
+   join-group 239.2.2.2
+   static-group 239.2.2.3
+   static-group 239.2.2.4
+  !
+ !
+!
+router msdp
+ connect-source Loopback0
+ peer 10.1.1.1
+ !
+ peer 10.3.3.3
+ !
+ vrf VRF1
+  connect-source Loopback300
+  peer 10.1.1.1
+  !
+  peer 10.3.3.3
+  !
+ !
+!
+lldp
+!
+netconf agent tty
+!
+netconf-yang agent
+ ssh
+!
+router eigrp test
+ address-family ipv4
+  autonomous-system 100
+  interface Loopback0
+  !
+  interface GigabitEthernet0/0/0/0.90
+  !
+  interface GigabitEthernet0/0/0/1.90
+  !
+ !
+ address-family ipv6
+  autonomous-system 100
+  interface Loopback0
+  !
+  interface GigabitEthernet0/0/0/0.90
+  !
+  interface GigabitEthernet0/0/0/1.90
+  !
+ !
+ vrf VRF1
+  address-family ipv4
+   autonomous-system 100
+   interface Loopback300
+   !
+   interface GigabitEthernet0/0/0/0.390
+   !
+   interface GigabitEthernet0/0/0/1.390
+   !
+  !
+  address-family ipv6
+   autonomous-system 100
+   interface Loopback300
+   !
+   interface GigabitEthernet0/0/0/0.390
+   !
+   interface GigabitEthernet0/0/0/1.390
+   !
+  !
+ !
+!
+router pim
+ address-family ipv4
+  rp-address 10.1.1.1
+  auto-rp mapping-agent Loopback0 scope 32 interval 60
+  auto-rp candidate-rp Loopback0 scope 32 group-list 224-4 interval 60
+  interface Loopback0
+   enable
+  !
+  interface GigabitEthernet0/0/0/0.110
+   enable
+  !
+  interface GigabitEthernet0/0/0/1.110
+   enable
+  !
+  bsr candidate-bsr 10.2.2.2 hash-mask-len 30 priority 1
+  bsr candidate-rp 10.2.2.2 priority 192 interval 60
+ !
+ address-family ipv6
+  rp-address 2001:db8:1:1::1
+  interface Loopback0
+   enable
+  !
+  interface GigabitEthernet0/0/0/0.110
+   enable
+  !
+  interface GigabitEthernet0/0/0/1.110
+   enable
+  !
+  bsr candidate-bsr 2001:db8:2:2::2 hash-mask-len 126 priority 1
+  bsr candidate-rp 2001:db8:2:2::2 priority 192 interval 60
+ !
+ vrf VRF1
+  address-family ipv4
+   rp-address 10.1.1.1
+   interface Loopback300
+    enable
+   !
+   interface GigabitEthernet0/0/0/0.410
+    enable
+   !
+   interface GigabitEthernet0/0/0/1.410
+    enable
+   !
+   bsr candidate-bsr 10.2.2.2 hash-mask-len 30 priority 1
+   bsr candidate-rp 10.2.2.2 priority 192 interval 60
+  !
+  address-family ipv6
+   rp-address 2001:db8:1:1::1
+   interface Loopback300
+    enable
+   !
+   interface GigabitEthernet0/0/0/0.410
+    enable
+   !
+   interface GigabitEthernet0/0/0/1.410
+    enable
+   !
+   bsr candidate-bsr 2001:db8:2:2::2 hash-mask-len 126 priority 1
+   bsr candidate-rp 2001:db8:2:2::2 priority 192 interval 60
+  !
+ !
+!
+router rip
+ interface Loopback0
+ !
+ interface GigabitEthernet0/0/0/0.120
+ !
+ interface GigabitEthernet0/0/0/1.120
+ !
+ vrf VRF1
+  interface Loopback300
+  !
+  interface GigabitEthernet0/0/0/0.420
+  !
+  interface GigabitEthernet0/0/0/1.420
+  !
+ !
+!
+ssh server v2
+ssh server vrf management
+ssh server netconf vrf management
+ssh timeout 120
+end
+
+</entry>
+        </extensions>
+        <interface id="0" name="GigabitEthernet0/0/0/0" ipv4="10.0.0.6" netPrefixLenV4="30"/>
+        <interface id="1" name="GigabitEthernet0/0/0/1" ipv4="10.0.0.29" netPrefixLenV4="30"/>
+        <interface id="2" name="GigabitEthernet0/0/0/2" ipv4="10.0.0.10" netPrefixLenV4="30"/>
+        <interface id="3" name="GigabitEthernet0/0/0/3" ipv4="10.0.0.14" netPrefixLenV4="30"/>
+        <interface id="4" name="GigabitEthernet0/0/0/4" ipv4="10.0.0.33" netPrefixLenV4="30"/>
+        <interface id="5" name="GigabitEthernet0/0/0/5" ipv4="10.0.0.37" netPrefixLenV4="30"/>
+    </node>
+    <node name="R3_nx" type="SIMPLE" subtype="NX-OSv 9000" location="449,262" vmImage="NX-OSv 9000 [e94d26b7-a721-432e-951c-f032f82cfd48]" vmFlavor="NX-OSv 9000 w/ 6GB [cd4d3b2d-1262-4dfc-ab14-3edcfdea92cd]">
+        <extensions>
+            <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
+            <entry key="config" type="String">!Command: show running-config
+!Running configuration last done at: Thu Jun 25 16:32:10 2020
+!Time: Thu Jun 25 17:13:06 2020
+
+version 9.2(1) Bios:version  
+hostname R3_nx
+vdc R3_nx id 1
+  limit-resource vlan minimum 16 maximum 4094
+  limit-resource vrf minimum 2 maximum 4096
+  limit-resource port-channel minimum 0 maximum 511
+  limit-resource u4route-mem minimum 128 maximum 128
+  limit-resource u6route-mem minimum 96 maximum 96
+  limit-resource m4route-mem minimum 58 maximum 58
+  limit-resource m6route-mem minimum 8 maximum 8
+
+feature telnet
+feature nxapi
+feature bash-shell
+feature ospf
+feature bgp
+feature ospfv3
+feature pim
+feature pim6
+feature msdp
+feature eigrp
+feature rip
+feature isis
+feature lacp
+feature lldp
+
+no password strength-check
+username admin password 5 $5$Ll5ogWaL$9K4JbGFgZP9BQUz3X2mermbTEU4SIb/8nFPlEn8KlT6  role network-admin
+ip domain-lookup
+ip domain-name cisco.com
+ip name-server 172.16.1.50 use-vrf management
+crypto key param rsa label my_trustpoint modulus 2048 exportable
+crypto ca trustpoint mytrustpoint 
+     revocation-check  crl 
+crypto ca trustpoint trustpoint1 
+     revocation-check  crl 
+crypto ca trustpoint my_trustpoint 
+     rsakeypair my_trustpoint  2048
+     revocation-check  crl 
+ip access-list acl_name
+  10 permit ip any any 
+ip access-list ipv4_acl
+  10 permit tcp any any eq www 
+  20 permit tcp any any eq 22 
+  30 permit tcp any any eq 443 
+ip access-list ipv4_ext
+ipv6 access-list ipv6_acl
+  10 permit ipv6 any any log 
+  20 permit ipv6 2001::1/128 2001:db8::2/128 
+  30 permit tcp any eq 8443 2001:db8::2/128 
+ipv6 access-list ipv6_acl2
+  10 permit udp any any 
+mac access-list mac_acl
+  10 permit aaaa.bbbb.cccc 0000.0000.0000 bbbb.cccc.dddd bbbb.cccc.dddd aarp 
+  20 permit 0000.0000.0000 0000.0000.0000 any 
+  30 deny 0000.0000.0000 0000.0000.0000 aaaa.bbbb.cccc 0000.0000.0000 0x8041 
+  40 deny any any vlan 10 
+  50 permit aaaa.aaaa.aaaa ffff.ffff.0000 any aarp 
+ip access-list test22
+  10 permit tcp 192.168.1.0 0.0.0.255 10.1.1.1/32 established log 
+  20 permit tcp 10.2.2.2/32 eq www any precedence network ttl 255 
+  30 deny ip any any 
+snmp-server user admin network-admin auth md5 0x2968ea461078bdbc19f2b997e2b75e03 priv 0x2968ea461078bdbc19f2b997e2b75e03 localizedkey
+rmon event 1 description FATAL(1) owner PMON@FATAL
+rmon event 2 description CRITICAL(2) owner PMON@CRITICAL
+rmon event 3 description ERROR(3) owner PMON@ERROR
+rmon event 4 description WARNING(4) owner PMON@WARNING
+rmon event 5 description INFORMATION(5) owner PMON@INFO
+
+ip pim bsr bsr-candidate loopback0
+ip pim rp-address 10.1.1.1 group-list 239.0.0.0/8
+ip pim bsr rp-candidate loopback0 group-list 239.0.0.0/8
+ip pim send-rp-announce loopback0 group-list 239.0.0.0/8
+ip pim send-rp-discovery loopback0
+ip pim ssm range 232.0.0.0/8
+ip pim bsr forward listen
+ipv6 pim rp-address 2001:db8:1:1::1 group-list ff00::/8
+ipv6 pim bsr rp-candidate loopback0 group-list ff1e:abcd:def1::/64
+ipv6 pim ssm range ff30::/12
+ipv6 pim bsr forward listen
+ip msdp peer 10.1.1.1 connect-source loopback0
+ip msdp peer 10.2.2.2 connect-source loopback0
+vlan 1
+
+ip prefix-list test seq 5 permit 35.0.0.0/8 
+ip prefix-list test seq 10 permit 35.0.0.0/8 le 16 
+ip prefix-list test seq 15 permit 36.0.0.0/8 le 16 
+ip prefix-list test seq 20 permit 37.0.0.0/8 ge 24 
+ip prefix-list test seq 25 permit 38.0.0.0/8 ge 16 le 24 
+ipv6 prefix-list test6 seq 5 permit 2001:db8:1::/64 
+ipv6 prefix-list test6 seq 10 permit 2001:db8:2::/64 ge 65 
+ipv6 prefix-list test6 seq 15 permit 2001:db8:3::/64 le 128 
+ipv6 prefix-list test6 seq 20 permit 2001:db8:4::/64 ge 65 le 98 
+vrf context VRF1
+  ip pim bsr bsr-candidate loopback300
+  ip pim rp-address 10.1.1.1 group-list 224.0.0.0/4
+  ip pim rp-address 10.1.1.1 group-list 239.0.0.0/8
+  ip pim bsr rp-candidate loopback300 group-list 239.0.0.0/8
+  ip pim send-rp-announce loopback300 group-list 239.0.0.0/8
+  ip pim send-rp-discovery loopback300
+  ip pim ssm range 232.0.0.0/8
+  ipv6 pim rp-address 2001:db8:1:1::1 group-list ff00::/8
+  ipv6 pim bsr rp-candidate loopback300 group-list ff1e:abcd:def1::/64
+  ipv6 pim ssm range ff30::/12
+  ip msdp peer 10.1.1.1 connect-source loopback0
+  ip msdp peer 10.2.2.2 connect-source loopback300
+  address-family ipv4 unicast
+  address-family ipv6 unicast
+vrf context management
+  ip route 0.0.0.0/0 172.16.1.254
+
+nxapi http port 80
+
+
+interface port-channel13
+
+interface port-channel23
+
+interface Ethernet1/1
+  no switchport
+  no shutdown
+
+interface Ethernet1/1.90
+  encapsulation dot1q 90
+  ip address 10.23.90.3/24
+  ipv6 address 2001:db8:23:90::3/64
+  ipv6 router eigrp test
+  ip router eigrp test
+  no shutdown
+
+interface Ethernet1/1.110
+  encapsulation dot1q 110
+  ip address 10.23.110.3/24
+  ipv6 address 2001:db8:23:110::3/64
+  ip router ospf 1 area 0.0.0.0
+  ipv6 router ospfv3 1 area 0.0.0.0
+  ip pim sparse-mode
+  ipv6 pim sparse-mode
+  no shutdown
+
+interface Ethernet1/1.115
+  encapsulation dot1q 115
+  ip address 10.23.115.3/24
+  ipv6 address 2001:db8:23:115::3/64
+  ipv6 mld join-group ff1e:abcd:def1:3333::1
+  ipv6 mld join-group ff1e:abcd:def1:3333::2
+  ipv6 mld static-oif ff1e:abcd:def1:3333::3
+  ipv6 mld static-oif ff1e:abcd:def1:3333::4
+  ip router isis test
+  ipv6 router isis test
+  ip pim sparse-mode
+  ip igmp join-group 239.3.3.1
+  ip igmp join-group 239.3.3.2
+  ip igmp static-oif 239.3.3.3
+  ip igmp static-oif 239.3.3.4
+  no shutdown
+
+interface Ethernet1/1.120
+  encapsulation dot1q 120
+  ip address 10.23.120.3/24
+  ipv6 address 2001:db8:23:120::3/64
+  ipv6 router rip 1
+  ip router rip 1
+  no shutdown
+
+interface Ethernet1/1.390
+  encapsulation dot1q 390
+  vrf member VRF1
+  ip address 10.23.90.3/24
+  ipv6 address 2001:db8:23:90::3/64
+  ipv6 router eigrp test
+  ip router eigrp test
+  no shutdown
+
+interface Ethernet1/1.410
+  encapsulation dot1q 410
+  vrf member VRF1
+  ip address 10.23.110.3/24
+  ipv6 address 2001:db8:23:110::3/64
+  ip router ospf 1 area 0.0.0.0
+  ipv6 router ospfv3 1 area 0.0.0.0
+  ip pim sparse-mode
+  ipv6 pim sparse-mode
+  no shutdown
+
+interface Ethernet1/1.415
+  encapsulation dot1q 415
+  vrf member VRF1
+  ip address 10.23.115.3/24
+  ipv6 address 2001:db8:23:115::3/64
+  ipv6 mld join-group ff1e:abcd:def1:3333::1
+  ipv6 mld join-group ff1e:abcd:def1:3333::2
+  ipv6 mld static-oif ff1e:abcd:def1:3333::3
+  ipv6 mld static-oif ff1e:abcd:def1:3333::4
+  ip router isis test
+  ipv6 router isis test
+  ip pim sparse-mode
+  ip igmp join-group 239.3.3.1
+  ip igmp join-group 239.3.3.2
+  ip igmp static-oif 239.3.3.3
+  ip igmp static-oif 239.3.3.4
+  no shutdown
+
+interface Ethernet1/1.420
+  encapsulation dot1q 420
+  vrf member VRF1
+  ip address 10.23.120.3/24
+  ipv6 address 2001:db8:23:120::3/64
+  ipv6 router rip 1
+  ip router rip 1
+  no shutdown
+
+interface Ethernet1/2
+  no switchport
+  no shutdown
+
+interface Ethernet1/2.90
+  encapsulation dot1q 90
+  ip address 10.13.90.3/24
+  ipv6 address 2001:db8:13:90::3/64
+  ipv6 router eigrp test
+  ip router eigrp test
+  no shutdown
+
+interface Ethernet1/2.110
+  encapsulation dot1q 110
+  ip address 10.13.110.3/24
+  ipv6 address 2001:db8:13:110::3/64
+  ip router ospf 1 area 0.0.0.0
+  ipv6 router ospfv3 1 area 0.0.0.0
+  ip pim sparse-mode
+  ipv6 pim sparse-mode
+  no shutdown
+
+interface Ethernet1/2.115
+  encapsulation dot1q 115
+  ip address 10.13.115.3/24
+  ipv6 address 2001:db8:13:115::3/64
+  ip router isis test
+  ipv6 router isis test
+  no shutdown
+
+interface Ethernet1/2.120
+  encapsulation dot1q 120
+  ip address 10.13.120.3/24
+  ipv6 address 2001:db8:13:120::3/64
+  ipv6 router rip 1
+  ip router rip 1
+  no shutdown
+
+interface Ethernet1/2.390
+  encapsulation dot1q 390
+  vrf member VRF1
+  ip address 10.13.90.3/24
+  ipv6 address 2001:db8:13:90::3/64
+  ipv6 router eigrp test
+  ip router eigrp test
+  no shutdown
+
+interface Ethernet1/2.410
+  encapsulation dot1q 410
+  vrf member VRF1
+  ip address 10.13.110.3/24
+  ipv6 address 2001:db8:13:110::3/64
+  ip router ospf 1 area 0.0.0.0
+  ipv6 router ospfv3 1 area 0.0.0.0
+  ip pim sparse-mode
+  ipv6 pim sparse-mode
+  no shutdown
+
+interface Ethernet1/2.415
+  encapsulation dot1q 415
+  vrf member VRF1
+  ip address 10.13.115.3/24
+  ipv6 address 2001:db8:13:115::3/64
+  ip router isis test
+  ipv6 router isis test
+  no shutdown
+
+interface Ethernet1/2.420
+  encapsulation dot1q 420
+  vrf member VRF1
+  ip address 10.13.120.3/24
+  ipv6 address 2001:db8:13:120::3/64
+  ipv6 router rip 1
+  ip router rip 1
+  no shutdown
+
+interface Ethernet1/3
+  channel-group 23 mode active
+
+interface Ethernet1/4
+  channel-group 23 mode active
+
+interface Ethernet1/5
+  channel-group 13 mode active
+
+interface Ethernet1/6
+  channel-group 13 mode active
+
+interface Ethernet1/7
+
+interface Ethernet1/8
+
+interface Ethernet1/9
+
+interface Ethernet1/10
+
+interface Ethernet1/11
+
+interface Ethernet1/12
+
+interface Ethernet1/13
+
+interface Ethernet1/14
+
+interface Ethernet1/15
+
+interface Ethernet1/16
+
+interface Ethernet1/17
+
+interface Ethernet1/18
+
+interface Ethernet1/19
+
+interface Ethernet1/20
+
+interface Ethernet1/21
+
+interface Ethernet1/22
+
+interface Ethernet1/23
+
+interface Ethernet1/24
+
+interface Ethernet1/25
+
+interface Ethernet1/26
+
+interface Ethernet1/27
+
+interface Ethernet1/28
+
+interface Ethernet1/29
+
+interface Ethernet1/30
+
+interface Ethernet1/31
+
+interface Ethernet1/32
+
+interface Ethernet1/33
+
+interface Ethernet1/34
+
+interface Ethernet1/35
+
+interface Ethernet1/36
+
+interface Ethernet1/37
+
+interface Ethernet1/38
+
+interface Ethernet1/39
+
+interface Ethernet1/40
+
+interface Ethernet1/41
+
+interface Ethernet1/42
+
+interface Ethernet1/43
+
+interface Ethernet1/44
+
+interface Ethernet1/45
+
+interface Ethernet1/46
+
+interface Ethernet1/47
+
+interface Ethernet1/48
+
+interface Ethernet1/49
+
+interface Ethernet1/50
+
+interface Ethernet1/51
+
+interface Ethernet1/52
+
+interface Ethernet1/53
+
+interface Ethernet1/54
+
+interface Ethernet1/55
+
+interface Ethernet1/56
+
+interface Ethernet1/57
+
+interface Ethernet1/58
+
+interface Ethernet1/59
+
+interface Ethernet1/60
+
+interface Ethernet1/61
+
+interface Ethernet1/62
+
+interface Ethernet1/63
+
+interface Ethernet1/64
+
+interface Ethernet1/65
+
+interface Ethernet1/66
+
+interface Ethernet1/67
+
+interface Ethernet1/68
+
+interface Ethernet1/69
+
+interface Ethernet1/70
+
+interface Ethernet1/71
+
+interface Ethernet1/72
+
+interface Ethernet1/73
+
+interface Ethernet1/74
+
+interface Ethernet1/75
+
+interface Ethernet1/76
+
+interface Ethernet1/77
+
+interface Ethernet1/78
+
+interface Ethernet1/79
+
+interface Ethernet1/80
+
+interface Ethernet1/81
+
+interface Ethernet1/82
+
+interface Ethernet1/83
+
+interface Ethernet1/84
+
+interface Ethernet1/85
+
+interface Ethernet1/86
+
+interface Ethernet1/87
+
+interface Ethernet1/88
+
+interface Ethernet1/89
+
+interface Ethernet1/90
+
+interface Ethernet1/91
+
+interface Ethernet1/92
+
+interface Ethernet1/93
+
+interface Ethernet1/94
+
+interface Ethernet1/95
+
+interface Ethernet1/96
+
+interface Ethernet1/97
+
+interface Ethernet1/98
+
+interface Ethernet1/99
+
+interface Ethernet1/100
+
+interface Ethernet1/101
+
+interface Ethernet1/102
+
+interface Ethernet1/103
+
+interface Ethernet1/104
+
+interface Ethernet1/105
+
+interface Ethernet1/106
+
+interface Ethernet1/107
+
+interface Ethernet1/108
+
+interface Ethernet1/109
+
+interface Ethernet1/110
+
+interface Ethernet1/111
+
+interface Ethernet1/112
+
+interface Ethernet1/113
+
+interface Ethernet1/114
+
+interface Ethernet1/115
+
+interface Ethernet1/116
+
+interface Ethernet1/117
+
+interface Ethernet1/118
+
+interface Ethernet1/119
+
+interface Ethernet1/120
+
+interface Ethernet1/121
+
+interface Ethernet1/122
+
+interface Ethernet1/123
+
+interface Ethernet1/124
+
+interface Ethernet1/125
+
+interface Ethernet1/126
+
+interface Ethernet1/127
+
+interface Ethernet1/128
+
+interface mgmt0
+  vrf member management
+  ip address 172.16.1.156/24
+
+interface loopback0
+  ip address 10.3.3.3/32
+  ipv6 address 2001:db8:3:3::3/128
+  ipv6 router eigrp test
+  ip router eigrp test
+  ip router isis test
+  ipv6 router isis test
+  ip router ospf 1 area 0.0.0.0
+  ipv6 router ospfv3 1 area 0.0.0.0
+  ip pim sparse-mode
+  ipv6 pim sparse-mode
+  ipv6 router rip 1
+  ip router rip 1
+
+interface loopback300
+  vrf member VRF1
+  ip address 10.3.3.3/32
+  ipv6 address 2001:db8:3:3::3/128
+  ipv6 router eigrp test
+  ip router eigrp test
+  ip router isis test
+  ipv6 router isis test
+  ip router ospf 1 area 0.0.0.0
+  ipv6 router ospfv3 1 area 0.0.0.0
+  ip pim sparse-mode
+  ipv6 pim sparse-mode
+  ipv6 router rip 1
+  ip router rip 1
+line console
+  exec-timeout 0
+  terminal width  511
+line vty
+router eigrp test
+  autonomous-system 100
+  address-family ipv6 unicast
+    autonomous-system 100
+  vrf VRF1
+    address-family ipv4 unicast
+      autonomous-system 100
+    address-family ipv6 unicast
+      autonomous-system 100
+router ospf 1
+  router-id 10.3.3.3
+  vrf VRF1
+    router-id 10.3.3.3
+router ospfv3 1
+  router-id 10.3.3.3
+  vrf VRF1
+    router-id 10.3.3.3
+router isis test
+  net 49.0001.3333.3333.3333.00
+  address-family ipv4 unicast
+  address-family ipv6 unicast
+    multi-topology
+  vrf VRF1
+    net 49.0001.3333.3333.3333.00
+    address-family ipv4 unicast
+    address-family ipv6 unicast
+      multi-topology
+router rip 1
+  address-family ipv4 unicast
+  address-family ipv6 unicast
+  vrf VRF1
+    address-family ipv4 unicast
+    address-family ipv6 unicast
+router bgp 65000
+  router-id 10.3.3.3
+  address-family ipv4 unicast
+    network 10.3.3.3/32
+  address-family ipv6 unicast
+    network 2001:db8:3:3::3/128
+  neighbor 2001:db8:1:1::1
+    remote-as 65000
+    update-source loopback0
+    address-family ipv6 unicast
+  neighbor 2001:db8:2:2::2
+    remote-as 65000
+    update-source loopback0
+    address-family ipv6 unicast
+  neighbor 10.1.1.1
+    remote-as 65000
+    update-source loopback0
+    address-family ipv4 unicast
+  neighbor 10.2.2.2
+    remote-as 65000
+    update-source loopback0
+    address-family ipv4 unicast
+  vrf VRF1
+    address-family ipv4 unicast
+      network 10.3.3.3/32
+    address-family ipv6 unicast
+      network 2001:db8:3:3::3/128
+    neighbor 2001:db8:1:1::1
+      remote-as 65000
+      update-source loopback300
+      address-family ipv6 unicast
+    neighbor 2001:db8:2:2::2
+      remote-as 65000
+      update-source loopback300
+      address-family ipv6 unicast
+    neighbor 10.1.1.1
+      remote-as 65000
+      update-source loopback300
+      address-family ipv4 unicast
+    neighbor 10.2.2.2
+      remote-as 65000
+      update-source loopback300
+      address-family ipv4 unicast
+no logging console
+
+
+</entry>
+        </extensions>
+        <interface id="0" name="Ethernet1/1" ipv4="10.0.0.30" netPrefixLenV4="30"/>
+        <interface id="1" name="Ethernet1/2" ipv4="10.0.0.18" netPrefixLenV4="30"/>
+        <interface id="2" name="Ethernet1/3" ipv4="10.0.0.34" netPrefixLenV4="30"/>
+        <interface id="3" name="Ethernet1/4" ipv4="10.0.0.38" netPrefixLenV4="30"/>
+        <interface id="4" name="Ethernet1/5" ipv4="10.0.0.22" netPrefixLenV4="30"/>
+        <interface id="5" name="Ethernet1/6" ipv4="10.0.0.26" netPrefixLenV4="30"/>
+    </node>
+    <annotations/>
+    <connection dst="/virl:topology/virl:node[2]/virl:interface[1]" src="/virl:topology/virl:node[1]/virl:interface[1]"/>
+    <connection dst="/virl:topology/virl:node[3]/virl:interface[1]" src="/virl:topology/virl:node[2]/virl:interface[2]"/>
+    <connection dst="/virl:topology/virl:node[3]/virl:interface[2]" src="/virl:topology/virl:node[1]/virl:interface[2]"/>
+    <connection dst="/virl:topology/virl:node[2]/virl:interface[3]" src="/virl:topology/virl:node[1]/virl:interface[3]"/>
+    <connection dst="/virl:topology/virl:node[2]/virl:interface[4]" src="/virl:topology/virl:node[1]/virl:interface[4]"/>
+    <connection dst="/virl:topology/virl:node[3]/virl:interface[3]" src="/virl:topology/virl:node[2]/virl:interface[5]"/>
+    <connection dst="/virl:topology/virl:node[3]/virl:interface[4]" src="/virl:topology/virl:node[2]/virl:interface[6]"/>
+    <connection dst="/virl:topology/virl:node[3]/virl:interface[5]" src="/virl:topology/virl:node[1]/virl:interface[5]"/>
+    <connection dst="/virl:topology/virl:node[3]/virl:interface[6]" src="/virl:topology/virl:node[1]/virl:interface[6]"/>
+</topology>

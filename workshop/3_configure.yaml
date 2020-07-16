@@ -1,0 +1,43 @@
+# Name of the testcase
+Configure:
+    # Location of the blitz trigger
+    source:
+      pkg: genie.libs.sdk
+      class: triggers.blitz.blitz.Blitz
+
+    # Field containing all the Testcase sections
+    test_sections:
+
+        # Section name
+        - configure_interface:
+            # List of actions
+            - parallel:
+                - configure:
+                    device: R3_nx
+                    command: |
+                      interface Ethernet1/56
+                      no switchport
+                      ip address 10.5.5.5 255.255.255.0
+                      no shutdown
+                - configure:
+                    device: R1_xe
+                    command: |
+                      interface loopback3
+                      ip address 10.6.6.6 255.255.255.0
+                      no shutdown
+
+        - verify_interface_configuration:
+            # List of actions
+            - parallel:
+              - parse:
+                  device: R3_nx
+                  command: show interface
+                  include:
+                    - contains('Ethernet1/56').contains('10.5.5.5/24')
+                    - contains('Ethernet1/56').contains_key_value('admin_state', 'up')
+              - parse:
+                  device: R1_xe
+                  command: show interfaces
+                  include:
+                    - contains('Loopback3').contains('10.6.6.6/24')
+                    - contains('Loopback3').contains_key_value('oper_status', 'up')
