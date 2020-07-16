@@ -53,7 +53,7 @@ Snapshot:
                   - contains('Loopback3').contains('10.6.6.6/24')
                   - contains('Loopback3').contains_key_value('oper_status', 'up')
 
-        - snapshot_pre_configuration:
+        - snapshot_post_configuration:
             # List of actions
             - parse:
                 device: R3_nx
