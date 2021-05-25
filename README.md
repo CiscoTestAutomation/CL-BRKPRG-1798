@@ -8,9 +8,9 @@ This repository contains the files shown during
 
 - Cisco Live US: https://www.ciscolive.com/us.html?zid=cl-global
 - pyATS/Genie Portal: https://cs.co/pyats
-- Genie Documentation: https://pubhub.devnetcloud.com/media/pyats-packages/docs/genie/index.html
-  - Genie CLI: https://pubhub.devnetcloud.com/media/pyats-packages/docs/genie/cli/index.html
-  - Parsers, Models: https://pubhub.devnetcloud.com/media/pyats-packages/docs/genie/genie_libs/index.html
+- Genie Documentation: https://pubhub.devnetcloud.com/media/genie-docs/docs/index.html
+  - Genie CLI: https://pubhub.devnetcloud.com/media/genie-docs/docs/cli/index.html
+  - Parsers, Models: https://pubhub.devnetcloud.com/media/genie-docs/docs/cli/genie_parse.html
   - Blitz: https://pubhub.devnetcloud.com/media/pyats-development-guide/docs/writeblitz/writeblitz.html
 - pyATS Documentation: https://developer.cisco.com/docs/pyats/
 - RobotFramework standard libraries: http://robotframework.org/robotframework/
